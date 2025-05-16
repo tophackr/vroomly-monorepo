@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX, PropsWithChildren } from 'react'
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FuelGrade, InteractionCategory, WheelType } from '@vroomly/prisma'
 import { useCarContext } from '@/entities/car'
@@ -19,11 +19,8 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
 }: PropsWithChildren<CategoryProps & Partial<InteractionProps>>): JSX.Element {
     const { mileage } = useCarContext()
 
-    let values: InteractionDataForm = {
+    let values: Omit<InteractionDataForm, 'date'> = {
         type: category,
-        date: interaction?.date
-            ? new Date(interaction.date) //formatDate(new Date(interaction.date))
-            : new Date(), //formatDate(new Date())
         mileage,
         amount: null,
         engineHours: null,
@@ -62,19 +59,21 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
         }
     }
 
-    // eslint-disable-next-line no-commented-code/no-commented-code
-    /* const formatDate = useCallback(
-        (date: Date) => date.toISOString().split('T')[0],
+    const formatDate = useCallback(
+        // eslint-disable-next-line no-commented-code/no-commented-code
+        // date expects the Date type, we forcibly assign the Date class without
+        // waiting for an error, input waits for a string
+        (date: Date) => date.toISOString().split('T')[0]! as unknown as Date,
         []
-    ) */
+    )
 
     const methods = useForm<InteractionData>({
         defaultValues: {
             ...values,
-            ...interaction
-            //date: interaction?.date
-            //    ? new Date(interaction.date) //formatDate(new Date(interaction.date))
-            //    : new Date() //formatDate(new Date())
+            ...interaction,
+            date: interaction?.date
+                ? formatDate(new Date(interaction.date))
+                : formatDate(new Date())
         }
     })
 
