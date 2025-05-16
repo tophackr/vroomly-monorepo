@@ -4,8 +4,13 @@ import type { JSX } from 'react'
 import { memo } from 'react'
 import { useTranslations } from 'next-intl'
 import { List } from '@telegram-apps/telegram-ui'
-import { InteractionCategory } from '@vroomly/prisma'
 import type { CategoryProps } from '@/entities/interaction'
+import {
+    isFuelType,
+    isPartType,
+    isRepairType,
+    isWheelType
+} from '@/entities/interaction'
 import { BaseSection } from './BaseSection'
 import { FuelSection } from './FuelSection'
 import { InteractionEditButton } from './InteractionEditButton'
@@ -18,26 +23,19 @@ export const Preview = memo(function Preview({
 }: CategoryProps): JSX.Element {
     const t = useTranslations('CarCategoryName')
 
-    const repairCategory: InteractionCategory[] = [
-        InteractionCategory.maintenance,
-        InteractionCategory.repair
-    ]
-
     return (
         <List>
             <InteractionEditButton />
 
             <BaseSection title={t(category)} />
 
-            {category === InteractionCategory.fuel && <FuelSection />}
+            {isFuelType(category) && <FuelSection />}
 
-            {repairCategory.includes(category) && <RepairSection />}
+            {isRepairType(category) && <RepairSection />}
 
-            {category === InteractionCategory.part && <PartsSection />}
+            {isPartType(category) && <PartsSection />}
 
-            {category === InteractionCategory.purchase_wheels && (
-                <WheelsSection />
-            )}
+            {isWheelType(category) && <WheelsSection />}
         </List>
     )
 })

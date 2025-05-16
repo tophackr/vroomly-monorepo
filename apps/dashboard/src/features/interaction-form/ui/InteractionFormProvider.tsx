@@ -3,7 +3,7 @@
 import type { JSX, PropsWithChildren } from 'react'
 import { memo, useCallback } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { FuelGrade, InteractionCategory, WheelType } from '@vroomly/prisma'
+import { FuelGrade, WheelType } from '@vroomly/prisma'
 import { useCarContext } from '@/entities/car'
 import type {
     CategoryProps,
@@ -11,6 +11,7 @@ import type {
     InteractionData,
     InteractionDataForm
 } from '@/entities/interaction'
+import { isFuelType, isWheelType } from '@/entities/interaction'
 
 export const InteractionFormProvider = memo(function ActionFormProvider({
     children,
@@ -31,7 +32,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
         wheelData: null
     }
 
-    if (category === InteractionCategory.fuel) {
+    if (isFuelType(category)) {
         values = {
             ...values,
             fuelData: {
@@ -43,7 +44,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
                 afterRefueling: null
             }
         }
-    } else if (category === InteractionCategory.purchase_wheels) {
+    } else if (isWheelType(category)) {
         values = {
             ...values,
             wheelData: {

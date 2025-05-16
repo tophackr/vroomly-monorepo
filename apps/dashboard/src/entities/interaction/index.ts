@@ -1,5 +1,6 @@
 export type { WheelInteractionData } from './model/schemas/wheelInteractionSchema'
 export {
+    isMileageType,
     isFuelType,
     isRepairType,
     isPartType,

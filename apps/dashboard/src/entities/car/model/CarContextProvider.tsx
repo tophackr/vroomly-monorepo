@@ -2,9 +2,12 @@
 
 import type { JSX, PropsWithChildren } from 'react'
 import { memo, use, useMemo, createContext, useContext } from 'react'
-import { FuelType, OdometerUnits, InteractionCategory } from '@vroomly/prisma'
+import { FuelType, OdometerUnits } from '@vroomly/prisma'
 import { notFound } from 'next/navigation'
-import { useFindAllInteractionsQuery } from '@/entities/interaction/@x/car'
+import {
+    isMileageType,
+    useFindAllInteractionsQuery
+} from '@/entities/interaction/@x/car'
 import type { ParamsProps } from '@/shared/lib/dom'
 import { useLogger } from '@/shared/model'
 import { useFindOneCarQuery } from '../api/car.api'
@@ -80,9 +83,7 @@ export const CarContextProvider = memo(function CarContextProvider({
 
     if (isInteractionsFetching) return <CarPreviewSkeleton />
 
-    const lastMileage = interactions?.find(
-        i => i.type === InteractionCategory.mileage
-    )
+    const lastMileage = interactions?.find(({ type }) => isMileageType(type))
 
     const mileage =
         lastMileage && lastMileage.mileage ? lastMileage.mileage : car.mileage

@@ -5,6 +5,10 @@ const repairTypes: Set<InteractionCategory> = new Set([
     InteractionCategory.repair
 ])
 
+export function isMileageType(value: InteractionCategory): boolean {
+    return value === InteractionCategory.mileage
+}
+
 export function isFuelType(value: InteractionCategory): boolean {
     return value === InteractionCategory.fuel
 }

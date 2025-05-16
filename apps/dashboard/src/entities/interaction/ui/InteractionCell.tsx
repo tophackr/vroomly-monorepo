@@ -4,12 +4,12 @@ import type { JSX } from 'react'
 import { memo } from 'react'
 import { useFormatter, useTranslations } from 'next-intl'
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
-import { InteractionCategory } from '@vroomly/prisma'
 import type { CarProps } from '@/entities/car/@x/interaction'
 import { useIntlCarUnit } from '@/entities/car/@x/interaction'
 import { useIntlCurrency, useIntlTimeAgo } from '@/shared/i18n'
 import { daysAfterToday } from '@/shared/lib/date'
 import { useButtonClick } from '@/shared/lib/dom'
+import { isMileageType } from '../model/isType'
 import type { InteractionProps } from '../model/props'
 import { actionsRoute } from '../routes/actions'
 
@@ -24,21 +24,20 @@ export const InteractionCell = memo(function InteractionCell({
     const dateTime = useIntlTimeAgo(new Date(date))
     const isToday = daysAfterToday(new Date(date)) + 1 === 0
 
-    const isMileageType = type === InteractionCategory.mileage
     const format = useFormatter()
 
     const props = useButtonClick({
         route: actionsRoute(car.id).details(type, id)
     })
 
-    const title = isMileageType ? mileageFormat : currency
+    const title = isMileageType(type) ? mileageFormat : currency
 
     return (
         <Cell
             after={dateTime}
             subhead={t(type)}
             subtitle={
-                isMileageType
+                isMileageType(type)
                     ? engineHours &&
                       `${format.number(engineHours, { maximumFractionDigits: 2 })} ч`
                     : mileageFormat

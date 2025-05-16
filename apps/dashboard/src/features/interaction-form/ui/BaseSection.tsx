@@ -5,9 +5,9 @@ import { memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { FileInput, Section, Textarea } from '@telegram-apps/telegram-ui'
-import { InteractionCategory } from '@vroomly/prisma'
 import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'
+import { isMileageType } from '@/entities/interaction'
 import { valueAsStringOrNull } from '@/shared/lib/form'
 import { CheckCell } from '@/shared/ui/cell'
 import { IconInput } from '@/shared/ui/form'
@@ -58,7 +58,7 @@ export const BaseSection = memo(function BaseSection({
                     {...register('mileage', { valueAsNumber: true })}
                 />
 
-                {getValues('type') === InteractionCategory.mileage ? (
+                {isMileageType(getValues('type')) ? (
                     car.engineHoursEnabled && (
                         <IconInput
                             type={'number'}
