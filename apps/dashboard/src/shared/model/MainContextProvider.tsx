@@ -16,7 +16,7 @@ let loggerInstance: Logger | undefined
  * Вызывается только внутри MainContextProvider.
  */
 function initLogger(options: LoggerOptions): Logger {
-    loggerInstance = createLogger('Dashboard', options)
+    loggerInstance = createLogger('Dashboard (vroomly)', options)
     return loggerInstance
 }
 
