@@ -1,14 +1,12 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
-import { PartOption } from '@vroomly/prisma'
 import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'
-import { useFindAllPartsQuery } from '@/entities/part'
+import { isPart, useFindAllPartsQuery } from '@/entities/part'
 import { useLogger } from '@/shared/model'
 
 export function PartsSection(): JSX.Element {
@@ -23,8 +21,6 @@ export function PartsSection(): JSX.Element {
     })
 
     if (isError) logError('PartsSection', error)
-
-    const partOptions = useMemo(() => Object.values(PartOption), [])
 
     // todo: loading parts
     if (isLoading) return <>Loading parts...</>
@@ -44,8 +40,8 @@ export function PartsSection(): JSX.Element {
                         />
                     }
                 >
-                    {partOptions.includes(option as PartOption)
-                        ? t(`parts_work.options.${option as PartOption}`)
+                    {isPart(option)
+                        ? t(`parts_work.options.${option}`)
                         : option}
                 </Cell>
             ))}
