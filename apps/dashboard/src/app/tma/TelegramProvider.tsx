@@ -34,7 +34,7 @@ const RootInner = memo(function RootInner({
     useClientOnce(() => {
         init({
             debug,
-            eruda: debug, // && ['ios', 'android'].includes(platform),
+            eruda: debug && ['ios', 'android'].includes(platform),
             mockForMacOS: platform === 'macos'
         })
     })
