@@ -21,8 +21,8 @@ export const InteractionCell = memo(function InteractionCell({
 
     const currency = useIntlCurrency().format(amount ?? 0)
     const mileageFormat = useIntlCarUnit(mileage ?? 0, car.odometerUnits)
-    const dateTime = useIntlTimeAgo(date)
-    const isToday = daysAfterToday(date) + 1 === 0
+    const dateTime = useIntlTimeAgo(new Date(date))
+    const isToday = daysAfterToday(new Date(date)) + 1 === 0
 
     const isMileageType = type === InteractionCategory.mileage
     const format = useFormatter()
