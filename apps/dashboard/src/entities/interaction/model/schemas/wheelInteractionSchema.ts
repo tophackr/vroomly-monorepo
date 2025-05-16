@@ -22,8 +22,11 @@ export const wheelInteractionReqSchema = object({
     diameter: nullable(integerMinValue())
 })
 
+const { createdAt, updatedAt } = baseSchema.entries
+
 export const wheelInteractionResSchema = object({
-    ...baseSchema.entries,
+    createdAt,
+    updatedAt,
     ...wheelInteractionReqSchema.entries,
     interactionId: id
 })

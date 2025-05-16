@@ -13,8 +13,11 @@ export const fuelInteractionReqSchema = object({
     capacityFull: nullable(boolean())
 })
 
+const { createdAt, updatedAt } = baseSchema.entries
+
 export const fuelInteractionResSchema = object({
-    ...baseSchema.entries,
+    createdAt,
+    updatedAt,
     ...fuelInteractionReqSchema.entries,
     interactionId: id
 })
