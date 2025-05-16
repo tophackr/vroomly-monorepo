@@ -11,7 +11,12 @@ import type {
     InteractionData,
     InteractionDataForm
 } from '@/entities/interaction'
-import { isFuelType, isWheelType } from '@/entities/interaction'
+import {
+    isFuelType,
+    isWheelType,
+    isRepairType,
+    isPartType
+} from '@/entities/interaction'
 
 export const InteractionFormProvider = memo(function ActionFormProvider({
     children,
@@ -42,6 +47,24 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
                 price: null,
                 beforeRefueling: null,
                 afterRefueling: null
+            }
+        }
+    } else if (isRepairType(category)) {
+        values = {
+            ...values,
+            repairData: {
+                ids:
+                    interaction?.repairInteractions.map(
+                        repair => repair.repairId
+                    ) ?? []
+            }
+        }
+    } else if (isPartType(category)) {
+        values = {
+            ...values,
+            partData: {
+                ids:
+                    interaction?.partInteractions.map(part => part.partId) ?? []
             }
         }
     } else if (isWheelType(category)) {
