@@ -1,5 +1,6 @@
 import type { JSX, PropsWithChildren } from 'react'
 import { memo } from 'react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Toaster } from 'sonner'
 import { I18nProvider } from '@/shared/i18n'
 import { MainContextProvider } from '@/shared/model'
@@ -15,6 +16,7 @@ export const Providers = memo(function Providers({
                 <TelegramProvider>
                     <I18nProvider>{children}</I18nProvider>
                     <Toaster />
+                    <SpeedInsights />
                 </TelegramProvider>
             </StoreProvider>
         </MainContextProvider>
