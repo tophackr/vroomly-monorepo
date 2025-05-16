@@ -1,5 +1,5 @@
 {
-  "name": "@vroomly/root",
+  "name": "@vroomly/monorepo",
   "version": "0.0.1",
   "license": "UNLICENSED",
   "type": "module",
