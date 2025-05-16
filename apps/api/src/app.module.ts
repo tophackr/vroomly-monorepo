@@ -5,14 +5,10 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
 import { AuthModule } from './auth/auth.module'
 import { CarModule } from './car/car.module'
 import { ThrottlerExceptionFilter } from './common/throttlerException.filter'
-import { FuelInteractionModule } from './fuel-interaction/fuelInteraction.module'
 import { InteractionModule } from './interaction/interaction.module'
 import { PartModule } from './part/part.module'
-import { PartInteractionModule } from './part-interaction/partInteraction.module'
 import { RepairModule } from './repair/repair.module'
-import { RepairInteractionModule } from './repair-interaction/repairInteraction.module'
 import { UserModule } from './user/user.module'
-import { WheelInteractionModule } from './wheel-interaction/wheelInteraction.module'
 
 @Module({
     imports: [
@@ -28,11 +24,7 @@ import { WheelInteractionModule } from './wheel-interaction/wheelInteraction.mod
         CarModule,
         RepairModule,
         PartModule,
-        InteractionModule,
-        FuelInteractionModule,
-        RepairInteractionModule,
-        PartInteractionModule,
-        WheelInteractionModule
+        InteractionModule
     ],
     providers: [
         {

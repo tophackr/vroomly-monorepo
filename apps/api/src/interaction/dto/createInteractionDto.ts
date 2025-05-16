@@ -8,6 +8,11 @@ import {
     IsOptional,
     IsString
 } from 'class-validator'
+import type { CreateFuelInteractionDto } from './createFuelInteractionDto'
+import type { CreateOrUpdatePartInteractionDto } from './createOrUpdatePartInteractionDto'
+import type { CreateOrUpdateRepairInteractionDto } from './createOrUpdateRepairInteractionDto'
+import type { UpdateFuelInteractionDto } from './updateFuelInteractionDto'
+import type { WheelInteractionDto } from './wheelInteractionDto'
 
 export class CreateInteractionDto {
     @IsEnum(InteractionCategory)
@@ -32,4 +37,9 @@ export class CreateInteractionDto {
     @IsString()
     @IsOptional()
     readonly description?: string
+
+    readonly fuelData?: CreateFuelInteractionDto | UpdateFuelInteractionDto
+    readonly partData?: CreateOrUpdatePartInteractionDto
+    readonly repairData?: CreateOrUpdateRepairInteractionDto
+    readonly wheelData?: WheelInteractionDto
 }

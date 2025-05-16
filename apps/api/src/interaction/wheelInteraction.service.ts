@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import type { WheelInteraction } from '@vroomly/prisma'
-import { CarService } from '@/car/car.service'
 import { allowedFieldsDto } from '@/common/allowFieldsDto'
 import { validateExists } from '@/common/validateEntity'
 import { PrismaService } from '@/prisma/prisma.service'
@@ -10,19 +9,12 @@ const ENTITY = 'WheelInteraction'
 
 @Injectable()
 export class WheelInteractionService {
-    constructor(
-        private readonly prismaService: PrismaService,
-        private readonly carService: CarService
-    ) {}
+    constructor(private readonly prismaService: PrismaService) {}
 
     async create(
-        userId: string,
-        carId: string,
         interactionId: string,
         createWheelInteractionDto: WheelInteractionDto
     ): Promise<WheelInteraction> {
-        await this.carService.findOne(userId, carId)
-
         const allowedFields = allowedFieldsDto(
             createWheelInteractionDto,
             ENTITY
@@ -42,12 +34,9 @@ export class WheelInteractionService {
     }
 
     async update(
-        userId: string,
-        carId: string,
         interactionId: string,
         updateWheelInteractionDto: WheelInteractionDto
     ): Promise<WheelInteraction> {
-        await this.carService.findOne(userId, carId)
         await this.findOne(interactionId)
 
         return this.prismaService.wheelInteraction.update({
