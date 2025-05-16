@@ -1,0 +1,14 @@
+{
+  "extends": "@vroomly/typescript-config/node-library.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    ".turbo",
+    "node_modules",
+    "dist"
+  ]
+}

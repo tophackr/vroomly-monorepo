@@ -1,0 +1,39 @@
+{
+  "name": "@vroomly/root",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "init": "turbo run prisma:generate build:utils build:eslint",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "build:dashboard": "turbo run build --filter=\"./apps/dashboard\"",
+    "build:api": "turbo run build --filter=\"./apps/api\"",
+    "start": "turbo run start",
+    "check": "bun run lint && bun run typecheck && bun run steiger",
+    "lint": "FORCE_COLOR=1 turbo run lint:root lint:apps lint:packages lint:package-json --concurrency 1",
+    "lint:root": "eslint --max-warnings=0 --ignore-pattern \"apps/**\" --ignore-pattern \"packages/**\" .",
+    "lint:apps": "eslint --max-warnings=0 apps",
+    "lint:packages": "eslint --max-warnings=0 packages",
+    "lint:package-json": "npmPkgJsonLint --maxWarnings=0 .",
+    "typecheck": "turbo run typecheck",
+    "steiger": "turbo run steiger",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e"
+  },
+  "devDependencies": {
+    "@vroomly/eslint-config": "workspace:*",
+    "@vroomly/typescript-config": "workspace:*",
+    "npm-package-json-lint": "^8.0.0",
+    "turbo": "^2.5.3",
+    "vitest": "^3.1.3"
+  },
+  "packageManager": "bun@1.2.2",
+  "engines": {
+    "node": ">=22"
+  }
+}

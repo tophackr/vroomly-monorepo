@@ -1,0 +1,51 @@
+name: Run checks
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  check:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
+    strategy:
+      matrix:
+        command: [lint, typecheck, steiger]
+        include:
+          - command: lint
+            name: Lint
+          - command: typecheck
+            name: TypeScript Check
+          - command: steiger
+            name: Steiger
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        env:
+          BUN_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: bun install --frozen-lockfile
+
+      - name: ${{ matrix.name }}
+        run: bun run ${{ matrix.command }}

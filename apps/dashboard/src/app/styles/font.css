@@ -1,0 +1,7 @@
+@theme inline {
+    --font-system: var(--tgui--font-family);
+
+    --font-weight-bold: var(--tgui--font_weight--accent1);
+    --font-weight-semibold: var(--tgui--font_weight--accent2);
+    --font-weight-normal: var(--tgui--font_weight--accent3);
+}

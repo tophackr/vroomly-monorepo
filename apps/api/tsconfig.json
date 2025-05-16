@@ -1,0 +1,17 @@
+{
+  "extends": "@vroomly/typescript-config/nestjs.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "exclude": [
+    ".turbo",
+    "node_modules",
+    "dist"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "extends": [
+    "//"
+  ],
+  "tasks": {
+    "build:eslint": {
+      "outputs": ["dist"],
+      "dependsOn": [
+        "^@vroomly/eslint-plugin-server-only#build:eslint-plugin"
+      ]
+    }
+  }
+}

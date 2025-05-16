@@ -1,0 +1,36 @@
+{
+  "name": "@vroomly/eslint-plugin-server-only",
+  "version": "0.0.0-development",
+  "license": "UNLICENSED",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:eslint-plugin": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^2.1.4",
+    "@types/eslint": "^8",
+    "@types/eslint__eslintrc": "^2",
+    "@types/estree": "^1.0.5",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@typescript-eslint/rule-tester": "^6.14.0",
+    "@vroomly/typescript-config": "workspace:*",
+    "eslint": "^8.55.0",
+    "outdent": "^0.8.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.55.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

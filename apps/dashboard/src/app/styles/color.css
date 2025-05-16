@@ -1,0 +1,19 @@
+@theme inline {
+    --color-base: var(--tg-theme-bg-color);
+    --color-header: var(--tg-theme-header-bg-color);
+    --color-bottom: var(--tg-theme-bottom-bar-bg-color);
+    --color-secondary: var(--tg-theme-secondary-bg-color);
+    --color-section: var(--tg-theme-section-bg-color);
+
+    --color-content: var(--tg-theme-text-color);
+    --color-hint: var(--tg-theme-hint-color);
+    --color-link: var(--tg-theme-link-color);
+    --color-section-header: var(--tg-theme-section-header-text-color);
+    --color-accent: var(--tg-theme-accent-text-color);
+    --color-subtitle: var(--tg-theme-subtitle-text-color);
+    --color-destructive: var(--tg-theme-destructive-text-color);
+    --color-button-content: var(--tg-theme-button-text-color);
+
+    --color-button: var(--tg-theme-button-color);
+    --color-separator: var(--tg-theme-section-separator-color);
+}

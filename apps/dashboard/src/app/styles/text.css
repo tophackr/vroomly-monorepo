@@ -1,0 +1,25 @@
+@theme inline {
+    --text-base: var(--tgui--text--font_size);
+    --text-base--line-height: var(--tgui--text--line_height);
+    --text-large-title: var(--tgui--large_title--font_size);
+    --text-large-title--line-height: var(--tgui--large_title--line_height);
+    --text-headline: var(--tgui--headline--font_size);
+    --text-headline--line-height: var(--tgui--headline--line_height);
+
+    --text-title1: var(--tgui--title1--font_size);
+    --text-title1--line-height: var(--tgui--title1--line_height);
+    --text-title2: var(--tgui--title2--font_size);
+    --text-title2--line-height: var(--tgui--title2--line_height);
+    --text-title3: var(--tgui--title3--font_size);
+    --text-title3--line-height: var(--tgui--title3--line_height);
+
+    --text-subheadline1: var(--tgui--subheadline1--font_size);
+    --text-subheadline1--line-height: var(--tgui--subheadline1--line_height);
+    --text-subheadline2: var(--tgui--subheadline2--font_size);
+    --text-subheadline2--line-height: var(--tgui--subheadline2--line_height);
+
+    --text-caption1: var(--tgui--caption1--font_size);
+    --text-caption1--line-height: var(--tgui--caption1--line_height);
+    --text-caption2: var(--tgui--caption2--font_size);
+    --text-caption2--line-height: var(--tgui--caption2--line_height);
+}

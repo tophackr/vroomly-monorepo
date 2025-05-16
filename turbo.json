@@ -1,0 +1,72 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
+  "globalEnv": [
+    "NODE_ENV",
+    "PORT"
+  ],
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "init": {
+      "dependsOn": [
+        "^@vroomly/prisma#prisma:generate",
+        "^@vroomly/utils#build:utils",
+        "^@vroomly/eslint-config#build:eslint"
+      ]
+    },
+    "//#lint:root": {
+      "dependsOn": [
+        "^init"
+      ]
+    },
+    "//#lint:apps": {
+      "dependsOn": [
+        "^init"
+      ]
+    },
+    "//#lint:packages": {
+      "dependsOn": [
+        "^init"
+      ]
+    },
+    "//#lint:package-json": {
+      "dependsOn": [
+        "^init"
+      ]
+    },
+    "lint": {
+      "dependsOn": [
+        "//#lint:root",
+        "//#lint:apps",
+        "//#lint:packages",
+        "//#lint:package-json"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^init"
+      ]
+    },
+    "steiger": {
+      "dependsOn": [
+        "^init"
+      ]
+    },
+    "test": {},
+    "test:e2e": {},
+    "start": {},
+    "build": {
+      "dependsOn": [
+        "^lint",
+        "^typecheck",
+        "^steiger",
+        "^build"
+      ]
+    }
+  }
+}

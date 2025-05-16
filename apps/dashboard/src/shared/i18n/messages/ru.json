@@ -1,0 +1,315 @@
+{
+  "Locale": {
+    "code": "ru-RU",
+    "title": "Russian",
+    "subtitle": "Русский",
+    "currency": "RUB"
+  },
+  "Common": {
+    "error": "Ошибка",
+    "save": "Сохранить",
+    "delete": "Удалить"
+  },
+  "NotFound": {
+    "title": "Страница не найдена",
+    "description": "Извините, запрашиваемая страница не найдена.",
+    "buttons": {
+      "home": "На главную",
+      "back": "Назад"
+    }
+  },
+  "Home": {
+    "add": "Добавит Автомобиль"
+  },
+  "Car": {
+    "default": "По умолчанию",
+    "mileage": "Пробег",
+    "last_activity": "Последняя активность"
+  },
+  "CarActionButtons": {
+    "add": "Добавить Пробег",
+    "parking": "транспорт",
+    "wash": "мойка",
+    "fuel": "заправка",
+    "repair": "ремонт",
+    "finance": "финансы",
+    "more": "еще"
+  },
+  "PopupError": {
+    "title": "Время сеанса истекло",
+    "description": "Пожалуйста, закройте приложение и откройте его заново."
+  },
+  "Search": {
+    "placeholder": "Поиск..."
+  },
+  "Placeholder": {
+    "Loading": {
+      "title": "Загрузка...",
+      "description": "Подождите немного и вы все увидите."
+    },
+    "NotFound": {
+      "title": "Ничего не найдено",
+      "description": "Попробуйте изменить запрос."
+    },
+    "Nothing": {
+      "title": "Тут ничего нет",
+      "description": "Пора что-то придумать!"
+    }
+  },
+  "CarInfo": {
+    "sections": {
+      "info": "Информация об Автомобиле",
+      "fuel": "Топливо",
+      "mileage": "Пробег"
+    },
+    "brand": "Марка",
+    "model": "Модель",
+    "name": "Другое название",
+    "year": "Год выпуска",
+    "fuel": {
+      "title": "Вид топлива",
+      "capacity": "Объем бака, л",
+      "type": {
+        "gasoline": "Бензин",
+        "gas": "Газ",
+        "hybrid": "Гибрид",
+        "diesel": "Дизель",
+        "electric": "Электричество"
+      }
+    },
+    "mileage": "Пробег (текущий), {unit}",
+    "odometer": {
+      "title": "Единицы одометра",
+      "units": {
+        "kilometer": "км",
+        "mile": "ми"
+      },
+      "units_full": {
+        "kilometer": "километры",
+        "mile": "мили"
+      }
+    },
+    "engine_hours": {
+      "title": "Моточасы, ч",
+      "enabled": "Показывать моточасы"
+    },
+    "default": "По умолчанию",
+    "errors": {
+      "brand_required": "Вы не указали марку автомобиля",
+      "year_min": "Год не может быть младше 1900-го",
+      "year_max": "Год не может быть старше 2100-го",
+      "year_min_length": "Число года не может быть меньше 4 цифр",
+      "year_max_length": "Число года не может быть больше 4 цифр",
+      "mileage_min": "Пробег не может быть отрицательным",
+      "fuel_capacity_min": "Объем бака не может быть отрицательным",
+      "mileage_required": "Вы не указали пробег автомобиля",
+      "engine_hours_min": "Моточасы не могут быть отрицательными"
+    }
+  },
+  "CarActionForm": {
+    "date": "Дата",
+    "mileage": "Пробег",
+    "amount": "Сумма",
+    "engine_hours": "Моточасы, ч",
+    "description": "Описание",
+    "files": "Файлы",
+    "fuel": {
+      "title": "Топливо",
+      "grade": {
+        "title": "Марка топлива",
+        "options": {
+          "ai80": "АИ-80",
+          "ai92": "АИ-92",
+          "ai95": "АИ-95",
+          "ai95_plus": "АИ-95+",
+          "ai98": "АИ-98",
+          "ai98_plus": "АИ-98+",
+          "ai100": "АИ-100",
+          "diesel": "ДТ",
+          "diesel_plus": "ДТ+",
+          "gas": "Газ",
+          "electric": "Электро"
+        }
+      },
+      "capacity": "Объем, л",
+      "price": "Цена за л",
+      "amount_fuel_tank": "Объем топлива в баке",
+      "before_refueling": "Перед заправкой, л",
+      "after_refueling": "После заправки, л",
+      "capacity_full": "Полный бак"
+    },
+    "repair_work": {
+      "title": "Вид работ / Замена",
+      "options": {
+        "engine_oil": "Масло в двигателе",
+        "transmission_oil": "Масло в КПП",
+        "oil_filter": "Масляный фильтр",
+        "air_filter": "Воздушный фильтр",
+        "cabin_filter": "Салонный фильтр",
+        "front_brake_pads": "Передние тормозные колодки",
+        "rear_brake_pads": "Задние тормозные колодки",
+        "brake_fluid": "Тормозная жидкость",
+        "front_brake_discs": "Передние тормозные диски",
+        "rear_brake_discs": "Задние тормозные диски",
+        "air_conditioner_refill": "Заправка кондиционера",
+        "spark_plugs": "Свечи зажигания",
+        "coolant": "Охлаждающая жидкость",
+        "alignment": "Сход-развал",
+        "timing_belt": "Ремень ГРМ",
+        "fuel_filter": "Топливный фильтр",
+        "transfer_case_oil": "Масло в раздаточной коробке",
+        "differential_oil": "Масло в редукторе",
+        "car_battery": "АКБ",
+        "power_steering_fluid": "Жидкость ГУР",
+        "clutch": "Сцепление"
+      }
+    },
+    "parts_work": {
+      "title": "Что куплено",
+      "options": {
+        "oil": "Масло (двигателя, трансмиссии)",
+        "filter": "Фильтр (воздушный, масляный)",
+        "brake_pads_and_discs": "Тормозные колодки и диски",
+        "coolant": "Охлаждающая жидкость",
+        "windshield_washer": "Омыватель стекол",
+        "spark_plugs": "Свечи зажигания"
+      }
+    },
+    "wheels": {
+      "title": "Шины и диски",
+      "tire": "Шины",
+      "rim": "Диски",
+      "seasonality": {
+        "title": "Сезонность",
+        "options": {
+          "summer": "Летние",
+          "winter": "Зимние",
+          "all_season": "Всесезонные"
+        }
+      },
+      "type": {
+        "title": "Тип",
+        "options": {
+          "forged": "Кованные",
+          "cast": "Литые",
+          "stamped": "Штампованные"
+        }
+      },
+      "brand": "Производитель",
+      "model": "Модель",
+      "size": "Размер",
+      "width": "Ширина",
+      "height": "Высота",
+      "diameter": "Диаметр"
+    },
+    "errors": {
+      "date_required": "Вы не указали дату",
+      "amount_required": "Вы не указали сумму",
+      "amount_min": "Сумма не может быть отрицательной",
+      "after_refueling_min": "Объем бака после заправки не может быть отрицательным",
+      "before_refueling_min": "Объем бака перед заправкой не может быть отрицательным",
+      "repair_work_required": "Выберите хотя бы один вид работ",
+      "engine_hours_min": "Моточасы не могут быть отрицательными"
+    }
+  },
+  "CarCategoryName": {
+    "mileage": "Пробег",
+    "parking": "Парковка",
+    "toll_road": "Платная Дорога",
+    "taxi": "Такси и Транспорт",
+    "sober_driver": "Трезвый Водитель",
+    "alarm_system": "Авто Сигнализация",
+    "fuel": "Заправка",
+    "wash": "Мойка",
+    "maintenance": "Плановое ТО",
+    "tire_service": "Шиномонтаж",
+    "repair": "Ремонт",
+    "part": "Запчасти и расходники",
+    "purchase_wheels": "Покупка шин и дисков",
+    "tow_truck": "Эвакуатор",
+    "insurance": "Страховка",
+    "tax": "Налог",
+    "state_inspection": "Гос. Техосмотр",
+    "fine": "Штраф",
+    "car_purchase": "Покупка Автомобиля",
+    "loan_repayment": "Выплата Кредита",
+    "leasing": "Лизинг",
+    "car_purchases": "Покупки для авто",
+    "tuning": "Тюнинг",
+    "driver_salary": "Зарплата Водителю"
+  },
+  "PreviewSegment": {
+    "info": "Информация",
+    "stats": "Статистика"
+  },
+  "StatsCategoryName": {
+    "cost": "Статистика расходов",
+    "list": "Список расходов",
+    "fuel": "Расход топлива",
+    "parts": "Расходники",
+    "trip-cost": "Стоимость поездки"
+  },
+  "Stats": {
+    "total": "Итого"
+  },
+  "Repair": {
+    "options": {
+      "engine_oil": "Масло в двигателе",
+      "transmission_oil": "Масло в КПП",
+      "oil_filter": "Масляный фильтр",
+      "air_filter": "Воздушный фильтр",
+      "cabin_filter": "Салонный фильтр",
+      "front_brake_pads": "Передние тормозные колодки",
+      "rear_brake_pads": "Задние тормозные колодки",
+      "brake_fluid": "Тормозная жидкость",
+      "front_brake_discs": "Передние тормозные диски",
+      "rear_brake_discs": "Задние тормозные диски",
+      "air_conditioner_refill": "Заправка кондиционера",
+      "spark_plugs": "Свечи зажигания",
+      "coolant": "Охлаждающая жидкость",
+      "alignment": "Сход-развал",
+      "timing_belt": "Ремень ГРМ",
+      "fuel_filter": "Топливный фильтр",
+      "transfer_case_oil": "Масло в раздаточной коробке",
+      "differential_oil": "Масло в редукторе",
+      "car_battery": "АКБ",
+      "power_steering_fluid": "Жидкость ГУР",
+      "clutch": "Сцепление"
+    },
+    "mileage": "Интервал по пробегу",
+    "days": "Календарный интервал",
+    "visible": "Показывать в списке",
+    "errors": {
+      "interval_min": "Интервал не может быть отрицательным"
+    }
+  },
+  "Part": {
+    "options": {
+      "oil": "Масло (двигателя, трансмиссии)",
+      "filter": "Фильтр (воздушный, масляный)",
+      "brake_pads_and_discs": "Тормозные колодки и диски",
+      "coolant": "Охлаждающая жидкость",
+      "windshield_washer": "Омыватель стекол",
+      "spark_plugs": "Свечи зажигания"
+    }
+  },
+  "StatsCostSegment": {
+    "thirty_days": "30 дней",
+    "ninety_days": "90 дней",
+    "one_year": "1 год",
+    "all_time": "Все время"
+  },
+  "StatsFuel": {
+    "title": "Средний расход за все время",
+    "description": "{count, plural, one {# заправка} few {# заправки} many {# заправок} other {# заправок}} за {days, plural, one {# день} few {# дня} many {# дней} other {# дней}}",
+    "consumption_per": "Расход на {value}",
+    "fuel_consumption": "Общий расход топлива",
+    "cost_per_mileage": "Стоимость {value} пробега",
+    "mileage_per_unit": "Пробег на {value}",
+    "cost_per_unit": "Стоимость {value}"
+  },
+  "PopupUnauthorizedError": {
+    "title": "Время сеанса истекло",
+    "description": "Пожалуйста, закройте приложение и откройте его заново."
+  }
+}

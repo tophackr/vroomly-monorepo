@@ -1,0 +1,15 @@
+{
+  "extends": "@vroomly/typescript-config/node-library.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "include": [
+    "prisma",
+    "prisma.config.ts"
+  ],
+  "exclude": [
+    ".turbo",
+    "node_modules",
+    "dist"
+  ]
+}

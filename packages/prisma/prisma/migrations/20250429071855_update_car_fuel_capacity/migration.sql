@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "car" ALTER COLUMN "fuel_capacity" SET DATA TYPE DOUBLE PRECISION;
