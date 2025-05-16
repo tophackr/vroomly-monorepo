@@ -8,7 +8,7 @@ let loggerInstance: Logger | undefined
  * Вызывается один раз в entry-point (main.ts).
  */
 export function initLogger(options: LoggerOptions): Logger {
-    loggerInstance = createLogger('API', options)
+    loggerInstance = createLogger('API (vroomly)', options)
     return loggerInstance
 }
 
