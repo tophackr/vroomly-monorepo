@@ -1,6 +1,8 @@
-export const __esModule: true;
-export const after: string;
-export const before: string;
-export const children: string;
-export const wrapper: string;
+declare const styles: {
+  readonly "after": string;
+  readonly "before": string;
+  readonly "children": string;
+  readonly "wrapper": string;
+};
+export = styles;
 

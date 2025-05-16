@@ -12,7 +12,7 @@ import { Drawer } from '@xelene/vaul-with-scroll-fix'
 import { cx } from '@/shared/lib/dom'
 import { ModalClose } from './Close/ModalClose'
 import { ModalHeader } from './Header/ModalHeader'
-import { wrapper, body } from './Modal.module.css'
+import styles from './Modal.module.css'
 import { ModalOverlay } from './Overlay/ModalOverlay'
 
 export interface ModalProps
@@ -101,7 +101,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     {overlayComponent}
                     <Drawer.Content
                         ref={ref}
-                        className={cx(wrapper, className)}
+                        className={cx(styles.wrapper, className)}
                         aria-describedby={undefined}
                         {...restProps}
                     >
@@ -109,7 +109,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                         <VisuallyHidden>
                             <Drawer.Title />
                         </VisuallyHidden>
-                        <div className={body}>{children}</div>
+                        <div className={styles.body}>{children}</div>
                     </Drawer.Content>
                 </Drawer.Portal>
             </Component>

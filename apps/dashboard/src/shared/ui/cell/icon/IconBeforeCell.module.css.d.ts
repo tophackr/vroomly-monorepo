@@ -1,3 +1,5 @@
-export const __esModule: true;
-export const appleIcon: string;
+declare const styles: {
+  readonly "apple-icon": string;
+};
+export = styles;
 

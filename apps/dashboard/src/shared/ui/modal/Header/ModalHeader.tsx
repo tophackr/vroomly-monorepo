@@ -3,12 +3,7 @@ import { forwardRef } from 'react'
 import { Text } from '@telegram-apps/telegram-ui'
 import { cx } from '@/shared/lib/dom'
 import { isAppleClient } from '@/shared/ui/tma'
-import {
-    wrapper,
-    before as beforeCss,
-    children as childrenCss,
-    after as afterCss
-} from './ModalHeader.module.css'
+import styles from './ModalHeader.module.css'
 
 export interface ModalHeaderProps extends HTMLAttributes<HTMLElement> {
     /** Inserts a component before the header text, e.g. Icon */
@@ -24,19 +19,19 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(
         return (
             <header
                 ref={ref}
-                className={cx(wrapper, className)}
+                className={cx(styles.wrapper, className)}
                 {...props}
             >
-                <div className={beforeCss}>{before}</div>
+                <div className={styles.before}>{before}</div>
                 {isApple && (
                     <Text
                         weight='2'
-                        className={childrenCss}
+                        className={styles.children}
                     >
                         {children}
                     </Text>
                 )}
-                <div className={afterCss}>{after}</div>
+                <div className={styles.after}>{after}</div>
             </header>
         )
     }

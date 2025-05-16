@@ -6,7 +6,7 @@ import {
 import { Drawer } from '@xelene/vaul-with-scroll-fix'
 import { cx } from '@/shared/lib/dom'
 import { hexToRGB } from '../utils/hexToRgb'
-import { wrapper } from './ModalOverlay.module.css'
+import styles from './ModalOverlay.module.css'
 
 export interface ModalOverlayProps {
     className?: string
@@ -35,7 +35,7 @@ export const ModalOverlay = forwardRef<HTMLDivElement, ModalOverlayProps>(
                 // Opacity on overlay is dynamically calculated based on the percentage of opened drawers
                 // This is why we use rgba here and not background: token + opacity
                 style={{ background: `rgba(${r}, ${g}, ${b}, .4)` }}
-                className={cx(wrapper, className)}
+                className={cx(styles.wrapper, className)}
                 {...props}
             />
         )

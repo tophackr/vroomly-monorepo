@@ -10,7 +10,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "steiger": "steiger ./src",
-    "css:types": "tcm -p 'src/**/*.module.*css' --namedExports",
+    "css:types": "tcm -p 'src/**/*.module.*css'",
     "css:types:dev": "bun run css:types --watch"
   },
   "dependencies": {
