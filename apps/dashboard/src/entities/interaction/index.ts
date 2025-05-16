@@ -7,16 +7,6 @@ export {
     isWheelType
 } from './model/isType'
 export {
-    useCreateFuelInteractionMutation,
-    useUpdateFuelInteractionMutation
-} from './api/fuelInteraction.api'
-export { useCreateOrUpdateRepairInteractionMutation } from './api/repairInteraction.api'
-export { useCreateOrUpdatePartInteractionMutation } from './api/partInteraction.api'
-export {
-    useCreateWheelInteractionMutation,
-    useUpdateWheelInteractionMutation
-} from './api/wheelInteraction.api'
-export {
     useCreateInteractionMutation,
     useDeleteInteractionMutation,
     useFindAllInteractionsQuery,
