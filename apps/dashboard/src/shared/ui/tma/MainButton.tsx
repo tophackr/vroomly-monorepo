@@ -3,8 +3,10 @@
 import { memo, useEffect } from 'react'
 import type { MainButtonState } from '@telegram-apps/sdk-react'
 import {
+    mountMainButton,
     onMainButtonClick,
-    setMainButtonParams
+    setMainButtonParams,
+    unmountMainButton
 } from '@telegram-apps/sdk-react'
 
 export interface MainButtonProps extends Partial<MainButtonState> {
@@ -17,8 +19,7 @@ export const MainButton = memo(function MainButton({
     ...params
 }: MainButtonProps) {
     useEffect(() => {
-        setMainButtonParams({ isVisible, ...params })
-        const offClick = onMainButtonClick(onClick)
+        mountMainButton()
 
         return () => {
             setMainButtonParams({
@@ -27,9 +28,21 @@ export const MainButton = memo(function MainButton({
                 isLoaderVisible: false,
                 isVisible: false
             })
+            unmountMainButton()
+        }
+    })
+
+    useEffect(() => {
+        setMainButtonParams({ isVisible, ...params })
+    }, [isVisible, params])
+
+    useEffect(() => {
+        const offClick = onMainButtonClick(onClick)
+
+        return () => {
             offClick()
         }
-    }, [isVisible, onClick, params])
+    }, [onClick])
 
     return null
 })

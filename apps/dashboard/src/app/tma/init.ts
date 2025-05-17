@@ -7,9 +7,7 @@ import {
     isViewportMounting,
     miniAppReady,
     mountBackButton,
-    mountMainButton,
     mountMiniAppSync,
-    mountSecondaryButton,
     mountSettingsButton,
     mountThemeParamsSync,
     mountViewport,
@@ -68,8 +66,6 @@ export function init({ debug, eruda, mockForMacOS }: InitProps): void {
 
     mountBackButton.ifAvailable()
     mountSettingsButton.ifAvailable()
-    mountMainButton.ifAvailable()
-    mountSecondaryButton.ifAvailable()
 
     mountMiniAppSync.ifAvailable()
 }
