@@ -2,9 +2,11 @@ import { RepairOption } from '@vroomly/prisma'
 import {
     type InferOutput,
     enum as _enum,
+    array,
     boolean,
     nullable,
     object,
+    optional,
     string,
     union
 } from 'valibot'
@@ -15,19 +17,28 @@ import { integerMinValue } from '@/shared/lib/validation'
 
 export { id as repairId } from '@/shared/lib/store'
 
+const option = union([_enum(RepairOption), string()])
+
 export const repairReqSchema = object({
-    option: union([_enum(RepairOption), string()]),
+    option: optional(option),
     mileage: nullable(integerMinValue()),
     days: nullable(integerMinValue()),
     isVisible: boolean()
+})
+
+export const repairManyReqSchema = object({
+    repairs: array(repairReqSchema)
 })
 
 export const repairResSchema = object({
     ...baseSchema.entries,
     ...repairReqSchema.entries,
     isDefault: boolean(),
+    option,
     carId,
     userId
 })
 
 export type RepairReqData = InferOutput<typeof repairReqSchema>
+
+export type RepairManyReqData = InferOutput<typeof repairManyReqSchema>
