@@ -1,7 +1,7 @@
 {
   "extends": "@vroomly/typescript-config/node-library.json",
   "compilerOptions": {
-    "outDir": "./dist/esm",
+    "outDir": "./dist",
     "module": "ESNext",
     "moduleResolution": "bundler"
   },
