@@ -4,10 +4,8 @@ import { DynamicInfoForm } from '../DynamicInfoForm'
 
 export function CarNewPage(): JSX.Element {
     return (
-        <>
-            <BackButton />
-
+        <BackButton>
             <DynamicInfoForm />
-        </>
+        </BackButton>
     )
 }

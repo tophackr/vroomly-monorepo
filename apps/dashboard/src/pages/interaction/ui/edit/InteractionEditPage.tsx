@@ -16,13 +16,11 @@ export const InteractionEditPage = memo(function InteractionEditPage({
     const { interaction } = useInteractionContext()
 
     return (
-        <>
-            <BackButton />
-
+        <BackButton>
             <DynamicInteractionForm
                 type={type}
                 interaction={interaction}
             />
-        </>
+        </BackButton>
     )
 })

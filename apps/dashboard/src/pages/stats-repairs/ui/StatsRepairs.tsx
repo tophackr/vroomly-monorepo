@@ -6,6 +6,8 @@ import { List } from '@telegram-apps/telegram-ui'
 import { useCarContext } from '@/entities/car'
 import { RepairCell, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
+import { pagesRoute } from '@/shared/routes'
+import { BackButton } from '@/shared/ui/tma'
 import { EditRepairsButton } from './EditRepairsButton'
 import { RepairsSkeleton } from './RepairsSkeleton'
 
@@ -45,7 +47,7 @@ export function StatsRepairs(): JSX.Element {
     // todo: if not visible
 
     return (
-        <>
+        <BackButton route={pagesRoute.carId(car.id)}>
             <EditRepairsButton car={car} />
 
             <List>
@@ -56,6 +58,6 @@ export function StatsRepairs(): JSX.Element {
                     />
                 ))}
             </List>
-        </>
+        </BackButton>
     )
 }

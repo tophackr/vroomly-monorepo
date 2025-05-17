@@ -9,13 +9,11 @@ export function CarEditPage(): JSX.Element {
     const { car, mileage } = useCarContext()
 
     return (
-        <>
-            <BackButton />
-
+        <BackButton>
             <DynamicInfoForm
                 car={car}
                 mileage={mileage}
             />
-        </>
+        </BackButton>
     )
 }

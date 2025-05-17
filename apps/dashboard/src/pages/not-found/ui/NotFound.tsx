@@ -10,9 +10,7 @@ export async function NotFound(): Promise<JSX.Element> {
     const t = await getTranslations('NotFound')
 
     return (
-        <>
-            <BackButton />
-
+        <BackButton>
             <List className={'flex min-h-screen content-center'}>
                 <Placeholder
                     header={t('title')}
@@ -24,6 +22,6 @@ export async function NotFound(): Promise<JSX.Element> {
 
             <ReturnBackButton text={t('buttons.back')} />
             <ReturnHomeButton text={t('buttons.home')} />
-        </>
+        </BackButton>
     )
 }

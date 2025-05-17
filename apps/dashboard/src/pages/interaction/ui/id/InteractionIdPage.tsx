@@ -11,10 +11,8 @@ export const InteractionIdPage = memo(async function InteractionIdPage({
     const { type } = await params
 
     return (
-        <>
-            <BackButton />
-
+        <BackButton>
             <DynamicInteractionPreview type={type} />
-        </>
+        </BackButton>
     )
 })

@@ -17,13 +17,11 @@ export async function CarIdPage(): Promise<JSX.Element> {
     ]
 
     return (
-        <>
-            <BackButton route={pagesRoute.home} />
-
+        <BackButton route={pagesRoute.home}>
             <DynamicSegments
                 segments={segments}
                 defaultSegment={SegmentKey.info}
             />
-        </>
+        </BackButton>
     )
 }

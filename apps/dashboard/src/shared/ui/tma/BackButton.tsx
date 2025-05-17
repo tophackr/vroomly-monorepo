@@ -1,5 +1,6 @@
 'use client'
 
+import type { PropsWithChildren } from 'react'
 import { memo, useCallback, useEffect } from 'react'
 import {
     hideBackButton,
@@ -15,9 +16,10 @@ interface BackButtonProps {
 }
 
 export const BackButton = memo(function BackButton({
+    children,
     hide,
     route
-}: BackButtonProps) {
+}: PropsWithChildren<BackButtonProps>) {
     const router = useRouter()
 
     const onClick = useCallback(
@@ -41,5 +43,5 @@ export const BackButton = memo(function BackButton({
         }
     }, [onClick])
 
-    return null
+    return children
 })

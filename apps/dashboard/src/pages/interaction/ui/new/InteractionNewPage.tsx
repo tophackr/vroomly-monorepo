@@ -11,10 +11,8 @@ export const InteractionNewPage = memo(async function InteractionNewPage({
     const { type } = await params
 
     return (
-        <>
-            <BackButton />
-
+        <BackButton>
             <DynamicInteractionForm type={type} />
-        </>
+        </BackButton>
     )
 })
