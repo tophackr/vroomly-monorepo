@@ -1,4 +1,4 @@
-import type { InteractionCategory } from '@vroomly/prisma'
+import type { InteractionType } from '@vroomly/prisma'
 
 export enum CostKeys {
     thirty_days = '30_days',
@@ -12,7 +12,7 @@ export interface TotalCountProps {
 }
 
 interface DataProps {
-    data: [InteractionCategory, number][]
+    data: [InteractionType, number][]
 }
 
 export type InteractionDataProps = TotalCountProps & DataProps

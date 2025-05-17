@@ -5,7 +5,7 @@ import type {
     RepairOnInteraction,
     WheelInteraction
 } from '@vroomly/prisma'
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import type { InferOutput } from 'valibot'
 import {
     isoTimestamp,
@@ -36,7 +36,7 @@ import type { WheelInteractionData } from './wheelInteractionSchema'
 import { wheelInteractionResSchema } from './wheelInteractionSchema'
 
 export const interactionReqSchema = object({
-    type: _enum(InteractionCategory),
+    type: _enum(InteractionType),
     date: date(),
     mileage: nullable(integerMinValueOrNan()),
     amount: nullable(integerMinValueOrNan()),

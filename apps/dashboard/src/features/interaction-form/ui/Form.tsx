@@ -4,7 +4,10 @@ import type { JSX } from 'react'
 import { memo } from 'react'
 import { useTranslations } from 'next-intl'
 import { List } from '@telegram-apps/telegram-ui'
-import type { CategoryProps, InteractionProps } from '@/entities/interaction'
+import type {
+    InteractionTypeProps,
+    InteractionProps
+} from '@/entities/interaction'
 import {
     isFuelType,
     isPartType,
@@ -21,26 +24,26 @@ import { SaveActionButton } from './SaveActionButton'
 import { WheelsSection } from './wheels/WheelsSection'
 
 export const Form = memo(function Form({
-    category,
+    type,
     interaction
-}: CategoryProps & Partial<InteractionProps>): JSX.Element {
+}: InteractionTypeProps & Partial<InteractionProps>): JSX.Element {
     const t = useTranslations('CarCategoryName')
 
     return (
         <List>
             <InteractionFormProvider
-                category={category}
+                type={type}
                 {...(interaction ? { interaction } : {})}
             >
-                <BaseSection title={t(category)} />
+                <BaseSection title={t(type)} />
 
-                {isFuelType(category) && <FuelSection />}
+                {isFuelType(type) && <FuelSection />}
 
-                {isRepairType(category) && <RepairSection />}
+                {isRepairType(type) && <RepairSection />}
 
-                {isPartType(category) && <PartsSection />}
+                {isPartType(type) && <PartsSection />}
 
-                {isWheelType(category) && <WheelsSection />}
+                {isWheelType(type) && <WheelsSection />}
 
                 <SaveActionButton />
             </InteractionFormProvider>

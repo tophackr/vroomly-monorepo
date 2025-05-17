@@ -4,10 +4,10 @@ import type { JSX } from 'react'
 import { useMemo } from 'react'
 import { useTranslations } from 'next-intl'
 import { LargeTitle, List, Placeholder } from '@telegram-apps/telegram-ui'
-import { InteractionCategory } from '@vroomly/prisma'
 import { useCarContext } from '@/entities/car'
 import {
     InteractionList,
+    isMileageType,
     useFindAllInteractionsQuery
 } from '@/entities/interaction'
 import { useIntlCurrency } from '@/shared/i18n'
@@ -34,7 +34,7 @@ export function StatsList(): JSX.Element {
     const filteredInteractions = useMemo(
         () =>
             [...(interactions ?? [])].filter(
-                inter => inter.type !== InteractionCategory.mileage
+                ({ type }) => !isMileageType(type)
             ),
         [interactions]
     )

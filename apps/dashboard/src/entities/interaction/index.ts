@@ -23,7 +23,7 @@ export type {
     InteractionDataForm
 } from './model/schemas/interactionSchema'
 export type {
-    CategoryProps,
+    InteractionTypeProps,
     InteractionIdProps,
     InteractionProps
 } from './model/props'

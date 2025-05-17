@@ -6,7 +6,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { FuelGrade, WheelType } from '@vroomly/prisma'
 import { useCarContext } from '@/entities/car'
 import type {
-    CategoryProps,
+    InteractionTypeProps,
     InteractionProps,
     InteractionData,
     InteractionDataForm
@@ -20,13 +20,15 @@ import {
 
 export const InteractionFormProvider = memo(function ActionFormProvider({
     children,
-    category,
+    type,
     interaction
-}: PropsWithChildren<CategoryProps & Partial<InteractionProps>>): JSX.Element {
+}: PropsWithChildren<
+    InteractionTypeProps & Partial<InteractionProps>
+>): JSX.Element {
     const { mileage } = useCarContext()
 
     let values: Omit<InteractionDataForm, 'date'> = {
-        type: category,
+        type,
         mileage,
         amount: null,
         engineHours: null,
@@ -37,7 +39,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
         wheelData: null
     }
 
-    if (isFuelType(category)) {
+    if (isFuelType(type)) {
         values = {
             ...values,
             fuelData: {
@@ -49,7 +51,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
                 afterRefueling: null
             }
         }
-    } else if (isRepairType(category)) {
+    } else if (isRepairType(type)) {
         values = {
             ...values,
             repairData: {
@@ -59,7 +61,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
                     ) ?? []
             }
         }
-    } else if (isPartType(category)) {
+    } else if (isPartType(type)) {
         values = {
             ...values,
             partData: {
@@ -67,7 +69,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
                     interaction?.partInteractions.map(part => part.partId) ?? []
             }
         }
-    } else if (isWheelType(category)) {
+    } else if (isWheelType(type)) {
         values = {
             ...values,
             wheelData: {

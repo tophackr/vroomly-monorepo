@@ -1,42 +1,42 @@
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient } from '@/shared/i18n'
 import type { IMenu, KeyMenu } from '@/shared/lib/link-menu'
 import { generateMenu } from '@/shared/lib/link-menu'
 
-const financeData: KeyMenu<InteractionCategory>[] = [
+const financeData: KeyMenu<InteractionType>[] = [
     {
-        name: InteractionCategory.insurance,
+        name: InteractionType.insurance,
         icon: 'Ambulance',
         bgColor: 'OrangeRed'
     },
     {
-        name: InteractionCategory.tax,
+        name: InteractionType.tax,
         icon: 'Calculator',
         bgColor: 'MediumPurple'
     },
     {
-        name: InteractionCategory.state_inspection,
+        name: InteractionType.state_inspection,
         icon: 'LoaderPinwheel',
         bgColor: 'DodgerBlue'
     },
     {
-        name: InteractionCategory.fine,
+        name: InteractionType.fine,
         icon: 'CircleDollarSign',
         bgColor: 'Orange'
     },
     {
-        name: InteractionCategory.car_purchase,
+        name: InteractionType.car_purchase,
         icon: 'Container',
         bgColor: 'LimeGreen'
     },
     {
-        name: InteractionCategory.loan_repayment,
+        name: InteractionType.loan_repayment,
         icon: 'Captions',
         bgColor: 'DeepPink'
     },
     {
-        name: InteractionCategory.leasing,
+        name: InteractionType.leasing,
         icon: 'NotepadText',
         bgColor: 'SlateGray'
     }

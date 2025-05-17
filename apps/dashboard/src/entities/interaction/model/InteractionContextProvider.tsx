@@ -2,7 +2,7 @@
 
 import type { JSX, PropsWithChildren } from 'react'
 import { createContext, memo, use, useContext } from 'react'
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { notFound } from 'next/navigation'
 import type { CarIdProps } from '@/entities/car/@x/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
@@ -16,7 +16,7 @@ const Context = createContext<InteractionProps>({
         id: '',
         createdAt: new Date(),
         updatedAt: new Date(),
-        type: InteractionCategory.mileage,
+        type: InteractionType.mileage,
         date: new Date(),
         mileage: 0,
         amount: null,

@@ -1,6 +1,6 @@
-import { InteractionCategory } from '@vroomly/prisma'
-import type { CategoryProps } from '@/entities/interaction'
+import { InteractionType } from '@vroomly/prisma'
+import type { InteractionTypeProps } from '@/entities/interaction'
 
-export function generateStaticParams(): CategoryProps[] {
-    return Object.values(InteractionCategory).map(category => ({ category }))
+export function generateStaticParams(): InteractionTypeProps[] {
+    return Object.values(InteractionType).map(type => ({ type }))
 }

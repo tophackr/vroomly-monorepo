@@ -1,19 +1,17 @@
-import type { InteractionCategory } from '@vroomly/prisma'
+import type { InteractionType } from '@vroomly/prisma'
 import { pagesRoute } from '@/shared/routes'
 
 const rootRoute = (carId: string) => pagesRoute.carId(carId)
 
 export const actionsRoute = (carId: string) => {
-    const categoryRoute = (category: InteractionCategory) =>
-        `${rootRoute(carId)}/${category}`
+    const typeRoute = (type: InteractionType) => `${rootRoute(carId)}/${type}`
 
     return {
-        category: categoryRoute,
-        new: (category: InteractionCategory) =>
-            `${categoryRoute(category)}/new`,
-        details: (category: InteractionCategory, id: string) =>
-            `${categoryRoute(category)}/${id}`,
-        edit: (category: InteractionCategory, id: string) =>
-            `${categoryRoute(category)}/${id}/edit`
+        type: typeRoute,
+        new: (type: InteractionType) => `${typeRoute(type)}/new`,
+        details: (type: InteractionType, id: string) =>
+            `${typeRoute(type)}/${id}`,
+        edit: (type: InteractionType, id: string) =>
+            `${typeRoute(type)}/${id}/edit`
     }
 }

@@ -4,7 +4,7 @@ import type { JSX } from 'react'
 import { memo } from 'react'
 import { useTranslations } from 'next-intl'
 import { List } from '@telegram-apps/telegram-ui'
-import type { CategoryProps } from '@/entities/interaction'
+import type { InteractionTypeProps } from '@/entities/interaction'
 import {
     isFuelType,
     isPartType,
@@ -19,23 +19,23 @@ import { RepairSection } from './RepairSection'
 import { WheelsSection } from './WheelsSection'
 
 export const Preview = memo(function Preview({
-    category
-}: CategoryProps): JSX.Element {
+    type
+}: InteractionTypeProps): JSX.Element {
     const t = useTranslations('CarCategoryName')
 
     return (
         <List>
             <InteractionEditButton />
 
-            <BaseSection title={t(category)} />
+            <BaseSection title={t(type)} />
 
-            {isFuelType(category) && <FuelSection />}
+            {isFuelType(type) && <FuelSection />}
 
-            {isRepairType(category) && <RepairSection />}
+            {isRepairType(type) && <RepairSection />}
 
-            {isPartType(category) && <PartsSection />}
+            {isPartType(type) && <PartsSection />}
 
-            {isWheelType(category) && <WheelsSection />}
+            {isWheelType(type) && <WheelsSection />}
         </List>
     )
 })

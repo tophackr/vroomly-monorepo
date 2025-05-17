@@ -1,37 +1,37 @@
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient } from '@/shared/i18n'
 import type { IMenu, KeyMenu } from '@/shared/lib/link-menu'
 import { generateMenu } from '@/shared/lib/link-menu'
 
-const repairData: KeyMenu<InteractionCategory>[] = [
+const repairData: KeyMenu<InteractionType>[] = [
     {
-        name: InteractionCategory.maintenance,
+        name: InteractionType.maintenance,
         icon: 'Bike',
         bgColor: 'MediumPurple'
     },
     {
-        name: InteractionCategory.tire_service,
+        name: InteractionType.tire_service,
         icon: 'Badge',
         bgColor: 'LimeGreen'
     },
     {
-        name: InteractionCategory.repair,
+        name: InteractionType.repair,
         icon: 'Orbit',
         bgColor: 'DodgerBlue'
     },
     {
-        name: InteractionCategory.part,
+        name: InteractionType.part,
         icon: 'PocketKnife',
         bgColor: 'SlateGray'
     },
     {
-        name: InteractionCategory.purchase_wheels,
+        name: InteractionType.purchase_wheels,
         icon: 'Aperture',
         bgColor: 'Orange'
     },
     {
-        name: InteractionCategory.tow_truck,
+        name: InteractionType.tow_truck,
         icon: 'Caravan',
         bgColor: 'OrangeRed'
     }

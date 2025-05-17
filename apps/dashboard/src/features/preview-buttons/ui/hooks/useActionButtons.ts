@@ -1,4 +1,4 @@
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { actionsRoute } from '@/entities/interaction'
 import { financeContents } from '../contents/financeContents'
 import { moreContents } from '../contents/moreContents'
@@ -14,12 +14,12 @@ export function useActionButtons(carId: string): ActionModalProps[] {
         {
             name: 'wash',
             icon: 'CloudDrizzle',
-            link: route.new(InteractionCategory.wash)
+            link: route.new(InteractionType.wash)
         },
         {
             name: 'fuel',
             icon: 'Fuel',
-            link: route.new(InteractionCategory.fuel)
+            link: route.new(InteractionType.fuel)
         },
         { name: 'repair', icon: 'Wrench', content: repairContents },
         { name: 'finance', icon: 'Landmark', content: financeContents },

@@ -1,32 +1,32 @@
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient } from '@/shared/i18n'
 import type { IMenu, KeyMenu } from '@/shared/lib/link-menu'
 import { generateMenu } from '@/shared/lib/link-menu'
 
-const parkingData: KeyMenu<InteractionCategory>[] = [
+const parkingData: KeyMenu<InteractionType>[] = [
     {
-        name: InteractionCategory.parking,
+        name: InteractionType.parking,
         icon: 'SquareParking',
         bgColor: 'DodgerBlue'
     },
     {
-        name: InteractionCategory.toll_road,
+        name: InteractionType.toll_road,
         icon: 'TrafficCone',
         bgColor: 'YellowGreen'
     },
     {
-        name: InteractionCategory.taxi,
+        name: InteractionType.taxi,
         icon: 'CarTaxiFront',
         bgColor: 'Orange'
     },
     {
-        name: InteractionCategory.sober_driver,
+        name: InteractionType.sober_driver,
         icon: 'ContactRound',
         bgColor: 'MediumPurple'
     },
     {
-        name: InteractionCategory.alarm_system,
+        name: InteractionType.alarm_system,
         icon: 'Satellite',
         bgColor: 'DeepPink'
     }

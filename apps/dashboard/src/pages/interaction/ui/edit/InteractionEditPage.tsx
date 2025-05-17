@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo, use } from 'react'
-import type { CategoryProps } from '@/entities/interaction'
+import type { InteractionTypeProps } from '@/entities/interaction'
 import { useInteractionContext } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
 import { BackButton } from '@/shared/ui/tma'
@@ -10,8 +10,8 @@ import { DynamicInteractionForm } from '../DynamicInteractionForm'
 
 export const InteractionEditPage = memo(function InteractionEditPage({
     params
-}: ParamsProps<CategoryProps>): JSX.Element {
-    const { category } = use(params)
+}: ParamsProps<InteractionTypeProps>): JSX.Element {
+    const { type } = use(params)
 
     const { interaction } = useInteractionContext()
 
@@ -20,7 +20,7 @@ export const InteractionEditPage = memo(function InteractionEditPage({
             <BackButton />
 
             <DynamicInteractionForm
-                category={category}
+                type={type}
                 interaction={interaction}
             />
         </>

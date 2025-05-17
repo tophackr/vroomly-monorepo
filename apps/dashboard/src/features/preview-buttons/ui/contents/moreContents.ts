@@ -1,22 +1,22 @@
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient } from '@/shared/i18n'
 import type { IMenu, KeyMenu } from '@/shared/lib/link-menu'
 import { generateMenu } from '@/shared/lib/link-menu'
 
-const moreData: KeyMenu<InteractionCategory>[] = [
+const moreData: KeyMenu<InteractionType>[] = [
     {
-        name: InteractionCategory.car_purchases,
+        name: InteractionType.car_purchases,
         icon: 'Gift',
         bgColor: 'LimeGreen'
     },
     {
-        name: InteractionCategory.tuning,
+        name: InteractionType.tuning,
         icon: 'CircuitBoard',
         bgColor: 'DodgerBlue'
     },
     {
-        name: InteractionCategory.driver_salary,
+        name: InteractionType.driver_salary,
         icon: 'Coins',
         bgColor: 'Orange'
     }

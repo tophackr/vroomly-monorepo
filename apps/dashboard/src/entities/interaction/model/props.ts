@@ -1,8 +1,8 @@
-import type { InteractionCategory } from '@vroomly/prisma'
+import type { InteractionType } from '@vroomly/prisma'
 import type { InteractionResData } from './schemas/interactionSchema'
 
-export interface CategoryProps {
-    category: InteractionCategory
+export interface InteractionTypeProps {
+    type: InteractionType
 }
 
 export interface InteractionIdProps {

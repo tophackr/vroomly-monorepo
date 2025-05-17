@@ -2,11 +2,13 @@
 
 import { useMemo } from 'react'
 import { useTranslations } from 'next-intl'
-import { InteractionCategory } from '@vroomly/prisma'
 import type { ISegment } from '@/features/segment'
 import { Segments } from '@/features/segment'
 import { useCarContext } from '@/entities/car'
-import { useFindAllInteractionsQuery } from '@/entities/interaction'
+import {
+    isMileageType,
+    useFindAllInteractionsQuery
+} from '@/entities/interaction'
 import { useLogger } from '@/shared/model'
 import { CostData } from './CostData'
 import { CostSkeleton } from './CostSkeleton'
@@ -33,8 +35,7 @@ export function StatsCost() {
     const interactionsCarFilter = useMemo(
         () =>
             [...(interactions ?? [])].filter(
-                i =>
-                    i.carId === car.id && i.type !== InteractionCategory.mileage
+                ({ carId, type }) => carId === car.id && isMileageType(type)
             ),
         [car.id, interactions]
     )
