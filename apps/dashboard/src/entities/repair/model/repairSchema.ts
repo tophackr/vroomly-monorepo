@@ -13,7 +13,7 @@ import {
 import { carId } from '@/entities/car/@x/repair'
 import { userId } from '@/entities/user/@x/repair'
 import { baseSchema } from '@/shared/lib/store'
-import { integerMinValue } from '@/shared/lib/validation'
+import { integerMinValueOrNan } from '@/shared/lib/validation'
 
 export { id as repairId } from '@/shared/lib/store'
 
@@ -21,8 +21,8 @@ const option = union([_enum(RepairOption), string()])
 
 export const repairReqSchema = object({
     option: optional(option),
-    mileage: nullable(integerMinValue()),
-    days: nullable(integerMinValue()),
+    mileage: nullable(integerMinValueOrNan()),
+    days: nullable(integerMinValueOrNan()),
     isVisible: boolean()
 })
 
