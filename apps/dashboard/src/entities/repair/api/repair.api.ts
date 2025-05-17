@@ -9,13 +9,12 @@ import {
     providesTagsToList
 } from '@/shared/lib/store'
 import { apiRoute } from '@/shared/routes'
-import {
-    type CommonRepairResData,
-    commonRepairResSchema
-} from '../model/commonRepairSchema'
+import type { CommonRepairResData } from '../model/commonRepairSchema'
+import { commonRepairResSchema } from '../model/commonRepairSchema'
 import type { RepairIdProps } from '../model/props'
+import type { RepairManyReqData, RepairReqData } from '../model/repairSchema'
 import {
-    type RepairReqData,
+    repairManyReqSchema,
     repairReqSchema,
     repairResSchema
 } from '../model/repairSchema'
@@ -24,8 +23,8 @@ interface RepairApiBody {
     body: RepairReqData
 }
 
-interface ManyRepairApiBody {
-    body: RepairReqData[]
+interface RepairManyApiBody {
+    body: RepairManyReqData
 }
 
 export const repairApi = backendApi
@@ -74,11 +73,11 @@ export const repairApi = backendApi
             }),
             updateManyRepair: build.mutation<
                 Repair[],
-                CarIdProps & ManyRepairApiBody
+                CarIdProps & RepairManyApiBody
             >({
                 queryFn: makeValidatedQueryFn(
                     {
-                        reqSchema: array(repairReqSchema),
+                        reqSchema: repairManyReqSchema,
                         resSchema: array(repairResSchema)
                     },
                     ({ carId, body }) => ({
@@ -117,6 +116,14 @@ export const repairApi = backendApi
                     providesTagsToList({ tag: ApiTags.repair, result })
             },
             updateRepair: {
+                invalidatesTags: result =>
+                    invalidatesTagsToList({
+                        tag: ApiTags.repair,
+                        result,
+                        depsTags: [ApiTags.interaction]
+                    })
+            },
+            updateManyRepair: {
                 invalidatesTags: result =>
                     invalidatesTagsToList({
                         tag: ApiTags.repair,
