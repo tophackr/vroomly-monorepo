@@ -1,4 +1,4 @@
-import { InteractionCategory } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { Transform } from 'class-transformer'
 import {
     IsDateString,
@@ -15,9 +15,9 @@ import type { UpdateFuelInteractionDto } from './updateFuelInteractionDto'
 import type { WheelInteractionDto } from './wheelInteractionDto'
 
 export class CreateInteractionDto {
-    @IsEnum(InteractionCategory)
+    @IsEnum(InteractionType)
     @Transform(({ value }) => ('' + value).toLowerCase())
-    readonly type!: InteractionCategory
+    readonly type!: InteractionType
 
     @IsDateString()
     readonly date!: Date

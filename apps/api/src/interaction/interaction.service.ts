@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
-import { InteractionCategory, type Interaction } from '@vroomly/prisma'
+import type { Interaction } from '@vroomly/prisma'
+import { InteractionType } from '@vroomly/prisma'
 import { CarService } from '@/car/car.service'
 import { allowedFieldsDto } from '@/common/allowFieldsDto'
 import { validateExists } from '@/common/validateEntity'
@@ -14,10 +15,10 @@ import { WheelInteractionService } from './wheelInteraction.service'
 
 const ENTITY = 'Interaction'
 
-function isRepair(type: InteractionCategory): boolean {
-    const repairs: InteractionCategory[] = [
-        InteractionCategory.maintenance,
-        InteractionCategory.repair
+function isRepair(type: InteractionType): boolean {
+    const repairs: InteractionType[] = [
+        InteractionType.maintenance,
+        InteractionType.repair
     ]
     return repairs.includes(type)
 }
@@ -41,7 +42,7 @@ export class InteractionService {
     ): Promise<void> {
         if (
             createInteractionDto.fuelData &&
-            item.type === InteractionCategory.fuel
+            item.type === InteractionType.fuel
         ) {
             await this.fuelInteractionService.create(
                 item.id,
@@ -56,7 +57,7 @@ export class InteractionService {
             )
         } else if (
             createInteractionDto.partData &&
-            item.type === InteractionCategory.part
+            item.type === InteractionType.part
         ) {
             await this.partInteractionService.createOrUpdate(
                 userId,
@@ -66,7 +67,7 @@ export class InteractionService {
             )
         } else if (
             createInteractionDto.wheelData &&
-            item.type === InteractionCategory.purchase_wheels
+            item.type === InteractionType.purchase_wheels
         ) {
             await this.wheelInteractionService.create(
                 item.id,
@@ -83,7 +84,7 @@ export class InteractionService {
     ): Promise<void> {
         if (
             updateInteractionDto.fuelData &&
-            item.type === InteractionCategory.fuel
+            item.type === InteractionType.fuel
         ) {
             await this.fuelInteractionService.update(
                 item.id,
@@ -98,7 +99,7 @@ export class InteractionService {
             )
         } else if (
             updateInteractionDto.partData &&
-            item.type === InteractionCategory.part
+            item.type === InteractionType.part
         ) {
             await this.partInteractionService.createOrUpdate(
                 userId,
@@ -108,7 +109,7 @@ export class InteractionService {
             )
         } else if (
             updateInteractionDto.wheelData &&
-            item.type === InteractionCategory.purchase_wheels
+            item.type === InteractionType.purchase_wheels
         ) {
             await this.wheelInteractionService.update(
                 item.id,
