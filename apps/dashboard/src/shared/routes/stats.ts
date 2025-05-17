@@ -6,10 +6,10 @@ class Stats {
     cost = (carId: string) => `${this.root(carId)}/cost`
     list = (carId: string) => `${this.root(carId)}/list`
     fuel = (carId: string) => `${this.root(carId)}/fuel`
-    parts = (carId: string) => `${this.root(carId)}/parts`
+    repairs = (carId: string) => `${this.root(carId)}/repairs`
     'trip-cost' = (carId: string) => `${this.root(carId)}/trip-cost`
 
-    partsEdit = (carId: string) => `${this.parts(carId)}/edit`
+    repairsEdit = (carId: string) => `${this.repairs(carId)}/edit`
 }
 
 export const statsRoute = new Stats()

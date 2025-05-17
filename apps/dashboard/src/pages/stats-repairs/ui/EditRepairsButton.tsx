@@ -5,10 +5,10 @@ import { EditButton } from '@/entities/edit'
 import { useButtonClick } from '@/shared/lib/dom'
 import { statsRoute } from '@/shared/routes'
 
-export const EditPartsButton = memo(function EditPartsButton({
+export const EditRepairsButton = memo(function EditRepairsButton({
     car
 }: CarProps): JSX.Element {
-    const props = useButtonClick({ route: statsRoute.partsEdit(car.id) })
+    const props = useButtonClick({ route: statsRoute.repairsEdit(car.id) })
 
     return <EditButton {...props} />
 })

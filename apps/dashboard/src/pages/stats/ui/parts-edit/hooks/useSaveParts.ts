@@ -34,7 +34,7 @@ export function useSaveParts(): UseSavePartsReturns {
                 carId: car.id,
                 body: { repairs }
             }).then(({ error }) => {
-                router.push(statsRoute.parts(car.id))
+                router.push(statsRoute.repairs(car.id))
                 if (error) logError('useSaveParts', error)
             })
         },

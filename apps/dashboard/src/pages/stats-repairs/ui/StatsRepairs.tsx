@@ -6,10 +6,10 @@ import { List } from '@telegram-apps/telegram-ui'
 import { useCarContext } from '@/entities/car'
 import { RepairCell, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
-import { EditPartsButton } from './EditPartsButton'
-import { PartsSkeleton } from './PartsSkeleton'
+import { EditRepairsButton } from './EditRepairsButton'
+import { RepairsSkeleton } from './RepairsSkeleton'
 
-export function StatsParts(): JSX.Element {
+export function StatsRepairs(): JSX.Element {
     const { error: logError } = useLogger()
 
     const { car } = useCarContext()
@@ -21,7 +21,7 @@ export function StatsParts(): JSX.Element {
         error
     } = useFindAllRepairsQuery({ carId: car.id })
 
-    if (isError) logError('StatsParts', error)
+    if (isError) logError('StatsRepairs', error)
 
     const filteredRepair = useMemo(
         () =>
@@ -40,13 +40,13 @@ export function StatsParts(): JSX.Element {
         [repairs]
     )
 
-    if (isLoading) return <PartsSkeleton />
+    if (isLoading) return <RepairsSkeleton />
 
     // todo: if not visible
 
     return (
         <>
-            <EditPartsButton car={car} />
+            <EditRepairsButton car={car} />
 
             <List>
                 {filteredRepair?.map(repair => (

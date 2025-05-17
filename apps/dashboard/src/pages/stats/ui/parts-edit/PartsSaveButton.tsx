@@ -12,7 +12,7 @@ export function PartsSaveButton(): JSX.Element {
     const { car } = useCarContext()
 
     const props = useButtonClick({
-        route: statsRoute.parts(car.id),
+        route: statsRoute.repairs(car.id),
         callback: saveCallback
     })
 
