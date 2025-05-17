@@ -3,10 +3,8 @@
 import { memo, useEffect } from 'react'
 import type { SecondaryButtonState } from '@telegram-apps/sdk-react'
 import {
-    mountSecondaryButton,
     onSecondaryButtonClick,
-    setSecondaryButtonParams,
-    unmountSecondaryButton
+    setSecondaryButtonParams
 } from '@telegram-apps/sdk-react'
 
 export interface SecondaryButtonProps extends Partial<SecondaryButtonState> {
@@ -19,7 +17,8 @@ export const SecondaryButton = memo(function SecondaryButton({
     ...params
 }: SecondaryButtonProps) {
     useEffect(() => {
-        mountSecondaryButton()
+        setSecondaryButtonParams({ isVisible, ...params })
+        const offClick = onSecondaryButtonClick(onClick)
 
         return () => {
             setSecondaryButtonParams({
@@ -28,21 +27,9 @@ export const SecondaryButton = memo(function SecondaryButton({
                 isLoaderVisible: false,
                 isVisible: false
             })
-            unmountSecondaryButton()
-        }
-    }, [])
-
-    useEffect(() => {
-        setSecondaryButtonParams({ isVisible, ...params })
-    }, [isVisible, params])
-
-    useEffect(() => {
-        const offClick = onSecondaryButtonClick(onClick)
-
-        return () => {
             offClick()
         }
-    }, [onClick])
+    }, [isVisible, onClick, params])
 
     return null
 })
