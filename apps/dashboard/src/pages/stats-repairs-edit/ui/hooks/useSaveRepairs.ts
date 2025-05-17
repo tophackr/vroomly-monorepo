@@ -6,11 +6,11 @@ import { useRouter } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 import { statsRoute } from '@/shared/routes'
 
-interface UseSavePartsReturns {
+interface UseSaveRepairsReturns {
     saveCallback: (data: RepairsProps) => void
 }
 
-export function useSaveParts(): UseSavePartsReturns {
+export function useSaveRepairs(): UseSaveRepairsReturns {
     const router = useRouter()
     const { error: logError } = useLogger()
 

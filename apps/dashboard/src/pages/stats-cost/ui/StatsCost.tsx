@@ -10,6 +10,7 @@ import {
     useFindAllInteractionsQuery
 } from '@/entities/interaction'
 import { useLogger } from '@/shared/model'
+import { BackButton } from '@/shared/ui/tma'
 import { CostData } from './CostData'
 import { CostSkeleton } from './CostSkeleton'
 import { useLastDayFilter } from './hooks/useLastDayFilter'
@@ -84,9 +85,11 @@ export function StatsCost() {
     if (isLoading) return <CostSkeleton />
 
     return (
-        <Segments
-            segments={data}
-            defaultSegment={CostKeys.thirty_days}
-        />
+        <BackButton>
+            <Segments
+                segments={data}
+                defaultSegment={CostKeys.thirty_days}
+            />
+        </BackButton>
     )
 }

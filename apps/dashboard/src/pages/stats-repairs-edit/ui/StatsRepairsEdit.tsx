@@ -5,11 +5,11 @@ import { List } from '@telegram-apps/telegram-ui'
 import { useCarContext } from '@/entities/car'
 import { RepairField, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
-import { PartsEditFormProvider } from './PartsEditFormProvider'
-import { PartsEditSkeleton } from './PartsEditSkeleton'
-import { PartsSaveButton } from './PartsSaveButton'
+import { RepairsEditFormProvider } from './RepairsEditFormProvider'
+import { RepairsEditSkeleton } from './RepairsEditSkeleton'
+import { RepairsSaveButton } from './RepairsSaveButton'
 
-export function StatsPartsEdit(): JSX.Element {
+export function StatsRepairsEdit(): JSX.Element {
     const { error: logError } = useLogger()
 
     const { car } = useCarContext()
@@ -22,11 +22,11 @@ export function StatsPartsEdit(): JSX.Element {
 
     if (isError) logError('StatsPartsEdit', error)
 
-    if (isLoading || !repairs) return <PartsEditSkeleton />
+    if (isLoading || !repairs) return <RepairsEditSkeleton />
 
     return (
         <List>
-            <PartsEditFormProvider repairs={repairs}>
+            <RepairsEditFormProvider repairs={repairs}>
                 {repairs?.map(repair => (
                     <RepairField
                         key={repair.id}
@@ -34,8 +34,8 @@ export function StatsPartsEdit(): JSX.Element {
                     />
                 ))}
 
-                <PartsSaveButton />
-            </PartsEditFormProvider>
+                <RepairsSaveButton />
+            </RepairsEditFormProvider>
         </List>
     )
 }

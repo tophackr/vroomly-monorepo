@@ -5,7 +5,7 @@ import { memo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import type { RepairsProps } from '@/entities/repair'
 
-export const PartsEditFormProvider = memo(function PartsEditFormProvider({
+export const RepairsEditFormProvider = memo(function RepairsEditFormProvider({
     repairs,
     children
 }: PropsWithChildren<RepairsProps>): JSX.Element {

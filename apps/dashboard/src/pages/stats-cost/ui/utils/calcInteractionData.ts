@@ -1,7 +1,7 @@
 import type { InteractionType } from '@vroomly/prisma'
 import type { InteractionResData } from '@/entities/interaction'
 import { typedEntries } from '@/shared/lib/dom'
-import type { InteractionDataProps } from '../types'
+import type { InteractionDataProps } from '../props'
 
 export function calcInteractionData(
     interactions: InteractionResData[]

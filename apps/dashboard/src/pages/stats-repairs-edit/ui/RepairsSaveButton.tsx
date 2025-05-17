@@ -5,10 +5,10 @@ import { useCarContext } from '@/entities/car'
 import { useButtonClick } from '@/shared/lib/dom'
 import { statsRoute } from '@/shared/routes'
 import { SaveButton, useVisibleSaveButton } from '@/shared/ui/action'
-import { useSaveParts } from './hooks/useSaveParts'
+import { useSaveRepairs } from './hooks/useSaveRepairs'
 
-export function PartsSaveButton(): JSX.Element {
-    const { saveCallback } = useSaveParts()
+export function RepairsSaveButton(): JSX.Element {
+    const { saveCallback } = useSaveRepairs()
     const { car } = useCarContext()
 
     const props = useButtonClick({

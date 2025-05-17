@@ -2,7 +2,7 @@ import { Cell, List, Section, Switch } from '@telegram-apps/telegram-ui'
 import { cx } from '@/shared/lib/dom'
 import { PulseSkeletonLayout, TextSkeleton } from '@/shared/ui/skeleton'
 
-export function PartsEditSkeleton() {
+export function RepairsEditSkeleton() {
     return (
         <PulseSkeletonLayout>
             <List>

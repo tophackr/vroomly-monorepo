@@ -2,7 +2,7 @@ import type { JSX } from 'react'
 import { memo } from 'react'
 import { ListSection } from '@/shared/ui'
 import { CostCell } from './CostCell'
-import type { InteractionDataProps } from './types'
+import type { InteractionDataProps } from './props'
 
 export const CostData = memo(function CostData({
     data,
