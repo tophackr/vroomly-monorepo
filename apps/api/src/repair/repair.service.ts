@@ -58,6 +58,9 @@ export class RepairService {
 
         const items = await this.prismaService.repair.findMany({
             where: { userId, carId },
+            orderBy: {
+                id: 'asc'
+            },
             include: {
                 interactions: {
                     include: {
