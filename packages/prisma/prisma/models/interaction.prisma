@@ -3,7 +3,7 @@ model Interaction {
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
 
-    type        InteractionCategory
+    type        InteractionType
     date        DateTime            @db.Date
     mileage     Int?
     amount      Float?
@@ -23,7 +23,7 @@ model Interaction {
     @@map("interaction")
 }
 
-enum InteractionCategory {
+enum InteractionType {
     mileage
     parking
     toll_road
