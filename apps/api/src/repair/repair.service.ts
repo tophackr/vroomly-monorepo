@@ -138,7 +138,7 @@ export class RepairService {
 
                     return this.prismaService.repair.update({
                         where: { id },
-                        data
+                        data: allowedFieldsDto(data, ENTITY)
                     })
                 }
 
