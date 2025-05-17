@@ -26,7 +26,7 @@ export const menuData: KeyMenu<StatsCategory>[] = [
         group: StatsGroup.stats
     },
     {
-        name: StatsCategory.parts,
+        name: StatsCategory.repairs,
         icon: 'Bolt',
         bgColor: 'LimeGreen',
         group: StatsGroup.calculated
