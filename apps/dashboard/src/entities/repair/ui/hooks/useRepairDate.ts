@@ -20,7 +20,7 @@ export function useRepairDate(
 
     const currentDate = new Date()
 
-    const timeDiff = currentDate.getTime() - date.getTime()
+    const timeDiff = currentDate.getTime() - new Date(date).getTime()
     const diffInDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
 
     const nextReplacementDays = days - diffInDays
