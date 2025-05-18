@@ -5,12 +5,10 @@ import { DynamicCarsContent } from './DynamicCarsContent'
 
 export function HomePage(): JSX.Element {
     return (
-        <>
-            <BackButton hide={true} />
-
+        <BackButton hide={true}>
             <DynamicCarsContent />
 
             <CarCreateButton />
-        </>
+        </BackButton>
     )
 }
