@@ -1,3 +1,4 @@
+export { hasLocale } from './hasLocale'
 export { defaultLocale, locales } from './config'
 export { getLocales } from './getLocales'
 export { useIntlCurrency } from './hooks/useIntlCurrency'
