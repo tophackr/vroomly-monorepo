@@ -1,3 +1,5 @@
+'use client'
+
 import type { JSX } from 'react'
 import { memo, useState } from 'react'
 import { List, Placeholder, SegmentedControl } from '@telegram-apps/telegram-ui'
