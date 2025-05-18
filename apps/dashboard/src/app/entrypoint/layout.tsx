@@ -1,6 +1,7 @@
 import type { JSX, PropsWithChildren } from 'react'
 import { memo } from 'react'
 import '@telegram-apps/telegram-ui/dist/styles.css'
+import { hasLocale } from 'next-intl'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
@@ -17,7 +18,7 @@ export const AppLayout = memo(async function AppLayout({
 }: PropsWithChildren<ParamsProps<LocaleProps>>): Promise<JSX.Element> {
     const { locale } = await params
 
-    if (!routing.locales.includes(locale)) {
+    if (!hasLocale(routing.locales, locale)) {
         notFound()
     }
 
