@@ -36,7 +36,7 @@ export function StatsCost() {
     const interactionsCarFilter = useMemo(
         () =>
             [...(interactions ?? [])].filter(
-                ({ carId, type }) => carId === car.id && isMileageType(type)
+                ({ carId, type }) => carId === car.id && !isMileageType(type)
             ),
         [car.id, interactions]
     )
