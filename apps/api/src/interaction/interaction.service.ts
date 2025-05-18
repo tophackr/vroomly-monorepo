@@ -1,8 +1,13 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import type { Interaction } from '@vroomly/prisma'
-import { InteractionType } from '@vroomly/prisma'
 import { CarService } from '@/car/car.service'
 import { allowedFieldsDto } from '@/common/allowFieldsDto'
+import {
+    isFuelType,
+    isPartType,
+    isRepairType,
+    isWheelType
+} from '@/common/isType'
 import { validateExists } from '@/common/validateEntity'
 import { PrismaService } from '@/prisma/prisma.service'
 import type { CreateFuelInteractionDto } from './dto/createFuelInteractionDto'
@@ -14,14 +19,6 @@ import { RepairInteractionService } from './repairInteraction.service'
 import { WheelInteractionService } from './wheelInteraction.service'
 
 const ENTITY = 'Interaction'
-
-function isRepair(type: InteractionType): boolean {
-    const repairs: InteractionType[] = [
-        InteractionType.maintenance,
-        InteractionType.repair
-    ]
-    return repairs.includes(type)
-}
 
 @Injectable()
 export class InteractionService {
@@ -40,35 +37,26 @@ export class InteractionService {
         createInteractionDto: CreateInteractionDto,
         item: Interaction
     ): Promise<void> {
-        if (
-            createInteractionDto.fuelData &&
-            item.type === InteractionType.fuel
-        ) {
+        if (createInteractionDto.fuelData && isFuelType(item.type)) {
             await this.fuelInteractionService.create(
                 item.id,
                 createInteractionDto.fuelData as CreateFuelInteractionDto
             )
-        } else if (createInteractionDto.repairData && isRepair(item.type)) {
+        } else if (createInteractionDto.repairData && isRepairType(item.type)) {
             await this.repairInteractionService.createOrUpdate(
                 userId,
                 carId,
                 item.id,
                 createInteractionDto.repairData
             )
-        } else if (
-            createInteractionDto.partData &&
-            item.type === InteractionType.part
-        ) {
+        } else if (createInteractionDto.partData && isPartType(item.type)) {
             await this.partInteractionService.createOrUpdate(
                 userId,
                 carId,
                 item.id,
                 createInteractionDto.partData
             )
-        } else if (
-            createInteractionDto.wheelData &&
-            item.type === InteractionType.purchase_wheels
-        ) {
+        } else if (createInteractionDto.wheelData && isWheelType(item.type)) {
             await this.wheelInteractionService.create(
                 item.id,
                 createInteractionDto.wheelData
@@ -82,35 +70,26 @@ export class InteractionService {
         updateInteractionDto: UpdateInteractionDto,
         item: Interaction
     ): Promise<void> {
-        if (
-            updateInteractionDto.fuelData &&
-            item.type === InteractionType.fuel
-        ) {
+        if (updateInteractionDto.fuelData && isFuelType(item.type)) {
             await this.fuelInteractionService.update(
                 item.id,
                 updateInteractionDto.fuelData
             )
-        } else if (updateInteractionDto.repairData && isRepair(item.type)) {
+        } else if (updateInteractionDto.repairData && isRepairType(item.type)) {
             await this.repairInteractionService.createOrUpdate(
                 userId,
                 carId,
                 item.id,
                 updateInteractionDto.repairData
             )
-        } else if (
-            updateInteractionDto.partData &&
-            item.type === InteractionType.part
-        ) {
+        } else if (updateInteractionDto.partData && isPartType(item.type)) {
             await this.partInteractionService.createOrUpdate(
                 userId,
                 carId,
                 item.id,
                 updateInteractionDto.partData
             )
-        } else if (
-            updateInteractionDto.wheelData &&
-            item.type === InteractionType.purchase_wheels
-        ) {
+        } else if (updateInteractionDto.wheelData && isWheelType(item.type)) {
             await this.wheelInteractionService.update(
                 item.id,
                 updateInteractionDto.wheelData
