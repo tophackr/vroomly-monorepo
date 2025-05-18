@@ -1,6 +1,6 @@
-import { hasLocale } from 'next-intl'
 import { getRequestConfig } from 'next-intl/server'
 import { getLocales } from './getLocales'
+import { hasLocale } from './hasLocale'
 import { routing } from './routing'
 
 // eslint-disable-next-line import/no-default-export
