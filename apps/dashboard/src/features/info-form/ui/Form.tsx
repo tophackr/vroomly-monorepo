@@ -35,11 +35,9 @@ export const Form = memo(function Form({
             >
                 {showDefaultButton && <DefaultSection />}
 
-                <div className={'grid gap-x-4 md:grid-cols-2'}>
-                    <InfoSection />
-                    <FuelSection />
-                    <MileageSection />
-                </div>
+                <InfoSection />
+                <FuelSection />
+                <MileageSection />
 
                 <SaveCarButton />
             </InfoFormProvider>
