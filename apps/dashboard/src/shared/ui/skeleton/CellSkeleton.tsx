@@ -18,7 +18,7 @@ export const CellSkeleton = memo(function CellSkeleton({
             {...props}
         >
             {short ? (
-                <TextSkeleton className={'bg-subtitle py-2 my-[.375rem]'} />
+                <TextSkeleton className={'bg-subtitle py-2 my-[.1875rem]'} />
             ) : (
                 <TextSkeleton long />
             )}

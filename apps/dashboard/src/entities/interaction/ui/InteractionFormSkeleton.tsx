@@ -16,6 +16,7 @@ export function InteractionFormSkeleton(): JSX.Element {
                         <CellSkeleton
                             key={index}
                             before={<IconSkeleton />}
+                            className={'my-[.375rem]'}
                             short
                         />
                     ))}
@@ -25,6 +26,7 @@ export function InteractionFormSkeleton(): JSX.Element {
                     <Cell className={'h-20'} />
                     <CellSkeleton
                         before={<IconSkeleton />}
+                        className={'my-[.375rem]'}
                         short
                     />
                 </Section>
