@@ -1,31 +1,24 @@
-import type { JSX, ReactNode } from 'react'
-import { memo } from 'react'
+import type { JSX } from 'react'
 import {
     Button,
     InlineButtons,
     List,
     Placeholder
 } from '@telegram-apps/telegram-ui'
-import { hasReactNode } from '@/shared/lib/dom'
 import {
     AvatarSkeleton,
     PulseSkeletonLayout,
+    TabsSkeleton,
     TextSkeleton
 } from '@/shared/ui/skeleton'
 
-interface CarPreviewSkeletonProps {
-    segments?: ReactNode
-}
-
-export const CarPreviewSkeleton = memo(function CarPreviewSkeleton({
-    segments
-}: CarPreviewSkeletonProps): JSX.Element {
+export function CarPreviewSkeleton(): JSX.Element {
     return (
         <PulseSkeletonLayout>
-            {hasReactNode(segments) && segments}
+            <TabsSkeleton />
 
             <Placeholder
-                header={<TextSkeleton className={'bg-content m-auto'} />}
+                header={<TextSkeleton className={'bg-content m-auto h-8'} />}
                 description={
                     <TextSkeleton
                         className={'bg-hint m-auto'}
@@ -55,4 +48,4 @@ export const CarPreviewSkeleton = memo(function CarPreviewSkeleton({
             </List>
         </PulseSkeletonLayout>
     )
-})
+}
