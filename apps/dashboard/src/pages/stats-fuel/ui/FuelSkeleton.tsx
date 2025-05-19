@@ -4,8 +4,8 @@ import { PulseSkeletonLayout, TextSkeleton } from '@/shared/ui/skeleton'
 
 export function FuelSkeleton() {
     return (
-        <ListSection>
-            <PulseSkeletonLayout>
+        <PulseSkeletonLayout>
+            <ListSection>
                 <div className={'grid grid-cols-2 justify-around'}>
                     <TextSkeleton
                         className={'col-span-2 m-4 justify-self-center'}
@@ -14,11 +14,11 @@ export function FuelSkeleton() {
                     {Array.from({ length: 2 }, (_, i) => (
                         <Placeholder
                             key={i}
-                            header={<TextSkeleton className={'mx-auto'} />}
+                            header={
+                                <TextSkeleton className={'mx-auto my-4 h-8'} />
+                            }
                             description={
-                                <TextSkeleton
-                                    className={'bg-hint justify-self-center'}
-                                />
+                                <TextSkeleton className={'bg-hint mx-auto'} />
                             }
                             className={'py-0!'}
                         />
@@ -34,10 +34,10 @@ export function FuelSkeleton() {
 
                 {Array.from({ length: 5 }, (_, i) => (
                     <Cell key={i}>
-                        <TextSkeleton />
+                        <TextSkeleton className={'py-2 my-[.1875rem]'} />
                     </Cell>
                 ))}
-            </PulseSkeletonLayout>
-        </ListSection>
+            </ListSection>
+        </PulseSkeletonLayout>
     )
 }
