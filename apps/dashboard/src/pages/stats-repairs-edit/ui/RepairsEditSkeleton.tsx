@@ -1,13 +1,24 @@
 import { Cell, List, Section, Switch } from '@telegram-apps/telegram-ui'
 import { cx } from '@/shared/lib/dom'
-import { PulseSkeletonLayout, TextSkeleton } from '@/shared/ui/skeleton'
+import {
+    PulseSkeletonLayout,
+    SectionHeaderSkeleton,
+    TextSkeleton
+} from '@/shared/ui/skeleton'
 
 export function RepairsEditSkeleton() {
     return (
         <PulseSkeletonLayout>
             <List>
-                {Array.from({ length: 4 }, (_, index) => (
-                    <Section key={index}>
+                {Array.from({ length: 3 }, (_, index) => (
+                    <Section
+                        header={
+                            <SectionHeaderSkeleton
+                                className={cx(index === 0 && 'mt-4')}
+                            />
+                        }
+                        key={index}
+                    >
                         {Array.from({ length: 3 }, (_, index) => (
                             <Cell
                                 key={index}
@@ -22,7 +33,7 @@ export function RepairsEditSkeleton() {
                             >
                                 <TextSkeleton
                                     className={cx(
-                                        'bg-content',
+                                        'bg-content my-[.1875rem]',
                                         index === 2 && 'w-48'
                                     )}
                                 />
