@@ -75,13 +75,11 @@ export const CarContextProvider = memo(function CarContextProvider({
     if (isInteractionError)
         logError('CarContextProvider.interactionError', interactionError)
 
-    if (isCarLoading) return <CarPreviewSkeleton />
+    if (isCarLoading || isInteractionsFetching) return <CarPreviewSkeleton />
 
     if (!car) {
         notFound()
     }
-
-    if (isInteractionsFetching) return <CarPreviewSkeleton />
 
     const lastMileage = interactions?.find(({ type }) => isMileageType(type))
 
