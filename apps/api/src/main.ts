@@ -37,17 +37,13 @@ async function bootstrap() {
         )
     )
     app.enableCors({
-        origin: [
-            'http://localhost:3000',
-            'http://127.0.0.1:3000',
-            'https://ucarmonitor.vercel.app'
-        ],
+        origin: process.env.DASHBOARD_URL,
         methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'X-Telegram-Data'],
         credentials: true
     })
 
-    await app.listen(process.env.PORT ?? 3000)
+    await app.listen(process.env.PORT ?? 3001)
     log('sterted at port: ' + (await app.getUrl()))
 }
 
