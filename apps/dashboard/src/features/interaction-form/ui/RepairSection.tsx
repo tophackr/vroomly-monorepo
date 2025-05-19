@@ -8,6 +8,7 @@ import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { isRepair, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
+import { SelectableSkeleton } from './SelectableSkeleton'
 
 export function RepairSection(): JSX.Element {
     const t = useTranslations('CarActionForm')
@@ -22,8 +23,9 @@ export function RepairSection(): JSX.Element {
 
     if (isError) logError('RepairSection', error)
 
-    // todo: loading repairs
-    if (isLoading) return <>Loading repairs...</>
+    if (isLoading) return <SelectableSkeleton />
+
+    // todo: if not visible
 
     return (
         <Section header={t('repair_work.title')}>
