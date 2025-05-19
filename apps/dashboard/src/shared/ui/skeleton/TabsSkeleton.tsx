@@ -1,6 +1,8 @@
+'use client'
+
 import { List, Placeholder, SegmentedControl } from '@telegram-apps/telegram-ui'
 
-export function SegmentsSkeleton() {
+export function TabsSkeleton() {
     return (
         <List>
             <Placeholder className={'p-0!'}>
@@ -9,6 +11,7 @@ export function SegmentsSkeleton() {
                         <SegmentedControl.Item
                             key={index}
                             selected={index === 0}
+                            className={'py-4!'}
                         />
                     ))}
                 </SegmentedControl>

@@ -1,3 +1,4 @@
+export { TabsSkeleton } from './TabsSkeleton'
 export { AvatarSkeleton } from './AvatarSkeleton'
 export { CellSkeleton } from './CellSkeleton'
 export { IconSkeleton } from './IconSkeleton'
