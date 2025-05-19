@@ -8,7 +8,7 @@ export const IconSkeleton = memo(function IconSkeleton({
 }: HTMLAttributes<HTMLDivElement>): JSX.Element {
     return (
         <div
-            className={cx('bg-subtitle h-8 w-8 rounded-lg', className)}
+            className={cx('bg-subtitle h-7 w-7 rounded-lg', className)}
             {...props}
         />
     )
