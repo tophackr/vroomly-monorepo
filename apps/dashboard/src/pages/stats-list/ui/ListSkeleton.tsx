@@ -1,7 +1,13 @@
-import { List, Placeholder, Section } from '@telegram-apps/telegram-ui'
+import {
+    LargeTitle,
+    List,
+    Placeholder,
+    Section
+} from '@telegram-apps/telegram-ui'
 import {
     CellSkeleton,
     PulseSkeletonLayout,
+    SectionHeaderSkeleton,
     TextSkeleton
 } from '@/shared/ui/skeleton'
 
@@ -9,32 +15,33 @@ export function ListSkeleton() {
     return (
         <PulseSkeletonLayout>
             <Placeholder
-                header={<TextSkeleton className={'bg-content m-auto'} />}
                 description={
                     <TextSkeleton
-                        className={'bg-hint m-auto'}
+                        className={'bg-hint mt-2 mx-auto'}
                         long
                     />
                 }
-            />
+            >
+                <LargeTitle>
+                    <TextSkeleton className={'py-4 mt-4 mx-auto'} />
+                </LargeTitle>
+            </Placeholder>
 
-            <List>
+            <List className={'-mt-2'}>
                 <Section
-                    header={<TextSkeleton className={'bg-content mb-2'} />}
-                    footer={<TextSkeleton className={'bg-subtitle'} />}
+                    header={<SectionHeaderSkeleton />}
+                    footer={<TextSkeleton />}
                 >
-                    {Array.from({ length: 3 }, (_, index) => (
+                    {Array.from({ length: 2 }, (_, index) => (
                         <CellSkeleton key={index} />
                     ))}
                 </Section>
 
                 <Section
-                    header={<TextSkeleton className={'bg-content mb-2'} />}
-                    footer={<TextSkeleton className={'bg-subtitle'} />}
+                    header={<SectionHeaderSkeleton />}
+                    footer={<TextSkeleton />}
                 >
-                    {Array.from({ length: 2 }, (_, index) => (
-                        <CellSkeleton key={index} />
-                    ))}
+                    <CellSkeleton />
                 </Section>
             </List>
         </PulseSkeletonLayout>
