@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { Section } from '@telegram-apps/telegram-ui'
 import type { CarProps } from '@/entities/car/@x/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
-import { NothingPlaceholder } from '@/shared/ui/placeholder'
+import { LoadingPlaceholder, NothingPlaceholder } from '@/shared/ui/placeholder'
 import { useListInteractions } from './hooks/useListInteractions'
 import { InteractionCell } from './InteractionCell'
 import { InteractionSumFooter } from './InteractionSumFooter'
@@ -24,13 +24,15 @@ export const InteractionList = memo(function InteractionList({
         month: 'long'
     })
 
-    const interactions = useListInteractions(car.id, slice)
+    const { interactions, isLoading } = useListInteractions(car.id, slice)
 
     return (
         <>
             {Array.isArray(interactions) ? (
                 <Section header={t('last_activity')}>
-                    {interactions.length > 0 ? (
+                    {isLoading ? (
+                        <LoadingPlaceholder />
+                    ) : interactions.length > 0 ? (
                         interactions.map(i => (
                             <InteractionCell
                                 key={i.id}

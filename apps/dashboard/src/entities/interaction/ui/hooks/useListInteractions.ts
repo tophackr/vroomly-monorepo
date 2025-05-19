@@ -7,10 +7,15 @@ interface GroupedInteractions {
     [month: string]: InteractionResData[]
 }
 
+interface UseListInteractionsReturn {
+    interactions: GroupedInteractions | InteractionResData[]
+    isLoading: boolean
+}
+
 export function useListInteractions(
     carId: string,
     slice?: number
-): GroupedInteractions | InteractionResData[] {
+): UseListInteractionsReturn {
     const { error: logError } = useLogger()
 
     const {
@@ -22,7 +27,7 @@ export function useListInteractions(
 
     if (isError) logError('useListInteractions', error)
 
-    return useMemo(() => {
+    const data = useMemo(() => {
         if (isLoading || !interactions) return []
 
         return slice
@@ -48,4 +53,6 @@ export function useListInteractions(
                   return grouped
               })()
     }, [interactions, isLoading, slice])
+
+    return { interactions: data, isLoading }
 }
