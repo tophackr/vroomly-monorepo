@@ -1,3 +1,4 @@
+export { SectionHeaderSkeleton } from './SectionHeaderSkeleton'
 export { TabsSkeleton } from './TabsSkeleton'
 export { AvatarSkeleton } from './AvatarSkeleton'
 export { CellSkeleton } from './CellSkeleton'
