@@ -7,6 +7,7 @@ import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useInteractionContext } from '@/entities/interaction'
 import { isRepair, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
+import { SelectedSkeleton } from './SelectedSkeleton'
 
 export function RepairSection(): JSX.Element | undefined {
     const t = useTranslations('CarActionForm')
@@ -31,8 +32,7 @@ export function RepairSection(): JSX.Element | undefined {
         [data, ids]
     )
 
-    // todo: loading repairs
-    if (isLoading) return <>Loading repairs...</>
+    if (isLoading) return <SelectedSkeleton />
 
     return repairListFiltered?.length ? (
         <Section header={t('repair_work.title')}>

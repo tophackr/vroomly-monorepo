@@ -7,6 +7,7 @@ import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useInteractionContext } from '@/entities/interaction'
 import { isPart, useFindAllPartsQuery } from '@/entities/part'
 import { useLogger } from '@/shared/model'
+import { SelectedSkeleton } from './SelectedSkeleton'
 
 export function PartsSection(): JSX.Element | undefined {
     const t = useTranslations('CarActionForm')
@@ -31,8 +32,7 @@ export function PartsSection(): JSX.Element | undefined {
         [data, ids]
     )
 
-    // todo: loading parts
-    if (isLoading) return <>Loading parts...</>
+    if (isLoading) return <SelectedSkeleton />
 
     return partsListFiltered?.length ? (
         <Section header={t('parts_work.title')}>
