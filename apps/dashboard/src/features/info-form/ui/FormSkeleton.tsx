@@ -12,32 +12,56 @@ export function FormSkeleton(): JSX.Element {
         <List>
             <PulseSkeletonLayout>
                 <Section>
-                    <CellSkeleton before={<IconSkeleton />} />
+                    <CellSkeleton
+                        before={<IconSkeleton />}
+                        short
+                    />
                 </Section>
 
-                <Section header={<TextSkeleton className={'mt-4 mb-2'} />}>
+                <Section
+                    header={
+                        <TextSkeleton
+                            className={'bg-subtitle ms-4 mt-8 mb-2'}
+                        />
+                    }
+                >
                     {Array.from({ length: 4 }, (_, index) => (
                         <CellSkeleton
                             key={index}
                             before={<IconSkeleton />}
+                            short
                         />
                     ))}
                 </Section>
 
-                <Section header={<TextSkeleton className={'mt-4 mb-2'} />}>
+                <Section
+                    header={
+                        <TextSkeleton
+                            className={'bg-subtitle ms-4 mt-8 mb-2'}
+                        />
+                    }
+                >
                     {Array.from({ length: 2 }, (_, index) => (
                         <CellSkeleton
                             key={index}
                             before={<IconSkeleton />}
+                            short
                         />
                     ))}
                 </Section>
 
-                <Section header={<TextSkeleton className={'mt-4 mb-2'} />}>
+                <Section
+                    header={
+                        <TextSkeleton
+                            className={'bg-subtitle ms-4 mt-8 mb-2'}
+                        />
+                    }
+                >
                     {Array.from({ length: 3 }, (_, index) => (
                         <CellSkeleton
                             key={index}
                             before={<IconSkeleton />}
+                            short
                         />
                     ))}
                 </Section>
