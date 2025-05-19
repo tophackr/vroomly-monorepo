@@ -1,4 +1,6 @@
 import type { JSX } from 'react'
+import { Input, Tappable } from '@telegram-apps/telegram-ui'
+import { Icon } from '@/shared/ui/icon'
 import {
     AvatarSkeleton,
     CellSkeleton,
@@ -8,7 +10,19 @@ import {
 export function CarsContentLoading(): JSX.Element {
     return (
         <PulseSkeletonLayout>
-            {Array.from({ length: 5 }, (_, index) => (
+            <Input
+                after={
+                    <Tappable className={'flex'}>
+                        <Icon
+                            name={'X'}
+                            className={'text-hint'}
+                        />
+                    </Tappable>
+                }
+                disabled
+            />
+
+            {Array.from({ length: 3 }, (_, index) => (
                 <CellSkeleton
                     key={index}
                     before={<AvatarSkeleton size={28} />}
