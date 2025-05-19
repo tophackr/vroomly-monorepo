@@ -1,25 +1,34 @@
 import type { JSX } from 'react'
-import { List, Section } from '@telegram-apps/telegram-ui'
+import { Cell, List, Section } from '@telegram-apps/telegram-ui'
 import {
     CellSkeleton,
     IconSkeleton,
     PulseSkeletonLayout,
-    TextSkeleton
+    SectionHeaderSkeleton
 } from '@/shared/ui/skeleton'
 
 export function InteractionFormSkeleton(): JSX.Element {
     return (
-        <List>
-            <PulseSkeletonLayout>
-                <Section header={<TextSkeleton className={'mb-2'} />}>
+        <PulseSkeletonLayout>
+            <List>
+                <Section header={<SectionHeaderSkeleton large />}>
                     {Array.from({ length: 3 }, (_, index) => (
                         <CellSkeleton
                             key={index}
                             before={<IconSkeleton />}
+                            short
                         />
                     ))}
                 </Section>
-            </PulseSkeletonLayout>
-        </List>
+
+                <Section>
+                    <Cell className={'h-20'} />
+                    <CellSkeleton
+                        before={<IconSkeleton />}
+                        short
+                    />
+                </Section>
+            </List>
+        </PulseSkeletonLayout>
     )
 }
