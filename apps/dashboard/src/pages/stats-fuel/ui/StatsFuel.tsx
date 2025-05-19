@@ -14,8 +14,10 @@ import {
     useIntlNumber,
     useIntlUnit
 } from '@/shared/i18n'
+import { pagesRoute } from '@/shared/routes'
 import { ListSection } from '@/shared/ui'
 import { LinkCell } from '@/shared/ui/cell'
+import { BackButton } from '@/shared/ui/tma'
 import { fuelRoutes } from '../routes/fuel'
 import { useBetweenDays } from './hooks/useBetweenDays'
 import { useFuelData } from './hooks/useFuelData'
@@ -82,6 +84,8 @@ export function StatsFuel() {
                 footer: 'Расход может отличаться от фактического, поскольку первая заправка не учитывается.'
             }}
         >
+            <BackButton route={pagesRoute.carId(car.id)} />
+
             <div className={'grid grid-cols-2 justify-around'}>
                 <Text className={'col-span-2 p-4 text-center'}>
                     {t('title')}
