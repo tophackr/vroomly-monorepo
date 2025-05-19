@@ -1,11 +1,14 @@
 import { List, Section } from '@telegram-apps/telegram-ui'
-import { SegmentsSkeleton } from '@/features/segment'
-import { CellSkeleton, PulseSkeletonLayout } from '@/shared/ui/skeleton'
+import {
+    CellSkeleton,
+    PulseSkeletonLayout,
+    TabsSkeleton
+} from '@/shared/ui/skeleton'
 
 export function CostSkeleton() {
     return (
         <PulseSkeletonLayout>
-            <SegmentsSkeleton />
+            <TabsSkeleton />
 
             <List>
                 {Array.from({ length: 4 }, (_, index) => (
