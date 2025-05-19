@@ -4,8 +4,7 @@
     "**/.env.*local"
   ],
   "globalEnv": [
-    "NODE_ENV",
-    "PORT"
+    "NODE_ENV"
   ],
   "tasks": {
     "dev": {
