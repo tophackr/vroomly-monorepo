@@ -3,9 +3,9 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
 import { useTranslations } from 'next-intl'
-import type { PlaceholderProps } from '@telegram-apps/telegram-ui'
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { DuckFlashbackLottie } from '@/shared/ui/lottie'
+import type { PlaceholderProps } from './props'
 
 export const NothingPlaceholder = memo(function NothingPlaceholder({
     header,
