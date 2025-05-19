@@ -4,17 +4,24 @@ import type { CellProps } from '@telegram-apps/telegram-ui'
 import { Cell } from '@telegram-apps/telegram-ui'
 import { TextSkeleton } from './TextSkeleton'
 
-type CellSkeletonProps = Omit<CellProps, 'subhead' | 'children'>
+interface CellSkeletonProps extends Omit<CellProps, 'subhead' | 'children'> {
+    short?: boolean
+}
 
-export const CellSkeleton = memo(function CellSkeleton(
-    props: CellSkeletonProps
-): JSX.Element {
+export const CellSkeleton = memo(function CellSkeleton({
+    short = false,
+    ...props
+}: CellSkeletonProps): JSX.Element {
     return (
         <Cell
-            subhead={<TextSkeleton className={'bg-subtitle mb-1'} />}
+            subhead={!short && <TextSkeleton className={'bg-subtitle mb-1'} />}
             {...props}
         >
-            <TextSkeleton long />
+            {short ? (
+                <TextSkeleton className={'bg-subtitle py-3'} />
+            ) : (
+                <TextSkeleton long />
+            )}
         </Cell>
     )
 })
