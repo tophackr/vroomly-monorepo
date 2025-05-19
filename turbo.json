@@ -58,7 +58,10 @@
     },
     "test": {},
     "test:e2e": {},
-    "start": {},
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
     "build": {
       "dependsOn": [
         "^lint",
