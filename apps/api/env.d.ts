@@ -4,5 +4,6 @@ declare namespace NodeJS {
         DIRECT_URL: string
         PORT: number
         TELEGRAM_TOKEN: string
+        DASHBOARD_URL: string
     }
 }
