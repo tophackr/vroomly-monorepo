@@ -60,6 +60,7 @@ export function SettingsButton(): JSX.Element | false {
                 src={user?.photo_url}
                 acronym={user?.first_name?.charAt(0) ?? '?'}
                 onClick={onClick}
+                style={{ cursor: 'pointer' }}
             />
         )
     )
