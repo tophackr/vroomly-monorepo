@@ -7,8 +7,10 @@ import { useCarContext } from '@/entities/car'
 import { RepairCell, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
 import { pagesRoute } from '@/shared/routes'
+import { NothingPlaceholder } from '@/shared/ui/placeholder'
 import { BackButton } from '@/shared/ui/tma'
 import { EditRepairsButton } from './EditRepairsButton'
+import { NothingEditButton } from './NothingEditButton'
 import { RepairsSkeleton } from './RepairsSkeleton'
 
 export function StatsRepairs(): JSX.Element {
@@ -44,20 +46,25 @@ export function StatsRepairs(): JSX.Element {
 
     if (isLoading) return <RepairsSkeleton />
 
-    // todo: if not visible
-
     return (
         <BackButton route={pagesRoute.carId(car.id)}>
             <EditRepairsButton car={car} />
 
-            <List>
-                {filteredRepair?.map(repair => (
-                    <RepairCell
-                        key={repair.option}
-                        commonRepair={repair}
-                    />
-                ))}
-            </List>
+            {filteredRepair && filteredRepair.length > 0 ? (
+                <List>
+                    {filteredRepair?.map(repair => (
+                        <RepairCell
+                            key={repair.option}
+                            commonRepair={repair}
+                        />
+                    ))}
+                </List>
+            ) : (
+                <>
+                    <NothingPlaceholder />
+                    <NothingEditButton carId={car.id} />
+                </>
+            )}
         </BackButton>
     )
 }
