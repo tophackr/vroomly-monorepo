@@ -29,9 +29,9 @@ export function StatsRepairs(): JSX.Element {
 
     const filteredRepair = useMemo(
         () =>
-            repairs
-                ?.filter(repair => repair.isVisible)
-                ?.sort((a, b) => {
+            (repairs ?? [])
+                .filter(repair => repair.isVisible)
+                .sort((a, b) => {
                     if (a.interaction === null && b.interaction === null)
                         return 0
                     if (a.interaction === null) return 1
@@ -50,9 +50,9 @@ export function StatsRepairs(): JSX.Element {
         <BackButton route={pagesRoute.carId(car.id)}>
             <EditRepairsButton car={car} />
 
-            {filteredRepair && filteredRepair.length > 0 ? (
+            {filteredRepair.length > 0 ? (
                 <List>
-                    {filteredRepair?.map(repair => (
+                    {filteredRepair.map(repair => (
                         <RepairCell
                             key={repair.option}
                             commonRepair={repair}
