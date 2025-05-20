@@ -1,6 +1,7 @@
 'use client'
 
 import type { JSX } from 'react'
+import { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
@@ -8,6 +9,9 @@ import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { isRepair, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
+import { statsRoute } from '@/shared/routes'
+import { NothingPlaceholder } from '@/shared/ui/placeholder'
+import { NothingCreateButton } from './NothingCreateButton'
 import { SelectableSkeleton } from './SelectableSkeleton'
 
 export function RepairSection(): JSX.Element {
@@ -23,30 +27,44 @@ export function RepairSection(): JSX.Element {
 
     if (isError) logError('RepairSection', error)
 
-    if (isLoading) return <SelectableSkeleton />
+    const filteredRepairs = useMemo(
+        () => (data ?? []).filter(r => r.isVisible),
+        [data]
+    )
 
-    // todo: if not visible
+    if (isLoading) return <SelectableSkeleton />
 
     return (
         <Section header={t('repair_work.title')}>
-            {data?.map(({ id, option }) => (
-                <Cell
-                    key={id}
-                    Component={'label'}
-                    before={
-                        <Multiselectable
-                            value={id}
-                            {...register('repairData.ids', {
-                                required: t('errors.repair_work_required')
-                            })}
+            {filteredRepairs.length > 0 ? (
+                filteredRepairs.map(({ id, option }) => (
+                    <Cell
+                        key={id}
+                        Component={'label'}
+                        before={
+                            <Multiselectable
+                                value={id}
+                                {...register('repairData.ids', {
+                                    required: t('errors.repair_work_required')
+                                })}
+                            />
+                        }
+                    >
+                        {isRepair(option)
+                            ? t(`repair_work.options.${option}`)
+                            : option}
+                    </Cell>
+                ))
+            ) : (
+                <NothingPlaceholder
+                    description={t('nothing_placeholder.repair')}
+                    action={
+                        <NothingCreateButton
+                            route={statsRoute.repairsEdit(car.id)}
                         />
                     }
-                >
-                    {isRepair(option)
-                        ? t(`repair_work.options.${option}`)
-                        : option}
-                </Cell>
-            ))}
+                />
+            )}
         </Section>
     )
 }
