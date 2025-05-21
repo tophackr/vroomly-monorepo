@@ -1,12 +1,14 @@
 import { Language } from '@vroomly/prisma'
 import { Transform } from 'class-transformer'
-import { IsEnum, IsString } from 'class-validator'
+import { IsEnum, IsOptional, IsString } from 'class-validator'
 
-export class UpdateUserDto {
+export class UserDto {
+    @IsOptional()
     @IsEnum(Language)
     @Transform(({ value }) => ('' + value).toLowerCase())
-    readonly language!: Language
+    readonly language?: Language
 
+    @IsOptional()
     @IsString()
-    readonly timezone!: string
+    readonly timezone?: string
 }
