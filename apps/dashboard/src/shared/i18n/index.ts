@@ -7,18 +7,9 @@ export { useIntlNumber } from './hooks/useIntlNumber'
 export { useIntlTimeAgo } from './hooks/useIntlTimeAgo'
 export { useIntlUnit } from './hooks/useIntlUnit'
 export { useMessagesKeys } from './hooks/useMessageKeys'
-export { I18nProvider } from './provider'
-export {
-    getPathname,
-    Link,
-    redirect,
-    routing,
-    usePathname,
-    useRouter
-} from './routing'
 export { Locale } from './types'
+export { I18nProvider } from './provider'
 export type {
-    LocaleProps,
     Translation,
     TranslationConfig,
     MessageKeysTranslationClient,

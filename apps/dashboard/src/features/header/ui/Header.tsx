@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { List } from '@telegram-apps/telegram-ui'
-import { usePathname } from '@/shared/i18n'
+import { usePathname } from 'next/navigation'
 import { cx } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { SettingsButton, isAppleClient } from '@/shared/ui/tma'

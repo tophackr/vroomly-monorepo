@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 import { useCarContext } from '@/entities/car'
-import { useRouter } from '@/shared/i18n'
 import { ActionButton } from './ActionButton'
 import { ActionModal } from './ActionModal'
 import { useActionButtons } from './hooks/useActionButtons'

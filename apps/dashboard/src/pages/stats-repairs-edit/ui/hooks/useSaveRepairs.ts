@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 import { useCarContext } from '@/entities/car'
 import type { RepairsProps } from '@/entities/repair'
 import { useUpdateManyRepairMutation } from '@/entities/repair'
-import { useRouter } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 import { statsRoute } from '@/shared/routes'
 
