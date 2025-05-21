@@ -1,3 +1,5 @@
+'use client'
+
 import type { JSX } from 'react'
 import { useTranslations } from 'next-intl'
 import { Button } from '@telegram-apps/telegram-ui'

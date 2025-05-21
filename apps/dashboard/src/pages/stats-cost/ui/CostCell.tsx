@@ -1,3 +1,5 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import { Cell, Progress } from '@telegram-apps/telegram-ui'
 import type { InteractionType } from '@vroomly/prisma'

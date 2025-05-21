@@ -1,3 +1,5 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import { List, Section } from '@telegram-apps/telegram-ui'
 import { LinkCell } from '@/shared/ui/cell'
