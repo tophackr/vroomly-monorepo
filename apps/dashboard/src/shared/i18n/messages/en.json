@@ -2,5 +2,12 @@
   "Car": {
     "default": "Default",
     "mileage": "Mileage"
+  },
+  "Settings": {
+    "notification": "Notifications",
+    "language": "Language",
+    "timezone": "Time Zone",
+    "support": "Support",
+    "news": "News Channel"
   }
 }
