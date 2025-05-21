@@ -1,9 +1,10 @@
 'use client'
 
-import type { JSX } from 'react'
-import { memo } from 'react'
+import type { JSX, MouseEventHandler } from 'react'
+import { memo, useCallback } from 'react'
+import { openLink } from '@telegram-apps/sdk-react'
 import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
-import { callMultiple, useButtonClick } from '@/shared/lib/dom'
+import { useButtonClick } from '@/shared/lib/dom'
 import { ChevronAfterCell } from '../chevron-after/ChevronAfterCell'
 import { IconBeforeCell } from '../icon/IconBeforeCell'
 import type { LinkCellProps, OptionalIconBeforeCellProps } from './types'
@@ -14,10 +15,40 @@ export const LinkCell = memo(function LinkCell({
     icon,
     bgColor,
     text,
-    onClick,
+    onClick: propsOnClick,
     ...props
 }: LinkCellProps & OptionalIconBeforeCellProps): JSX.Element {
     const { disabled, onClick: onClickHref } = useButtonClick({ route: href })
+
+    const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
+        e => {
+            propsOnClick?.(e)
+
+            // Compute if target path is external. In this case we would like to open link using
+            // TMA method.
+            let path: string
+            if (typeof href === 'string') {
+                path = href
+            } else {
+                const { search = '', pathname = '', hash = '' } = href
+                path = `${pathname}?${search}#${hash}`
+            }
+
+            const targetUrl = new URL(path, window.location.toString())
+            const currentUrl = new URL(window.location.toString())
+            const isExternal =
+                targetUrl.protocol !== currentUrl.protocol ||
+                targetUrl.host !== currentUrl.host
+
+            if (isExternal) {
+                e.preventDefault()
+                openLink(targetUrl.toString())
+            } else {
+                void onClickHref(e)
+            }
+        },
+        [href, onClickHref, propsOnClick]
+    )
 
     return (
         <TGUICell
@@ -33,7 +64,7 @@ export const LinkCell = memo(function LinkCell({
             }
             after={<ChevronAfterCell text={text} />}
             disabled={disabled}
-            onClick={callMultiple(onClickHref, onClick)}
+            onClick={onClick}
             {...props}
         >
             {children}
