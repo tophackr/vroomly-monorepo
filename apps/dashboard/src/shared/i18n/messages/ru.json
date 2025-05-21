@@ -316,5 +316,12 @@
   "PopupUnauthorizedError": {
     "title": "Время сеанса истекло",
     "description": "Пожалуйста, закройте приложение и откройте его заново."
+  },
+  "Settings": {
+    "notification": "Уведомления",
+    "language": "Язык",
+    "timezone": "Временная зона",
+    "support": "Обратная связь",
+    "news": "Новостной канал"
   }
 }
