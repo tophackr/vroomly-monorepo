@@ -1,3 +1,6 @@
+export { useLocale } from './lang/useLocale'
+export { localeSliceReducer } from './lang/lang.slice'
+export { getCloudLocale } from './lang/lang'
 export { useActions } from './hooks/useActions'
 export { useAppSelector } from './hooks/useAppSelector'
 export { backendApi } from './server/backend'
