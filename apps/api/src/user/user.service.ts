@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import type { User } from '@vroomly/prisma'
 import { allowedFieldsDto } from '@/common/allowFieldsDto'
+import { validateExists } from '@/common/validateEntity'
 import { PrismaService } from '@/prisma/prisma.service'
-import type { UpdateUserDto } from './dto/updateUserDto'
+import type { UserDto } from './dto/userDto'
 
 const ENTITY = 'User'
 
@@ -10,13 +11,13 @@ const ENTITY = 'User'
 export class UserService {
     constructor(private readonly prismaService: PrismaService) {}
 
-    private create(id: string): Promise<User> {
+    create(id: string, createDto: UserDto): Promise<User> {
         return this.prismaService.user.create({
-            data: { id }
+            data: { id, ...createDto }
         })
     }
 
-    async update(id: string, updateDto: UpdateUserDto): Promise<User> {
+    async update(id: string, updateDto: UserDto): Promise<User> {
         await this.findOne(id)
 
         const allowedFields = allowedFieldsDto(updateDto, ENTITY)
@@ -32,10 +33,6 @@ export class UserService {
             where: { id }
         })
 
-        if (!item) {
-            return this.create(id)
-        }
-
-        return item
+        return validateExists(item, ENTITY, id)
     }
 }
