@@ -11,6 +11,16 @@ interface UserApiBody {
 export const userApi = backendApi
     .injectEndpoints({
         endpoints: build => ({
+            createUser: build.mutation<User, UserApiBody>({
+                queryFn: makeValidatedQueryFn(
+                    { reqSchema: userReqSchema, resSchema: userResSchema },
+                    ({ body }) => ({
+                        url: apiRoute.me,
+                        method: 'POST',
+                        body
+                    })
+                )
+            }),
             findOneUser: build.query<User, void>({
                 queryFn: makeValidatedQueryFn(
                     { resSchema: userResSchema },
@@ -31,6 +41,9 @@ export const userApi = backendApi
     })
     .enhanceEndpoints({
         endpoints: {
+            createUser: {
+                invalidatesTags: [ApiTags.user]
+            },
             findOneUser: {
                 providesTags: [ApiTags.user]
             },
@@ -40,4 +53,8 @@ export const userApi = backendApi
         }
     })
 
-export const { useLazyFindOneUserQuery, useUpdateUserMutation } = userApi
+export const {
+    useCreateUserMutation,
+    useLazyFindOneUserQuery,
+    useUpdateUserMutation
+} = userApi
