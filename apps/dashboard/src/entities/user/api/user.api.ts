@@ -55,6 +55,6 @@ export const userApi = backendApi
 
 export const {
     useCreateUserMutation,
-    useLazyFindOneUserQuery,
+    useFindOneUserQuery,
     useUpdateUserMutation
 } = userApi
