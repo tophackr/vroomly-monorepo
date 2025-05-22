@@ -1,9 +1,9 @@
+import { useLocale } from 'next-intl'
 import { daysAfterToday } from '@/shared/lib/date'
-import { useLocale } from '@/shared/lib/store'
 import { useIntlDateTime } from './useIntlDateTime'
 
 export function useIntlTimeAgo(value: Date): string {
-    const { locale } = useLocale()
+    const locale = useLocale()
     const dateTime = useIntlDateTime()
 
     const diffInDays = daysAfterToday(value) + 1

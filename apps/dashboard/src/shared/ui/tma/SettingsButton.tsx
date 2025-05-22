@@ -11,7 +11,7 @@ import {
     useSignal
 } from '@telegram-apps/sdk-react'
 import { Avatar } from '@telegram-apps/telegram-ui'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 
 function visibleOnSettingsPage(

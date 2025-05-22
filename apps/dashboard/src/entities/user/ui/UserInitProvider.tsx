@@ -2,11 +2,16 @@
 
 import type { PropsWithChildren } from 'react'
 import { memo, useEffect, useState } from 'react'
+import { useLocale } from 'next-intl'
 import { initDataUser } from '@telegram-apps/sdk-react'
 import type { Locale } from '@/shared/i18n'
-import { defaultLocale, hasLocale, locales } from '@/shared/i18n'
+import {
+    defaultLocale,
+    hasLocale,
+    locales,
+    useLocaleSwitch
+} from '@/shared/i18n'
 import { useEffectOnce } from '@/shared/lib/dom'
-import { useLocale } from '@/shared/lib/store'
 import { useLogger } from '@/shared/model'
 import { Loader } from '@/shared/ui'
 import { useCreateUserMutation, useLazyFindOneUserQuery } from '../api/user.api'
@@ -15,7 +20,9 @@ export const UserInitProvider = memo(function UserInitProvider({
     children
 }: PropsWithChildren) {
     const { forceError } = useLogger()
-    const { setLocaleWithCloud } = useLocale()
+
+    const { switchLocale } = useLocaleSwitch()
+    const locale = useLocale()
 
     const [createUser, { isLoading: isCreateLoading }] = useCreateUserMutation()
     const [findUser, { isLoading: isLazyFindLoading }] =
@@ -46,8 +53,8 @@ export const UserInitProvider = memo(function UserInitProvider({
             return
         })
 
-        if (user) {
-            setLocaleWithCloud(user.language as Locale)
+        if (user && user.language !== locale) {
+            switchLocale(user.language as Locale)
         }
     })
 
@@ -55,7 +62,7 @@ export const UserInitProvider = memo(function UserInitProvider({
         if (!isLazyFindLoading && !isCreateLoading) {
             setIsFindLoading(false)
         }
-    }, [isCreateLoading, isLazyFindLoading, setLocaleWithCloud])
+    }, [isCreateLoading, isLazyFindLoading])
 
     if (isFindLoading) return <Loader />
 

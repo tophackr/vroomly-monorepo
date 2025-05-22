@@ -1,7 +1,7 @@
 import type { ComponentProps, JSX, MouseEventHandler } from 'react'
 import { memo, useCallback } from 'react'
 import { openLink } from '@telegram-apps/sdk-react'
-import IntlLink from 'next/link'
+import { Link as IntlLink } from '@/shared/i18n'
 import { cx } from '@/shared/lib/dom'
 
 type IntlProps = ComponentProps<typeof IntlLink>

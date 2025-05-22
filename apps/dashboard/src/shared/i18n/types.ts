@@ -9,6 +9,10 @@ export enum Locale {
 
 export type Translation = typeof messages
 
+export interface LocaleProps {
+    locale: Locale
+}
+
 export interface TranslationConfig {
     locale: Locale
     messages: Translation

@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
 import { Section } from '@telegram-apps/telegram-ui'
-import { usePathname } from 'next/navigation'
+import { usePathname } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 import { isAppleClient } from '@/shared/ui/tma'
 

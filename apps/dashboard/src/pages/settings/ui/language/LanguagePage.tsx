@@ -1,36 +1,47 @@
 'use client'
 
 import type { ChangeEvent } from 'react'
-import { useCallback, useTransition } from 'react'
-import { useTranslations } from 'next-intl'
+import { useCallback, useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import { Cell, List, Section, Selectable } from '@telegram-apps/telegram-ui'
 import { useUpdateUserMutation } from '@/entities/user'
 import type { Locale } from '@/shared/i18n'
-import { localesMap } from '@/shared/i18n'
-import { useLocale } from '@/shared/lib/store'
+import { localesMap, useLocaleSwitch } from '@/shared/i18n'
+import { useLogger } from '@/shared/model'
 import { BackButton } from '@/shared/ui/tma'
 
 export function LanguagePage() {
     const t = useTranslations('Settings')
-    const { locale, setLocaleWithCloud } = useLocale()
+    const { error: logError } = useLogger()
 
-    const [isPending, startTransition] = useTransition()
-    const [updateUserMutation, { isLoading }] = useUpdateUserMutation()
+    const { switchLocale } = useLocaleSwitch()
+    const locale = useLocale()
+
+    const [isLoading, setIsLoading] = useState(false)
+
+    const [updateUserMutation] = useUpdateUserMutation()
 
     const onChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
-            if (isPending || isLoading) {
+            if (isLoading) {
                 return
             }
 
-            startTransition(async () => {
-                setLocaleWithCloud(e.target.value as Locale)
-                await updateUserMutation({
-                    body: { language: e.target.value as Locale }
-                })
+            setIsLoading(true)
+
+            void updateUserMutation({
+                body: { language: e.target.value as Locale }
+            }).then(({ data, error }) => {
+                if (data) {
+                    switchLocale(data.language as Locale)
+                }
+                if (error) {
+                    logError(error)
+                    setIsLoading(false)
+                }
             })
         },
-        [isLoading, isPending, setLocaleWithCloud, updateUserMutation]
+        [isLoading, logError, switchLocale, updateUserMutation]
     )
 
     return (
@@ -44,14 +55,14 @@ export function LanguagePage() {
                                 <Selectable
                                     name='language'
                                     value={l.key}
-                                    checked={l.key === locale}
+                                    checked={l.key === (locale as Locale)}
                                     onChange={onChange}
-                                    disabled={isPending}
+                                    disabled={isLoading}
                                 />
                             }
                             key={l.key}
                             subtitle={l.subtitle}
-                            disabled={isPending}
+                            disabled={isLoading}
                         >
                             {l.title}
                         </Cell>

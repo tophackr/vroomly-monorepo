@@ -8,7 +8,7 @@ import {
     onBackButtonClick,
     showBackButton
 } from '@telegram-apps/sdk-react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/shared/i18n'
 
 interface BackButtonProps {
     hide?: boolean

@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
-import { backendApi, localeSliceReducer } from '@/shared/lib/store'
+import { backendApi } from '@/shared/lib/store'
 
 export const rootReducer = combineReducers({
-    [backendApi.reducerPath]: backendApi.reducer,
-    localeSlice: localeSliceReducer
+    [backendApi.reducerPath]: backendApi.reducer
 })

@@ -3,7 +3,7 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
 import type { SecondaryButtonState } from '@telegram-apps/sdk-react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/shared/i18n'
 import { useButtonClick } from '@/shared/lib/dom'
 import { SecondaryButton } from '@/shared/ui/tma'
 

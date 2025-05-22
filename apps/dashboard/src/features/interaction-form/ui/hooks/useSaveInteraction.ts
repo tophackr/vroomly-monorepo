@@ -1,5 +1,4 @@
 import { useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 import { useCarContext } from '@/entities/car'
 import type {
     InteractionDataForm,
@@ -9,6 +8,7 @@ import {
     useCreateInteractionMutation,
     useUpdateInteractionMutation
 } from '@/entities/interaction'
+import { useRouter } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 import { pagesRoute } from '@/shared/routes'
 
