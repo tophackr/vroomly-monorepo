@@ -1,14 +1,16 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export function useEffectOnce(fn: () => void): void {
     const canCall = useRef(true)
 
+    const callback = useCallback(() => fn(), [fn])
+
     useEffect(() => {
         if (canCall.current) {
             canCall.current = false
-            fn()
+            callback()
         }
-    }, [fn])
+    }, [callback])
 }
