@@ -1,20 +1,13 @@
 'use client'
 
 import type { PropsWithChildren } from 'react'
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect } from 'react'
 import { useLocale } from 'next-intl'
 import { initDataUser } from '@telegram-apps/sdk-react'
 import type { Locale } from '@/shared/i18n'
-import {
-    defaultLocale,
-    hasLocale,
-    locales,
-    useLocaleSwitch
-} from '@/shared/i18n'
-import { useEffectOnce } from '@/shared/lib/dom'
+import { hasLocale, routing, useLocaleSwitch } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
-import { Loader } from '@/shared/ui'
-import { useCreateUserMutation, useLazyFindOneUserQuery } from '../api/user.api'
+import { useCreateUserMutation, useFindOneUserQuery } from '../api/user.api'
 
 export const UserInitProvider = memo(function UserInitProvider({
     children
@@ -24,47 +17,41 @@ export const UserInitProvider = memo(function UserInitProvider({
     const { switchLocale } = useLocaleSwitch()
     const locale = useLocale()
 
-    const [createUser, { isLoading: isCreateLoading }] = useCreateUserMutation()
-    const [findUser, { isLoading: isLazyFindLoading }] =
-        useLazyFindOneUserQuery()
-    const [isFindLoading, setIsFindLoading] = useState(true)
-
-    useEffectOnce(async () => {
-        const user = await findUser().then(async ({ data, error }) => {
-            if (data) return data
-
-            if (error) {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                if (error.status === 404) {
-                    const user = initDataUser()
-                    const locale = hasLocale(locales, user?.language_code)
-                        ? user?.language_code
-                        : defaultLocale
-                    const { data: creationData } = await createUser({
-                        body: { language: locale }
-                    })
-                    return creationData
-                } else {
-                    forceError('UserInitProvider', error)
-                }
-            }
-
-            return
-        })
-
-        if (user && user.language !== locale) {
-            switchLocale(user.language as Locale)
-        }
-    })
+    const { data, isError, error } = useFindOneUserQuery()
+    const [createUser] = useCreateUserMutation()
 
     useEffect(() => {
-        if (!isLazyFindLoading && !isCreateLoading) {
-            setIsFindLoading(false)
+        if (data && data.language !== locale) {
+            switchLocale(data.language as Locale)
         }
-    }, [isCreateLoading, isLazyFindLoading])
 
-    if (isFindLoading) return <Loader />
+        if (isError) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            if (error.status === 404) {
+                const initUser = initDataUser()
+                const locale = hasLocale(
+                    routing.locales,
+                    initUser?.language_code
+                )
+                    ? initUser?.language_code
+                    : routing.defaultLocale
+
+                void createUser({
+                    body: { language: locale }
+                }).then(({ data: creationData, error: creationError }) => {
+                    if (creationData && creationData.language !== locale) {
+                        switchLocale(creationData.language as Locale)
+                    }
+                    if (creationError) {
+                        forceError('UserInitProvider.createUser', error)
+                    }
+                })
+            } else {
+                forceError('UserInitProvider.findUser', error)
+            }
+        }
+    }, [createUser, data, error, forceError, isError, locale, switchLocale])
 
     return children
 })
