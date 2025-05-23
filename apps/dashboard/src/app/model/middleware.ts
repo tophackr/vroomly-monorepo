@@ -10,7 +10,7 @@ export function middleware(
     const { pathname } = request.nextUrl
 
     const shouldHandle =
-        pathname === '/' ||
+        ['/', '/app'].includes(pathname) ||
         new RegExp(`^/(${locales.join('|')})(/.*)?$`).test(pathname)
 
     if (!shouldHandle) {
