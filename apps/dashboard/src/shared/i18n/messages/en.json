@@ -1,4 +1,10 @@
 {
+  "Locale": {
+    "code": "en-US",
+    "title": "English",
+    "subtitle": "English",
+    "currency": "USD"
+  },
   "Car": {
     "default": "Default",
     "mileage": "Mileage"

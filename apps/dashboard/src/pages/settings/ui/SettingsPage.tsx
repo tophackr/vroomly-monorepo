@@ -6,6 +6,7 @@ import { settingsRoute } from '../routes/settings'
 
 export async function SettingsPage() {
     const t = await getTranslations('Settings')
+    const tLocale = await getTranslations('Locale')
 
     return (
         <BackButton>
@@ -24,7 +25,7 @@ export async function SettingsPage() {
                         icon={'Earth'}
                         bgColor={'MediumPurple'}
                         href={settingsRoute.language}
-                        text={'Русский'}
+                        text={tLocale('subtitle')}
                     >
                         {t('language')}
                     </LinkCell>
