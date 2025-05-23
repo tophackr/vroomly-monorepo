@@ -1,4 +1,9 @@
-import type { useTranslations } from 'next-intl'
+import type {
+    Messages,
+    NamespaceKeys,
+    NestedKeyOf,
+    useTranslations
+} from 'next-intl'
 import type { getTranslations } from 'next-intl/server'
 import type messages from './messages/ru.json'
 
@@ -18,22 +23,26 @@ export interface TranslationConfig {
     messages: Translation
 }
 
-export type NestedTranslationClient<T extends keyof Translation = never> =
-    ReturnType<typeof useTranslations<T>>
+export type NestedMessages = NamespaceKeys<Messages, NestedKeyOf<Messages>>
 
-export interface TranslationClient<T extends keyof Translation = never> {
-    t: NestedTranslationClient<T>
+export type NestedTranslationClient<NestedKey extends NestedMessages = never> =
+    ReturnType<typeof useTranslations<NestedKey>>
+
+export interface TranslationClient<NestedKey extends NestedMessages = never> {
+    t: NestedTranslationClient<NestedKey>
 }
 
-export type MessageKeysTranslationClient<T extends keyof Translation = never> =
-    Parameters<NestedTranslationClient<T>>[0]
+export type MessageKeysTranslationClient<
+    NestedKey extends NestedMessages = never
+> = Parameters<NestedTranslationClient<NestedKey>>[0]
 
-export type NestedTranslationServer<T extends keyof Translation = never> =
-    Awaited<ReturnType<typeof getTranslations<T>>>
+export type NestedTranslationServer<NestedKey extends NestedMessages = never> =
+    Awaited<ReturnType<typeof getTranslations<NestedKey>>>
 
-export interface TranslationServer<T extends keyof Translation = never> {
-    t: NestedTranslationServer<T>
+export interface TranslationServer<NestedKey extends NestedMessages = never> {
+    t: NestedTranslationServer<NestedKey>
 }
 
-export type MessageKeysTranslationServer<T extends keyof Translation = never> =
-    Parameters<NestedTranslationServer<T>>[0]
+export type MessageKeysTranslationServer<
+    NestedKey extends NestedMessages = never
+> = Parameters<NestedTranslationServer<NestedKey>>[0]

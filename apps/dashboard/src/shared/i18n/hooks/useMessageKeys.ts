@@ -27,7 +27,7 @@ export function useMessagesKeys<P extends Path<Translation>>(
 ): (keyof ValueAtPath<Translation, P>)[] {
     const { forceWarn, forceError } = useLogger()
 
-    const messages = useMessages() as Translation
+    const messages = useMessages()
 
     let current: unknown = messages
 

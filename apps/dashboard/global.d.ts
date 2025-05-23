@@ -1,6 +1,8 @@
-import { Translation } from '@/shared/i18n'
+import { Translation, routing } from '@/shared/i18n'
 
-declare global {
-    // Use type safe message keys with `next-intl`
-    type IntlMessages = Translation
+declare module 'next-intl' {
+    interface AppConfig {
+        Locale: (typeof routing.locales)[number];
+        Messages: Translation
+    }
 }

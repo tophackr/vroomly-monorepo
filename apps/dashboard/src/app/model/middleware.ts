@@ -17,5 +17,8 @@ export function middleware(
         return
     }
 
+    // todo: remove next lines after release next stable
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     return handleI18nRouting(request)
 }

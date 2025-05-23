@@ -1,11 +1,11 @@
 import type {
     MessageKeysTranslationClient,
-    NestedTranslationClient,
-    Translation
+    NestedMessages,
+    NestedTranslationClient
 } from '@/shared/i18n'
 import type { IMenu, KeyMenu } from './types'
 
-export function generateMenu<T extends keyof Translation, K>(
+export function generateMenu<T extends NestedMessages, K>(
     route: (name: K) => string,
     t: NestedTranslationClient<T>,
     data: KeyMenu<MessageKeysTranslationClient<T>>[]
@@ -13,6 +13,9 @@ export function generateMenu<T extends keyof Translation, K>(
     return data.map(item => ({
         ...item,
         href: route(item.name as K),
+        // todo: remove this functional
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         name: t(item.name)
     }))
 }
