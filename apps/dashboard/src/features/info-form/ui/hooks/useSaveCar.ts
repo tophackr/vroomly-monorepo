@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
 import type { Car } from '@vroomly/prisma'
+import { useRouter } from 'next/navigation'
 import type { CarData } from '@/entities/car'
 import { useCreateCarMutation, useUpdateCarMutation } from '@/entities/car'
-import { useRouter } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 import { pagesRoute } from '@/shared/routes'
 

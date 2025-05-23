@@ -1,14 +1,13 @@
 import { hasLocale } from 'next-intl'
 import { getRequestConfig } from 'next-intl/server'
+import { defaultLocale, locales } from './config'
+import { getCookieLocale } from './cookie'
 import { getLocales } from './getLocales'
-import { routing } from './routing'
 
 // eslint-disable-next-line import/no-default-export
-export default getRequestConfig(async ({ requestLocale }) => {
-    const requested = await requestLocale
-    const locale = hasLocale(routing.locales, requested)
-        ? requested
-        : routing.defaultLocale
+export default getRequestConfig(async () => {
+    const requested = await getCookieLocale()
+    const locale = hasLocale(locales, requested) ? requested : defaultLocale
 
     return {
         ...(await getLocales(locale)),

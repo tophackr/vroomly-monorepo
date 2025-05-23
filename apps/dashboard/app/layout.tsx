@@ -1,5 +1,3 @@
-import type { PropsWithChildren } from 'react'
-
-export default function RootLayout({ children }: PropsWithChildren) {
-    return children
-}
+/* eslint-disable no-restricted-imports */
+export { AppLayout as default } from '@/app/entrypoint'
+export { AppMetadata as metadata, AppViewport as viewport } from '@/app/model'

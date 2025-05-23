@@ -2,7 +2,7 @@
 
 import type { MouseEvent } from 'react'
 import { useCallback, useState } from 'react'
-import { useRouter } from '@/shared/i18n'
+import { useRouter } from 'next/navigation'
 import type { MouseClickEvent } from '../types/buttonClickTypes'
 
 type UseButtonClickProps<T> =

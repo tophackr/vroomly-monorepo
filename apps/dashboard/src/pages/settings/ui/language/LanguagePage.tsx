@@ -1,12 +1,10 @@
 import { List, Section } from '@telegram-apps/telegram-ui'
-import { getTranslations } from 'next-intl/server'
-import type { LocaleProps } from '@/shared/i18n'
-import type { ParamsProps } from '@/shared/lib/dom'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { BackButton } from '@/shared/ui/tma'
 import { SectionContent } from './SectionContent'
 
-export async function LanguagePage({ params }: ParamsProps<LocaleProps>) {
-    const { locale } = await params
+export async function LanguagePage() {
+    const locale = await getLocale()
     const t = await getTranslations('Settings')
 
     return (

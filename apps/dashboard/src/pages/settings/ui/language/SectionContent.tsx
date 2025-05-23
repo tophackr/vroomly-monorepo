@@ -20,6 +20,8 @@ export function SectionContent({ locale }: LocaleProps) {
 
     const onChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
+            e.preventDefault()
+
             if (isLoading) {
                 return
             }
