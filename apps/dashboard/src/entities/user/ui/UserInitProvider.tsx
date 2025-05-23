@@ -1,26 +1,34 @@
 'use client'
 
 import type { PropsWithChildren } from 'react'
-import { memo, useEffect } from 'react'
-import { useLocale } from 'next-intl'
+import { memo, useEffect, useRef } from 'react'
+import { hasLocale, useLocale } from 'next-intl'
 import { initDataUser } from '@telegram-apps/sdk-react'
 import type { Locale } from '@/shared/i18n'
-import { hasLocale, routing, useLocaleSwitch } from '@/shared/i18n'
+import { routing, useLocaleSwitch } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 import { useCreateUserMutation, useFindOneUserQuery } from '../api/user.api'
 
 export const UserInitProvider = memo(function UserInitProvider({
     children
 }: PropsWithChildren) {
+    const initialized = useRef(false)
+
     const { forceError } = useLogger()
 
     const { switchLocale } = useLocaleSwitch()
     const locale = useLocale()
 
-    const { data, isError, error } = useFindOneUserQuery()
+    const { data, isError, error } = useFindOneUserQuery(undefined, {
+        refetchOnMountOrArgChange: false,
+        skip: initialized.current
+    })
     const [createUser] = useCreateUserMutation()
 
     useEffect(() => {
+        if (initialized.current) return
+        initialized.current = true
+
         if (data && data.language !== locale) {
             switchLocale(data.language as Locale)
         }
