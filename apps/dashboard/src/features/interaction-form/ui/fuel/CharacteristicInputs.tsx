@@ -2,9 +2,9 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
 import { Input, Section, Select } from '@telegram-apps/telegram-ui'
 import { FuelGrade } from '@vroomly/prisma'
+import { useTranslations } from 'use-intl'
 import type { InteractionDataForm } from '@/entities/interaction'
 
 export function CharacteristicInputs(): JSX.Element {

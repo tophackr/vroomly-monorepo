@@ -2,10 +2,9 @@
 
 import type { ChangeEvent } from 'react'
 import { useCallback, useState } from 'react'
-import type { Locale } from 'next-intl'
 import { Cell, Selectable } from '@telegram-apps/telegram-ui'
 import { useUpdateUserMutation } from '@/entities/user'
-import type { LocaleProps } from '@/shared/i18n'
+import type { Locale, LocaleProps } from '@/shared/i18n'
 import { localesMap, useLocaleSwitch } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 
@@ -36,8 +35,8 @@ export function SectionContent({ locale }: LocaleProps) {
                 }
                 if (error) {
                     logError(error)
-                    setIsLoading(false)
                 }
+                setIsLoading(false)
             })
         },
         [isLoading, logError, switchLocale, updateUserMutation]

@@ -1,13 +1,13 @@
 class Pages {
-    home = `/app`
+    home = `/`
 
-    private car = `${this.home}/car`
+    private car = `/car`
 
     carNew = `${this.car}/new`
     carId = (id: string) => `${this.car}/${id}`
     carEdit = (id: string) => `${this.car}/${id}/edit`
 
-    settings = `${this.home}/settings`
+    settings = `/settings`
 }
 
 export const pagesRoute = new Pages()

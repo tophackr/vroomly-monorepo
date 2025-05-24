@@ -1,8 +1,8 @@
 'use client'
 
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
 import { Button } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useButtonClick } from '@/shared/lib/dom'
 
 interface NothingCreateButtonProps {

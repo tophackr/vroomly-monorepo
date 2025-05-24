@@ -1,8 +1,8 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useTranslations } from 'next-intl'
 import { Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { cx } from '@/shared/lib/dom'
 import { isAppleClient } from '@/shared/ui/tma'

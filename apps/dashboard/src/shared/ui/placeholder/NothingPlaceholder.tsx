@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
 import { Placeholder } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { DuckFlashbackLottie } from '@/shared/ui/lottie'
 import type { PlaceholderProps } from './props'
 

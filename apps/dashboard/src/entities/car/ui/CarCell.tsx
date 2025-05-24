@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import type { CarProps } from '../model/props'

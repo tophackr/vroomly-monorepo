@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
 import { Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { valueAsStringOrNull } from '@/shared/lib/form'
 import { IconInput } from '@/shared/ui/form'
 import { inputErrorStatus } from '@/shared/ui/when'

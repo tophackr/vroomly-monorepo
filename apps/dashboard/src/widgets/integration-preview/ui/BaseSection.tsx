@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
 import { Cell, Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useInteractionContext } from '@/entities/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
 import { IconCell } from '@/shared/ui/cell'

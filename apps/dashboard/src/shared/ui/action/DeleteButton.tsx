@@ -2,9 +2,9 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
 import type { ButtonCellProps } from '@telegram-apps/telegram-ui'
 import { ButtonCell, Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { cx } from '@/shared/lib/dom'
 
 export const DeleteButton = memo(function DeleteButton({

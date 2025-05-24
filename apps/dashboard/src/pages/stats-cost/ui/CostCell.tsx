@@ -1,8 +1,8 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
 import { Cell, Progress } from '@telegram-apps/telegram-ui'
 import type { InteractionType } from '@vroomly/prisma'
+import { useTranslations } from 'use-intl'
 import { useIntlCurrency } from '@/shared/i18n'
 import { getPercent } from '@/shared/lib/number'
 import type { TotalCountProps } from './props'

@@ -1,27 +1,22 @@
 import type { JSX, PropsWithChildren } from 'react'
-import { NextIntlClientProvider } from 'next-intl'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { getLocale } from 'next-intl/server'
 import '@telegram-apps/telegram-ui/dist/styles.css'
 import 'normalize.css/normalize.css'
+import { I18nProvider } from '@/shared/i18n'
 import { Providers } from '../providers/Providers'
 import '../styles/globals.css'
 
-export async function AppLayout({
-    children
-}: PropsWithChildren): Promise<JSX.Element> {
-    const locale = await getLocale()
-
+export function AppLayout({ children }: PropsWithChildren): JSX.Element {
     return (
-        <html lang={locale}>
+        <html lang={'en'}>
             <body>
-                <NextIntlClientProvider>
+                <I18nProvider>
                     <div id={'app'}>
                         <Providers>{children}</Providers>
 
                         <SpeedInsights />
                     </div>
-                </NextIntlClientProvider>
+                </I18nProvider>
             </body>
         </html>
     )

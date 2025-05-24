@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'use-intl'
 import type { ISegment } from '@/features/segment'
 import { Segments } from '@/features/segment'
 import { useCarContext } from '@/entities/car'

@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useFormatter, useTranslations } from 'next-intl'
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
+import { useFormatter, useTranslations } from 'use-intl'
 import type { CarProps } from '@/entities/car/@x/interaction'
 import { useIntlCarUnit } from '@/entities/car/@x/interaction'
 import { useIntlCurrency, useIntlTimeAgo } from '@/shared/i18n'

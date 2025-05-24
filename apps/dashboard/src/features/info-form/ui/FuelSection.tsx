@@ -2,9 +2,9 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
 import { Section } from '@telegram-apps/telegram-ui'
 import { FuelType } from '@vroomly/prisma'
+import { useTranslations } from 'use-intl'
 import { IconInput, IconSelect } from '@/shared/ui/form'
 import { inputErrorStatus } from '@/shared/ui/when'
 import type { CarFuelForm } from './types'

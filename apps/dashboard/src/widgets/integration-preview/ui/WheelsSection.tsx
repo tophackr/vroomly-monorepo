@@ -1,9 +1,9 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useTranslations } from 'next-intl'
 import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { WheelType } from '@vroomly/prisma'
+import { useTranslations } from 'use-intl'
 import { useInteractionContext } from '@/entities/interaction'
 
 export function WheelsSection(): JSX.Element {

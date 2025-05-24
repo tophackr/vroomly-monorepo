@@ -1,12 +1,12 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
 import {
     Caption,
     LargeTitle,
     Placeholder,
     Text
 } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import {
     getIntlPartType,

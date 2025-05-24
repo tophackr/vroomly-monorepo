@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'use-intl'
 import { useIntlCurrency } from '@/shared/i18n'
 import { reduceSumItems } from '@/shared/lib/number'
 import { isMileageType } from '../model/isType'

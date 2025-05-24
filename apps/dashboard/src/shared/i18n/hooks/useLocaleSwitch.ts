@@ -1,19 +1,21 @@
 'use client'
 
 import { useCallback, useTransition } from 'react'
-import { setCookieLocale } from '../cookie'
-import { setStorageLocale } from '../storage'
+import { useIntlContext } from '../I18nProvider'
 import type { Locale } from '../types'
 
 export function useLocaleSwitch() {
+    const { setLocale } = useIntlContext()
     const [isLoading, startTransition] = useTransition()
 
-    const switchLocale = useCallback((locale: Locale) => {
-        startTransition(async () => {
-            await setStorageLocale(locale)
-            await setCookieLocale(locale)
-        })
-    }, [])
+    const switchLocale = useCallback(
+        (locale: Locale) => {
+            startTransition(() => {
+                setLocale(locale)
+            })
+        },
+        [setLocale]
+    )
 
     return { switchLocale, isLoading }
 }

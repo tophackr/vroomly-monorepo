@@ -1,3 +1,4 @@
+export { I18nProvider } from './I18nProvider'
 export { useLocaleSwitch } from './hooks/useLocaleSwitch'
 export { defaultLocale, locales, localesMap } from './config'
 export { getLocales } from './getLocales'
@@ -15,9 +16,6 @@ export type {
     TranslationConfig,
     MessageKeysTranslationClient,
     NestedTranslationClient,
-    TranslationClient,
-    MessageKeysTranslationServer,
-    NestedTranslationServer,
-    TranslationServer
+    TranslationClient
 } from './types'
 export { getIntlPartType } from './utils/getIntlPartType'

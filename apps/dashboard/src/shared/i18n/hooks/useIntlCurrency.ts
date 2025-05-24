@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'use-intl'
 import { useIntlNumber } from './useIntlNumber'
 
 export function useIntlCurrency(): Intl.NumberFormat {

@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
 import { Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import type { CarProps } from '@/entities/car/@x/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
 import { LoadingPlaceholder, NothingPlaceholder } from '@/shared/ui/placeholder'

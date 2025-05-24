@@ -1,9 +1,9 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useTranslations } from 'next-intl'
 import { Button } from '@telegram-apps/telegram-ui'
 import { InteractionType } from '@vroomly/prisma'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { actionsRoute } from '@/entities/interaction'
 import { useButtonClick } from '@/shared/lib/dom'

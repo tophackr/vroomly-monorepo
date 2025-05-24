@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { useMemo } from 'react'
-import { useTranslations } from 'next-intl'
 import { Cell, Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useInteractionContext } from '@/entities/interaction'
 import { isPart, useFindAllPartsQuery } from '@/entities/part'
 import { useLogger } from '@/shared/model'

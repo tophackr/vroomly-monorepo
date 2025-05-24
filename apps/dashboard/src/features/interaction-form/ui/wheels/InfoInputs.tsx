@@ -2,9 +2,9 @@
 
 import type { JSX } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
 import { Input, Section, Select } from '@telegram-apps/telegram-ui'
 import { RimType, TireType, WheelType } from '@vroomly/prisma'
+import { useTranslations } from 'use-intl'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { valueAsStringOrNull } from '@/shared/lib/form'
 import { useWheelForm } from './hooks/useWheelForm'

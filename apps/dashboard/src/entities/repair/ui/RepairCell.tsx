@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
 import { Cell, Progress, Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car/@x/repair'
 import { useIntlUnit } from '@/shared/i18n'
 import { cx } from '@/shared/lib/dom'

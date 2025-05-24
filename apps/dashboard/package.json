@@ -27,7 +27,6 @@
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.475.0",
     "next": "15.4.0-canary.48",
-    "next-intl": "^4.1.0",
     "normalize.css": "^8.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -37,6 +36,7 @@
     "redux": "^5.0.1",
     "sonner": "^2.0.1",
     "tailwindcss": "^4.0.17",
+    "use-intl": "^4.1.0",
     "valibot": "^1.0.0"
   },
   "devDependencies": {

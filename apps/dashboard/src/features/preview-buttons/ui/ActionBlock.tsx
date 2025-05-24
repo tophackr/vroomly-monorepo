@@ -1,8 +1,8 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { ActionButton } from './ActionButton'
 import { ActionModal } from './ActionModal'

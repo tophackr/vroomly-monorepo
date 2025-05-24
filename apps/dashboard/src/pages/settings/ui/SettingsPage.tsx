@@ -1,12 +1,14 @@
+'use client'
+
 import { List, Section } from '@telegram-apps/telegram-ui'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'use-intl'
 import { LinkCell } from '@/shared/ui/cell'
 import { BackButton } from '@/shared/ui/tma'
 import { settingsRoute } from '../routes/settings'
 
-export async function SettingsPage() {
-    const t = await getTranslations('Settings')
-    const tLocale = await getTranslations('Locale')
+export function SettingsPage() {
+    const t = useTranslations('Settings')
+    const tLocale = useTranslations('Locale')
 
     return (
         <BackButton>

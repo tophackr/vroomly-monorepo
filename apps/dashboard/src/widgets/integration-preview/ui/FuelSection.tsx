@@ -1,8 +1,8 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useTranslations } from 'next-intl'
 import { Cell, Section } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { useInteractionContext } from '@/entities/interaction'
 import { toFixedNumber } from '@/shared/lib/number'

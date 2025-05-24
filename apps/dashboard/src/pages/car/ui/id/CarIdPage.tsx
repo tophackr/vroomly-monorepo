@@ -1,5 +1,7 @@
+'use client'
+
 import type { JSX } from 'react'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'use-intl'
 import type { ISegment } from '@/features/segment'
 import { pagesRoute } from '@/shared/routes'
 import { BackButton } from '@/shared/ui/tma'
@@ -8,8 +10,8 @@ import { Info } from './info/Info'
 import { Stats } from './stats/Stats'
 import { SegmentKey } from './types'
 
-export async function CarIdPage(): Promise<JSX.Element> {
-    const t = await getTranslations('PreviewSegment')
+export function CarIdPage(): JSX.Element {
+    const t = useTranslations('PreviewSegment')
 
     const segments: ISegment[] = [
         { key: SegmentKey.info, label: t('info'), Component: <Info /> },

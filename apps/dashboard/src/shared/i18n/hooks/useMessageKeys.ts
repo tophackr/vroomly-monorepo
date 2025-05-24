@@ -1,4 +1,6 @@
-import { useMessages } from 'next-intl'
+'use client'
+
+import { useMessages } from 'use-intl'
 import { useLogger } from '@/shared/model'
 import type { Translation } from '../types'
 

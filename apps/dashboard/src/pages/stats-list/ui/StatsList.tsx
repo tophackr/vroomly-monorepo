@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { useMemo } from 'react'
-import { useTranslations } from 'next-intl'
 import { LargeTitle, List, Placeholder } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import {
     InteractionList,
