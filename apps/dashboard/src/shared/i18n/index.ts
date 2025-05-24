@@ -1,4 +1,3 @@
-export { setCookieLocale } from './cookie'
 export { useLocaleSwitch } from './hooks/useLocaleSwitch'
 export { defaultLocale, locales, localesMap } from './config'
 export { getLocales } from './getLocales'

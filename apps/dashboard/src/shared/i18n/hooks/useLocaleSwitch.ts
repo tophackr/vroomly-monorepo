@@ -2,6 +2,7 @@
 
 import { useCallback, useTransition } from 'react'
 import { setCookieLocale } from '../cookie'
+import { setStorageLocale } from '../storage'
 import type { Locale } from '../types'
 
 export function useLocaleSwitch() {
@@ -9,6 +10,7 @@ export function useLocaleSwitch() {
 
     const switchLocale = useCallback((locale: Locale) => {
         startTransition(async () => {
+            await setStorageLocale(locale)
             await setCookieLocale(locale)
         })
     }, [])
