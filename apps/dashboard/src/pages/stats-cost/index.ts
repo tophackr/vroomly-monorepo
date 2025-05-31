@@ -1,1 +1,1 @@
-export { DynamicStatsCost } from './ui/DynamicStatsCost'
+export { StatsCostPage } from './ui/StatsCostPage'

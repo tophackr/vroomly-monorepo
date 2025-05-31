@@ -1,1 +1,1 @@
-export { DynamicStatsRepairsEdit } from './ui/DynamicStatsRepairsEdit'
+export { StatsRepairsEditPage } from './ui/StatsRepairsEditPage'

@@ -13,7 +13,6 @@ import {
 import { useIntlCurrency } from '@/shared/i18n'
 import { reduceSumItems } from '@/shared/lib/number'
 import { useLogger } from '@/shared/model'
-import { BackButton } from '@/shared/ui/tma'
 import { ListSkeleton } from './ListSkeleton'
 
 export function StatsList(): JSX.Element {
@@ -48,8 +47,6 @@ export function StatsList(): JSX.Element {
 
     return (
         <List>
-            <BackButton />
-
             <Placeholder description={t('list')}>
                 <LargeTitle>{currency}</LargeTitle>
             </Placeholder>

@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useRouter } from 'next/navigation'
+import { useNavigate } from 'react-router'
 import { useCarContext } from '@/entities/car'
 import type { RepairsProps } from '@/entities/repair'
 import { useUpdateManyRepairMutation } from '@/entities/repair'
@@ -11,7 +11,7 @@ interface UseSaveRepairsReturns {
 }
 
 export function useSaveRepairs(): UseSaveRepairsReturns {
-    const router = useRouter()
+    const navigate = useNavigate()
     const { error: logError } = useLogger()
 
     const { car } = useCarContext()
@@ -34,11 +34,11 @@ export function useSaveRepairs(): UseSaveRepairsReturns {
                 carId: car.id,
                 body: { repairs }
             }).then(({ error }) => {
-                router.push(statsRoute.repairs(car.id))
+                void navigate(statsRoute.repairs(car.id))
                 if (error) logError('useSaveParts', error)
             })
         },
-        [car.id, logError, router, updateMutation]
+        [car.id, logError, navigate, updateMutation]
     )
 
     return { saveCallback }

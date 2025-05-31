@@ -116,9 +116,9 @@ export function StatsFuel() {
                 </Caption>
             </div>
 
-            {linkData.map(({ href, count, text }, index) => (
+            {linkData.map(({ href, count, text }) => (
                 <LinkCell
-                    key={index}
+                    key={href}
                     href={href}
                     text={count}
                 >

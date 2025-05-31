@@ -1,4 +1,4 @@
-import { pagesRoute } from '@/shared/routes'
+import { pagesRoute } from './pages'
 
 class Stats {
     private root = (carId: string) => `${pagesRoute.carId(carId)}/stats`

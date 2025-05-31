@@ -1,8 +1,8 @@
 'use client'
 
 import type { JSX } from 'react'
+import { useLocation } from 'react-router'
 import { List } from '@telegram-apps/telegram-ui'
-import { usePathname } from 'next/navigation'
 import { cx } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { SettingsButton, isAppleClient } from '@/shared/ui/tma'
@@ -11,7 +11,7 @@ import { EditButton } from './buttons/EditButton'
 import { HeaderLayout } from './HeaderLayout'
 
 export function Header(): JSX.Element {
-    const pathname = usePathname()
+    const location = useLocation()
 
     const isApple = isAppleClient()
 
@@ -24,7 +24,9 @@ export function Header(): JSX.Element {
                     <div className={'flex gap-2'}>
                         <EditButton />
 
-                        {pagesRoute.home !== pathname && <CarsButton />}
+                        {pagesRoute.home !== location.pathname && (
+                            <CarsButton />
+                        )}
                     </div>
                 </div>
             </HeaderLayout>

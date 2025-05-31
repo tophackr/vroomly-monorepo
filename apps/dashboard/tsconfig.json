@@ -1,12 +1,8 @@
 {
-  "extends": "@vroomly/typescript-config/nextjs.json",
+  "extends": "@vroomly/typescript-config/react.json",
   "compilerOptions": {
     "resolveJsonModule": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "useDefineForClassFields": true,
     "paths": {
       "@/public/*": [
         "./public/*"
@@ -14,17 +10,22 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "types": [
+      "vite/client"
+    ]
   },
   "include": [
-    "next-env.d.ts",
-    "next.config.js",
     "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    "**/*.tsx"
   ],
   "exclude": [
     ".turbo",
     "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }

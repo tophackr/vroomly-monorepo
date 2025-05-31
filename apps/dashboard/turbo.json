@@ -9,12 +9,18 @@
       "persistent": true,
       "with": ["css:types:dev"]
     },
+    "dev:https": {
+      "cache": false,
+      "persistent": true,
+      "with": ["css:types:dev"],
+      "passThroughEnv": ["HTTPS"]
+    },
     "css:types:dev": {
       "cache": false,
       "persistent": true
     },
     "build": {
-      "outputs": [".next/**", "!.next/cache/**"],
+      "outputs": ["dist"],
       "dependsOn": ["^build"]
     }
   }

@@ -16,9 +16,9 @@ export const ModalContent = memo(function ModalContent({
 }: ModalContentProps): JSX.Element[] {
     const isApple = isAppleClient()
 
-    return content.map(({ href, icon, bgColor, name }, index) => (
+    return content.map(({ href, icon, bgColor, name }) => (
         <LinkCell
-            key={index}
+            key={href}
             href={href}
             icon={icon}
             bgColor={bgColor}

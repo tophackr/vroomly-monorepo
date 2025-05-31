@@ -3,11 +3,11 @@ import { browser } from './config.browser.js'
 import { eslint } from './config.eslint.js'
 import { fsd } from './config.fsd.js'
 import { imports } from './config.import.js'
-import { next } from './config.next.js'
 import { comment } from './config.noCommentedCode.js'
 import { node } from './config.node.js'
 import { onlyWarn } from './config.onlyWarn.js'
 import { prettierThisMustBePutLast } from './config.prettier.js'
+import { reactEslint } from './config.react.js'
 import { typescript } from './config.typescript.js'
 import { unicorn } from './config.unicorn.js'
 import { inferPackageTypes } from './inferPackageTypes.js'
@@ -44,7 +44,7 @@ export default [
     ...imports({ files: allFiles }),
     ...unicorn({ files: allFiles }),
     ...comment({ files: allFiles }),
-    ...next({ files: browserFiles }),
+    ...reactEslint({ files: browserFiles }),
     ...fsd({ files: browserFiles }),
     ...onlyWarn(),
     ...prettierThisMustBePutLast()

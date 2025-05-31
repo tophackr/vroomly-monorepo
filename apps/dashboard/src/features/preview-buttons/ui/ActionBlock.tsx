@@ -1,20 +1,18 @@
-'use client'
-
 import type { JSX } from 'react'
-import { useRouter } from 'next/navigation'
+import { useNavigate } from 'react-router'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { ActionButton } from './ActionButton'
 import { ActionModal } from './ActionModal'
-import { useActionButtons } from './hooks/useActionButtons'
+import { getActionButtons } from './getActionButtons'
 import { ModalContent } from './ModalContent'
 
 export function ActionBlock(): JSX.Element[] {
     const t = useTranslations('CarCategoryName')
     const { car } = useCarContext()
-    const router = useRouter()
+    const navigate = useNavigate()
 
-    const buttons = useActionButtons(car.id)
+    const buttons = getActionButtons(car.id)
 
     return buttons.map(button =>
         'content' in button ? (
@@ -34,7 +32,7 @@ export function ActionBlock(): JSX.Element[] {
                 key={button.name}
                 name={button.name}
                 icon={button.icon}
-                onClick={() => router.push(button.link)}
+                onClick={() => navigate(button.link)}
             />
         )
     )

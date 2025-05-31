@@ -1,16 +1,14 @@
-import type { JSX, PropsWithChildren } from 'react'
-import { memo } from 'react'
+import type { JSX } from 'react'
+import { Outlet } from 'react-router'
 import { Header } from '@/features/header'
 import { EditContextProvider } from '@/entities/edit'
 
-export const DashboardLayout = memo(function DashboardLayout({
-    children
-}: PropsWithChildren): JSX.Element {
+export function DashboardLayout(): JSX.Element {
     return (
         <EditContextProvider>
             <Header />
 
-            {children}
+            <Outlet />
         </EditContextProvider>
     )
-})
+}

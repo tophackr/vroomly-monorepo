@@ -1,6 +1,2 @@
-export {
-    MainContextProvider,
-    useLogger,
-    getLogger
-} from './MainContextProvider'
+export { MainProvider, useLogger, getLogger } from './MainProvider'
 export { oneDayInMs } from './constants'

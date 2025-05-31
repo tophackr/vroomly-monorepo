@@ -5,7 +5,6 @@ import { List } from '@telegram-apps/telegram-ui'
 import { useCarContext } from '@/entities/car'
 import { RepairField, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'
-import { BackButton } from '@/shared/ui/tma'
 import { RepairsEditFormProvider } from './RepairsEditFormProvider'
 import { RepairsEditSkeleton } from './RepairsEditSkeleton'
 import { RepairsSaveButton } from './RepairsSaveButton'
@@ -27,8 +26,6 @@ export function StatsRepairsEdit(): JSX.Element {
 
     return (
         <List>
-            <BackButton />
-
             <RepairsEditFormProvider repairs={repairs}>
                 {repairs?.map(repair => (
                     <RepairField

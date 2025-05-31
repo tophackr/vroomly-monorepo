@@ -1,7 +1,7 @@
-declare namespace NodeJS {
-    export interface ProcessEnv {
-        NEXT_PUBLIC_TITLE: string
-        NEXT_PUBLIC_DESCRIPTION: string
-        NEXT_PUBLIC_API_URL: string
-    }
+interface ImportMetaEnv {
+    VITE_API_URL: string
+}
+
+declare namespace ImportMeta {
+    env: ImportMetaEnv
 }

@@ -1,42 +1,15 @@
-'use client'
-
-import type { JSX, PropsWithChildren } from 'react'
-import { memo, use, useMemo, createContext, useContext } from 'react'
-import { FuelType, OdometerUnits } from '@vroomly/prisma'
-import { notFound } from 'next/navigation'
-import {
-    isMileageType,
-    useFindAllInteractionsQuery
-} from '@/entities/interaction/@x/car'
-import type { ParamsProps } from '@/shared/lib/dom'
+import type { PropsWithChildren } from 'react'
+import { memo, useMemo, createContext, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router'
 import { useLogger } from '@/shared/model'
 import { useFindOneCarQuery } from '../api/car.api'
 import { CarPreviewSkeleton } from '../ui/CarPreviewSkeleton'
-import type { CarIdProps, CarMileageProps, CarProps } from './props'
+import type { CarIdProps, CarProps } from './props'
 
-const CarContext = createContext<CarProps & CarMileageProps>({
-    car: {
-        id: '',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        isDefault: false,
-        brand: '',
-        model: null,
-        name: null,
-        year: null,
-        fuelType: FuelType.gasoline,
-        fuelCapacity: null,
-        mileage: 0,
-        odometerUnits: OdometerUnits.kilometer,
-        engineHoursEnabled: false,
-        engineHours: null,
-        userId: ''
-    },
-    mileage: 0
-})
+const Context = createContext<CarProps | null>(null)
 
-export function useCarContext(): CarProps & CarMileageProps {
-    const context = useContext(CarContext)
+export function useCarContext(): CarProps {
+    const context = useContext(Context)
 
     if (!context) {
         throw new Error('Car Context cannot be used out of context.')
@@ -45,50 +18,33 @@ export function useCarContext(): CarProps & CarMileageProps {
     return context
 }
 
-export const CarContextProvider = memo(function CarContextProvider({
+export const CarProvider = memo(function CarProvider({
     children,
-    params
-}: PropsWithChildren<ParamsProps<CarIdProps>>): JSX.Element {
-    const { carId } = use(params)
+    carId
+}: PropsWithChildren<CarIdProps>) {
+    const navigate = useNavigate()
     const { error: logError } = useLogger()
 
     const {
         data: car,
-        isLoading: isCarLoading,
-        isSuccess: isCarSuccess,
-        isError: isCarError,
-        error: carError
+        isLoading,
+        isError,
+        error
     } = useFindOneCarQuery({ carId })
 
-    const stableCarId = useMemo(() => ({ carId: car?.id ?? '' }), [car?.id])
+    useEffect(() => {
+        if (!isLoading && !car) {
+            void navigate('/not-found')
+        }
+    }, [car, isLoading, navigate])
 
-    const {
-        data: interactions,
-        isFetching: isInteractionsFetching,
-        isError: isInteractionError,
-        error: interactionError
-    } = useFindAllInteractionsQuery(stableCarId, {
-        skip: !car?.id || (!isCarLoading && isCarSuccess && !isCarError)
-    })
+    const value = useMemo(() => ({ car }), [car])
 
-    if (isCarError) logError('CarContextProvider.carError', carError)
-    if (isInteractionError)
-        logError('CarContextProvider.interactionError', interactionError)
+    if (isError) logError('CarContextProvider.carError', error)
 
-    if (isCarLoading || isInteractionsFetching) return <CarPreviewSkeleton />
+    if (isLoading) return <CarPreviewSkeleton />
 
-    if (!car) {
-        notFound()
-    }
+    if (!value.car) return null
 
-    const lastMileage = interactions?.find(({ type }) => isMileageType(type))
-
-    const mileage =
-        lastMileage && lastMileage.mileage ? lastMileage.mileage : car.mileage
-
-    return (
-        <CarContext.Provider value={{ car, mileage }}>
-            {children}
-        </CarContext.Provider>
-    )
+    return <Context value={value as CarProps}>{children}</Context>
 })

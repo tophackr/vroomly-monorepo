@@ -2,13 +2,13 @@
 
 import type { PropsWithChildren } from 'react'
 import { memo, useCallback, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import {
     hideBackButton,
     isBackButtonVisible,
     onBackButtonClick,
     showBackButton
 } from '@telegram-apps/sdk-react'
-import { useRouter } from 'next/navigation'
 
 interface BackButtonProps {
     hide?: boolean
@@ -20,11 +20,11 @@ export const BackButton = memo(function BackButton({
     hide,
     route
 }: PropsWithChildren<BackButtonProps>) {
-    const router = useRouter()
+    const navigate = useNavigate()
 
     const onClick = useCallback(
-        () => (route ? router.push(route) : router.back()),
-        [route, router]
+        () => (route ? void navigate(route) : void navigate(-1)),
+        [route, navigate]
     )
 
     useEffect(() => {

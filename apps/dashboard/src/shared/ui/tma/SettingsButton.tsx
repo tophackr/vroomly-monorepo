@@ -2,6 +2,7 @@
 
 import type { JSX } from 'react'
 import { useCallback, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 import {
     hideSettingsButton,
     initDataUser,
@@ -11,7 +12,6 @@ import {
     useSignal
 } from '@telegram-apps/sdk-react'
 import { Avatar } from '@telegram-apps/telegram-ui'
-import { usePathname, useRouter } from 'next/navigation'
 import { pagesRoute } from '@/shared/routes'
 
 function visibleOnSettingsPage(
@@ -26,14 +26,14 @@ function notVisibleOnPage(visible: boolean, pathname: string | null): boolean {
 }
 
 export function SettingsButton(): JSX.Element | false {
-    const router = useRouter()
-    const pathname = usePathname()
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const isVisible = useSignal(isSettingsButtonVisible)
 
     const onClick = useCallback(
-        () => router.push(pagesRoute.settings),
-        [router]
+        () => void navigate(pagesRoute.settings),
+        [navigate]
     )
 
     useEffect(() => {
@@ -45,12 +45,12 @@ export function SettingsButton(): JSX.Element | false {
     }, [onClick])
 
     useEffect(() => {
-        if (visibleOnSettingsPage(isVisible, pathname)) {
+        if (visibleOnSettingsPage(isVisible, location.pathname)) {
             hideSettingsButton()
-        } else if (notVisibleOnPage(isVisible, pathname)) {
+        } else if (notVisibleOnPage(isVisible, location.pathname)) {
             showSettingsButton()
         }
-    }, [isVisible, pathname])
+    }, [isVisible, location])
 
     const user = initDataUser()
 

@@ -2,7 +2,7 @@
 
 import type { MouseEvent } from 'react'
 import { useCallback, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useNavigate } from 'react-router'
 import type { MouseClickEvent } from '../types/buttonClickTypes'
 
 type UseButtonClickProps<T> =
@@ -19,7 +19,7 @@ export function useButtonClick<T = MouseEvent>({
     route,
     callback
 }: UseButtonClickProps<T>): MouseClickEvent<T> {
-    const router = useRouter()
+    const navigate = useNavigate()
 
     const [disabled, setDisabled] = useState(false)
 
@@ -36,10 +36,10 @@ export function useButtonClick<T = MouseEvent>({
             }
 
             if (route) {
-                router.push(route)
+                await navigate(route)
             }
         },
-        [callback, disabled, route, router]
+        [callback, disabled, route, navigate]
     )
 
     return { disabled, onClick }

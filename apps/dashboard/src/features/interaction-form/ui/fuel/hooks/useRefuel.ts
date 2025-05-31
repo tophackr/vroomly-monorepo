@@ -70,8 +70,10 @@ export function useRefuel(fuelCapacity?: number | null): UseRefuelReturn {
 
         isFirstRender.current = true
 
-        setBeforeRefuel(getPercent(watchBeforeRefueling ?? 0, fuelCapacity))
-        setAfterRefuel(getPercent(watchAfterRefueling ?? 0, fuelCapacity))
+        setTimeout(() => {
+            setBeforeRefuel(getPercent(watchBeforeRefueling ?? 0, fuelCapacity))
+            setAfterRefuel(getPercent(watchAfterRefueling ?? 0, fuelCapacity))
+        }, 100)
     }, [watchBeforeRefueling, watchAfterRefueling, fuelCapacity])
 
     useEffect(() => {

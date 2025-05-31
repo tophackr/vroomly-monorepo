@@ -6,6 +6,7 @@ import {
     memo,
     useContext,
     useLayoutEffect,
+    useMemo,
     useState,
     useTransition
 } from 'react'
@@ -45,16 +46,18 @@ export const I18nProvider = memo(function I18nProvider({
         })
     }, [locale])
 
+    const value = useMemo(() => ({ locale, setLocale }), [locale])
+
     if (isLoading || !messages) return <>loading i18n</>
 
     return (
-        <Context.Provider value={{ locale, setLocale }}>
+        <Context value={value}>
             <IntlProvider
                 locale={locale}
                 messages={messages}
             >
                 {children}
             </IntlProvider>
-        </Context.Provider>
+        </Context>
     )
 })

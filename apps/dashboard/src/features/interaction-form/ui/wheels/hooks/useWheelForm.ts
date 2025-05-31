@@ -16,7 +16,7 @@ export function useWheelForm(): UseWheelFormReturn {
 
     const watchWheelType = watch('wheelData.wheelType')
     const [prevWheelType, setPrevWheelType] = useState<WheelType>(
-        getValues().wheelData!.wheelType
+        () => getValues().wheelData!.wheelType
     )
 
     const sizeKeys = useMemo<(keyof WheelInteractionData)[]>(
@@ -35,7 +35,9 @@ export function useWheelForm(): UseWheelFormReturn {
                 null
             )
 
-            setPrevWheelType(watchWheelType)
+            setTimeout(() => {
+                setPrevWheelType(watchWheelType)
+            }, 100)
         }
     }, [prevWheelType, setValue, sizeKeys, watchWheelType])
 

@@ -1,14 +1,17 @@
-'use client'
-
 import type { JSX } from 'react'
+import { lazy, Suspense } from 'react'
 import { useTranslations } from 'use-intl'
 import type { ISegment } from '@/features/segment'
+import { CarPreviewSkeleton } from '@/entities/car'
 import { pagesRoute } from '@/shared/routes'
 import { BackButton } from '@/shared/ui/tma'
-import { DynamicSegments } from './DynamicSegments'
 import { Info } from './info/Info'
 import { Stats } from './stats/Stats'
 import { SegmentKey } from './types'
+
+const Segments = lazy(() =>
+    import('@/features/segment').then(m => ({ default: m.Segments }))
+)
 
 export function CarIdPage(): JSX.Element {
     const t = useTranslations('PreviewSegment')
@@ -20,10 +23,12 @@ export function CarIdPage(): JSX.Element {
 
     return (
         <BackButton route={pagesRoute.home}>
-            <DynamicSegments
-                segments={segments}
-                defaultSegment={SegmentKey.info}
-            />
+            <Suspense fallback={<CarPreviewSkeleton />}>
+                <Segments
+                    segments={segments}
+                    defaultSegment={SegmentKey.info}
+                />
+            </Suspense>
         </BackButton>
     )
 }

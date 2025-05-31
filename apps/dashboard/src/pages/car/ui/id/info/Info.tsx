@@ -1,14 +1,17 @@
-'use client'
-
 import type { JSX } from 'react'
+import { lazy } from 'react'
 import { List } from '@telegram-apps/telegram-ui'
 import { PreviewButtons } from '@/features/preview-buttons'
-import { CarPreview, useCarContext } from '@/entities/car'
+import { CarPreview, useCarContext, useMileageContext } from '@/entities/car'
 import { CarEditButton } from './CarEditButton'
-import { DynamicInteractionList } from './DynamicInteractionList'
+
+const InteractionList = lazy(() =>
+    import('@/entities/interaction').then(m => ({ default: m.InteractionList }))
+)
 
 export function Info(): JSX.Element {
-    const { car, mileage } = useCarContext()
+    const { car } = useCarContext()
+    const { mileage } = useMileageContext()
 
     return (
         <>
@@ -22,7 +25,7 @@ export function Info(): JSX.Element {
             <List>
                 <PreviewButtons />
 
-                <DynamicInteractionList
+                <InteractionList
                     car={car}
                     slice={10}
                 />

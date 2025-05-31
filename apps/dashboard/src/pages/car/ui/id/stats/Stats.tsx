@@ -29,9 +29,9 @@ export function Stats(): JSX.Element {
 
                 return (
                     <Section key={group}>
-                        {items.map(({ name, href, icon, bgColor }, index) => (
+                        {items.map(({ name, href, icon, bgColor }) => (
                             <LinkCell
-                                key={index}
+                                key={href}
                                 href={href}
                                 icon={icon}
                                 bgColor={bgColor}
