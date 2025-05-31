@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { Section, Switch } from '@telegram-apps/telegram-ui'
+import { Section, Switch } from 'tmaui'
 import { OdometerUnits } from '@vroomly/prisma'
 import { useTranslations } from 'use-intl'
 import { IconCell } from '@/shared/ui/cell'

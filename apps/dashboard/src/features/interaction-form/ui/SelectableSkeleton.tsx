@@ -1,4 +1,4 @@
-import { Multiselectable, Section } from '@telegram-apps/telegram-ui'
+import { Multiselectable, Section } from 'tmaui'
 import {
     CellSkeleton,
     PulseSkeletonLayout,

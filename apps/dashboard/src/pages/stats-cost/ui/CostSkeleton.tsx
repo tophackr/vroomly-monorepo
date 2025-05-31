@@ -1,4 +1,4 @@
-import { List, Section } from '@telegram-apps/telegram-ui'
+import { List, Section } from 'tmaui'
 import {
     CellSkeleton,
     PulseSkeletonLayout,

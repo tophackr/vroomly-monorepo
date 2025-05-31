@@ -3,7 +3,7 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { Cell, Section, Switch } from '@telegram-apps/telegram-ui'
+import { Cell, Section, Switch } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { callMultiple } from '@/shared/lib/dom'

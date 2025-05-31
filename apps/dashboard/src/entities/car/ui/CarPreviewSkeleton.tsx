@@ -4,7 +4,7 @@ import {
     InlineButtons,
     List,
     Placeholder
-} from '@telegram-apps/telegram-ui'
+} from 'tmaui'
 import {
     AvatarSkeleton,
     PulseSkeletonLayout,

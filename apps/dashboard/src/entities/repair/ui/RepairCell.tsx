@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Cell, Progress, Section } from '@telegram-apps/telegram-ui'
+import { Cell, Progress, Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car/@x/repair'
 import { useIntlUnit } from '@/shared/i18n'

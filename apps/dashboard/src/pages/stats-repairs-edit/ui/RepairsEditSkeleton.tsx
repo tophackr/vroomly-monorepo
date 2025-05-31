@@ -1,4 +1,4 @@
-import { Cell, List, Section, Switch } from '@telegram-apps/telegram-ui'
+import { Cell, List, Section, Switch } from 'tmaui'
 import { cx } from '@/shared/lib/dom'
 import {
     PulseSkeletonLayout,

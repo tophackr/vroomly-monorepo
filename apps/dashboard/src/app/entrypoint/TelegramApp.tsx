@@ -4,7 +4,7 @@ import {
     retrieveLaunchParams,
     useSignal
 } from '@telegram-apps/sdk-react'
-import { AppRoot } from '@telegram-apps/telegram-ui'
+import { AppRoot } from 'tmaui'
 import { isAppleClient } from '@/shared/ui/tma'
 
 export function TelegramApp({ children }: PropsWithChildren) {

@@ -1,6 +1,6 @@
 'use client'
 
-import { List, Section } from '@telegram-apps/telegram-ui'
+import { List, Section } from 'tmaui'
 import { useTranslations, useLocale } from 'use-intl'
 import { BackButton } from '@/shared/ui/tma'
 import { SectionContent } from './SectionContent'

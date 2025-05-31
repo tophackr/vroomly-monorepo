@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { useMemo } from 'react'
-import { LargeTitle, List, Placeholder } from '@telegram-apps/telegram-ui'
+import { LargeTitle, List, Placeholder } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import {

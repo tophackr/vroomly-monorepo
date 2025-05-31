@@ -1,4 +1,4 @@
-import type { CellProps } from '@telegram-apps/telegram-ui'
+import type { CellProps } from 'tmaui'
 import type { ChevronAfterCellProps } from '../chevron-after/types'
 import type { IconBeforeCellProps } from '../icon/types'
 

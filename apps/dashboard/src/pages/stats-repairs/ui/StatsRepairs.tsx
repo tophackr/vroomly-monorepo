@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { useMemo } from 'react'
-import { List } from '@telegram-apps/telegram-ui'
+import { List } from 'tmaui'
 import { useCarContext } from '@/entities/car'
 import { RepairCell, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'

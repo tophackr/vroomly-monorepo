@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
 import { useLocation } from 'react-router'
-import { Section } from '@telegram-apps/telegram-ui'
+import { Section } from 'tmaui'
 import { pagesRoute } from '@/shared/routes'
 import { isAppleClient } from '@/shared/ui/tma'
 

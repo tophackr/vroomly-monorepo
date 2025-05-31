@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Section } from '@telegram-apps/telegram-ui'
+import { Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import type { CarProps } from '@/entities/car/@x/interaction'
 import { useIntlDateTime } from '@/shared/i18n'

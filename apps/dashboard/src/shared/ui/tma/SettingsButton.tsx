@@ -11,7 +11,7 @@ import {
     showSettingsButton,
     useSignal
 } from '@telegram-apps/sdk-react'
-import { Avatar } from '@telegram-apps/telegram-ui'
+import { Avatar } from 'tmaui'
 import { pagesRoute } from '@/shared/routes'
 
 function visibleOnSettingsPage(

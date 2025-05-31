@@ -3,7 +3,7 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form'
-import { Cell, Input, Section, Switch } from '@telegram-apps/telegram-ui'
+import { Cell, Input, Section, Switch } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { inputErrorStatus } from '@/shared/ui/when'
 import { isRepair } from '../model/isRepair'

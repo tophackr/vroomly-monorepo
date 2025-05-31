@@ -3,7 +3,7 @@
 import type { JSX } from 'react'
 import { memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { FileInput, Section, Textarea } from '@telegram-apps/telegram-ui'
+import { FileInput, Section, Textarea } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'

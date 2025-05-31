@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX } from 'react'
-import { List, Section } from '@telegram-apps/telegram-ui'
+import { List, Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { generateMenu } from '@/shared/lib/link-menu'

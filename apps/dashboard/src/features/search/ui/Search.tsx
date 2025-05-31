@@ -3,7 +3,7 @@
 import type { JSX } from 'react'
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { Input, Tappable } from '@telegram-apps/telegram-ui'
+import { Input, Tappable } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useDebounceForm } from '@/shared/ui/form'
 import { Icon } from '@/shared/ui/icon'

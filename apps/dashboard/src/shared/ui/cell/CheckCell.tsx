@@ -2,8 +2,8 @@
 
 import type { JSX, MouseEvent as RME } from 'react'
 import { memo, useEffect, useRef } from 'react'
-import type { CellProps } from '@telegram-apps/telegram-ui'
-import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
+import type { CellProps } from 'tmaui'
+import { Cell as TGUICell } from 'tmaui'
 
 export const CheckCell = memo(function CheckCell({
     children,

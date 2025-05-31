@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { List } from '@telegram-apps/telegram-ui'
+import { List } from 'tmaui'
 import type { CarMileageProps, CarProps } from '@/entities/car'
 import { useFindAllCarsQuery } from '@/entities/car'
 import { useLogger } from '@/shared/model'

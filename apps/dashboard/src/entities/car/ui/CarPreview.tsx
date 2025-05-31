@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Placeholder } from '@telegram-apps/telegram-ui'
+import { Placeholder } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import type { CarMileageProps, CarProps } from '../model/props'
 import { CarAvatar } from './CarAvatar'

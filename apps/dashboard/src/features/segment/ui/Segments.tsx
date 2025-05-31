@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo, useState } from 'react'
-import { List, Placeholder, SegmentedControl } from '@telegram-apps/telegram-ui'
+import { List, Placeholder, SegmentedControl } from 'tmaui'
 import type { SegmentProps } from './types'
 
 export const Segments = memo(function Segments({

@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX } from 'react'
-import { IconButton } from '@telegram-apps/telegram-ui'
+import { IconButton } from 'tmaui'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { Icon } from '@/shared/ui/icon'

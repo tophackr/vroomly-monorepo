@@ -5,7 +5,7 @@ import {
     LargeTitle,
     Placeholder,
     Text
-} from '@telegram-apps/telegram-ui'
+} from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import {

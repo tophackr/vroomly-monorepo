@@ -16,7 +16,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
     "@telegram-apps/sdk-react": "^3.1.9",
-    "@telegram-apps/telegram-ui": "^2.1.8",
     "@vercel/speed-insights": "^1.2.0",
     "clsx": "^2.1.1",
     "deepmerge": "^4.3.1",
@@ -35,6 +34,7 @@
     "redux": "^5.0.1",
     "sonner": "^2.0.1",
     "tailwindcss": "^4.0.17",
+    "tmaui": "2.1.9-canary.3",
     "use-intl": "^4.1.0",
     "valibot": "^1.0.0"
   },

@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX } from 'react'
-import { Button } from '@telegram-apps/telegram-ui'
+import { Button } from 'tmaui'
 import { InteractionType } from '@vroomly/prisma'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'

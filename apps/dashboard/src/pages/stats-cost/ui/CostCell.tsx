@@ -1,6 +1,6 @@
 'use client'
 
-import { Cell, Progress } from '@telegram-apps/telegram-ui'
+import { Cell, Progress } from 'tmaui'
 import type { InteractionType } from '@vroomly/prisma'
 import { useTranslations } from 'use-intl'
 import { useIntlCurrency } from '@/shared/i18n'

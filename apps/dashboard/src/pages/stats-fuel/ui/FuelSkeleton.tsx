@@ -1,4 +1,4 @@
-import { Cell, Placeholder } from '@telegram-apps/telegram-ui'
+import { Cell, Placeholder } from 'tmaui'
 import { ListSection } from '@/shared/ui'
 import { PulseSkeletonLayout, TextSkeleton } from '@/shared/ui/skeleton'
 

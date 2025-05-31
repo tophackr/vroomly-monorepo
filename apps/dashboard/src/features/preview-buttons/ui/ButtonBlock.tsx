@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { InlineButtons } from '@telegram-apps/telegram-ui'
+import { InlineButtons } from 'tmaui'
 import { ActionBlock } from './ActionBlock'
 import { MileageButton } from './mileage/MileageButton'
 

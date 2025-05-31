@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX } from 'react'
-import { List } from '@telegram-apps/telegram-ui'
+import { List } from 'tmaui'
 import { useCarContext } from '@/entities/car'
 import { RepairField, useFindAllRepairsQuery } from '@/entities/repair'
 import { useLogger } from '@/shared/model'

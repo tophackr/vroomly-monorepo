@@ -2,7 +2,7 @@
 
 import type { ChangeEvent } from 'react'
 import { useCallback, useState } from 'react'
-import { Cell, Selectable } from '@telegram-apps/telegram-ui'
+import { Cell, Selectable } from 'tmaui'
 import { useUpdateUserMutation } from '@/entities/user'
 import type { Locale, LocaleProps } from '@/shared/i18n'
 import { localesMap, useLocaleSwitch } from '@/shared/i18n'

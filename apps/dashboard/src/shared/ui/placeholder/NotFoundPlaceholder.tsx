@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Placeholder } from '@telegram-apps/telegram-ui'
+import { Placeholder } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { DuckNotFoundLottie } from '@/shared/ui/lottie'
 import type { PlaceholderProps } from './props'

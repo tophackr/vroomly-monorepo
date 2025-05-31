@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { Input, Section, Select } from '@telegram-apps/telegram-ui'
+import { Input, Section, Select } from 'tmaui'
 import { FuelGrade } from '@vroomly/prisma'
 import { useTranslations } from 'use-intl'
 import type { InteractionDataForm } from '@/entities/interaction'

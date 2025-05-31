@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 import { lazy } from 'react'
-import { List } from '@telegram-apps/telegram-ui'
+import { List } from 'tmaui'
 import { PreviewButtons } from '@/features/preview-buttons'
 import { CarPreview, useCarContext, useMileageContext } from '@/entities/car'
 import { CarEditButton } from './CarEditButton'

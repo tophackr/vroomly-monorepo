@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { Cell, List, Section } from '@telegram-apps/telegram-ui'
+import { Cell, List, Section } from 'tmaui'
 import {
     CellSkeleton,
     IconSkeleton,

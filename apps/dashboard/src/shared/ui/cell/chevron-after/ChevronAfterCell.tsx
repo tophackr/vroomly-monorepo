@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Text } from '@telegram-apps/telegram-ui'
+import { Text } from 'tmaui'
 import { isAppleClient } from '@/shared/ui/tma'
 import { Icon } from '../../icon'
 import type { ChevronAfterCellProps } from './types'

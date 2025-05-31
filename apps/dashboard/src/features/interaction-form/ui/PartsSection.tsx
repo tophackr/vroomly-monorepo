@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
+import { Cell, Multiselectable, Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'

@@ -3,7 +3,7 @@ import {
     List,
     Placeholder,
     Section
-} from '@telegram-apps/telegram-ui'
+} from 'tmaui'
 import {
     CellSkeleton,
     PulseSkeletonLayout,

@@ -3,7 +3,7 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { Input, Section, Slider, Text } from '@telegram-apps/telegram-ui'
+import { Input, Section, Slider, Text } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { Icon } from '@/shared/ui/icon'

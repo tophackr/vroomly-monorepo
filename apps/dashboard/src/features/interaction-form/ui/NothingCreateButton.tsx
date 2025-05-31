@@ -1,7 +1,7 @@
 'use client'
 
 import { memo } from 'react'
-import { Button } from '@telegram-apps/telegram-ui'
+import { Button } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useButtonClick } from '@/shared/lib/dom'
 

@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { useLocation } from 'react-router'
-import { List } from '@telegram-apps/telegram-ui'
+import { List } from 'tmaui'
 import { cx } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { SettingsButton, isAppleClient } from '@/shared/ui/tma'

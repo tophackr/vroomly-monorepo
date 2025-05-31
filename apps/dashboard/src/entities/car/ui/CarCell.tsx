@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Badge, Cell } from '@telegram-apps/telegram-ui'
+import { Badge, Cell } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'

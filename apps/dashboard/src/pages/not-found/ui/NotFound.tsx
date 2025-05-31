@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX } from 'react'
-import { List, Placeholder } from '@telegram-apps/telegram-ui'
+import { List, Placeholder } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { DuckNotFoundLottie } from '@/shared/ui/lottie'
 import { BackButton } from '@/shared/ui/tma'

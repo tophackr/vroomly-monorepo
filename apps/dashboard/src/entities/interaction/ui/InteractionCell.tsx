@@ -2,7 +2,7 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Badge, Cell } from '@telegram-apps/telegram-ui'
+import { Badge, Cell } from 'tmaui'
 import { useFormatter, useTranslations } from 'use-intl'
 import type { CarProps } from '@/entities/car/@x/interaction'
 import { useIntlCarUnit } from '@/entities/car/@x/interaction'
