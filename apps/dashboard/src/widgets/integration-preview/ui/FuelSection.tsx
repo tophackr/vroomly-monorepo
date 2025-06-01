@@ -17,7 +17,7 @@ export function FuelSection(): JSX.Element {
     } = useInteractionContext()
 
     const { fuelGrade, capacity, price, beforeRefueling, afterRefueling } =
-        fuelInteraction!
+        fuelInteraction
 
     const fuelCapacity = car.fuelCapacity ?? 45
 

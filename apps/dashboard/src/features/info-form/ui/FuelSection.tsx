@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { Section } from 'tmaui'
 import { FuelType } from '@vroomly/prisma'
+import { Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { IconInput, IconSelect } from '@/shared/ui/form'
 import { inputErrorStatus } from '@/shared/ui/when'

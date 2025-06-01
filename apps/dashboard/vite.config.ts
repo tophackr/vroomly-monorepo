@@ -24,7 +24,7 @@ export default defineConfig({
             '@': path.resolve(
                 path.dirname(fileURLToPath(import.meta.url)),
                 './src'
-            ),
+            )
         }
     },
     plugins: [

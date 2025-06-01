@@ -31,10 +31,9 @@ export function SettingsButton(): JSX.Element | false {
 
     const isVisible = useSignal(isSettingsButtonVisible)
 
-    const onClick = useCallback(
-        () => void navigate(pagesRoute.settings),
-        [navigate]
-    )
+    const onClick = useCallback(() => {
+        void navigate(pagesRoute.settings)
+    }, [navigate])
 
     useEffect(() => {
         const offClick = onSettingsButtonClick(onClick)

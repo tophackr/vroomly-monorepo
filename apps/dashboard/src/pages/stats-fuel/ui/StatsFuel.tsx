@@ -1,11 +1,6 @@
 'use client'
 
-import {
-    Caption,
-    LargeTitle,
-    Placeholder,
-    Text
-} from 'tmaui'
+import { Caption, LargeTitle, Placeholder, Text } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import {

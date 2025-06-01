@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { Input, Section, Select } from 'tmaui'
 import { RimType, TireType, WheelType } from '@vroomly/prisma'
+import { Input, Section, Select } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { valueAsStringOrNull } from '@/shared/lib/form'

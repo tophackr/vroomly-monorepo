@@ -30,8 +30,8 @@ function useAllFuelData<T extends boolean>(
                 amount,
                 mileage,
                 fuelInteraction
-            } = interactions[i]!
-            const { capacity, price } = fuelInteraction!
+            } = interactions[i]
+            const { capacity, price } = fuelInteraction
 
             const fuelToAdd =
                 capacity === null

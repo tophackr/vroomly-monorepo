@@ -84,7 +84,7 @@ export function useRefuel(fuelCapacity?: number | null): UseRefuelReturn {
 
     const onWatchCallback = useCallback(
         ({ fuelData }: InteractionDataForm) => {
-            const { beforeRefueling, afterRefueling } = fuelData!
+            const { beforeRefueling, afterRefueling } = fuelData
             if (beforeRefuel !== beforeRefueling) {
                 setBeforeRefuel(getPercent(beforeRefueling ?? 0, fuelCapacity))
             }

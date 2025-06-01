@@ -3,6 +3,7 @@
   "display": "Strictest",
   "compilerOptions": {
     "strict": true,
+    "strictNullChecks": false,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,

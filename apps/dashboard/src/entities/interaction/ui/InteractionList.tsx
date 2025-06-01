@@ -53,11 +53,11 @@ export const InteractionList = memo(function InteractionList({
                         header={intlDateTime.format(new Date(date))}
                         footer={
                             <InteractionSumFooter
-                                interactions={interactions[date]!}
+                                interactions={interactions[date]}
                             />
                         }
                     >
-                        {interactions[date]!.map(i => (
+                        {interactions[date].map(i => (
                             <InteractionCell
                                 key={i.id}
                                 interaction={i}

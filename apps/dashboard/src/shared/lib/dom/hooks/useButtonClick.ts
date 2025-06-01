@@ -32,7 +32,7 @@ export function useButtonClick<T = MouseEvent>({
             setDisabled(true)
 
             if (callback) {
-                await callback(data as T)
+                await callback(data)
             }
 
             if (route) {

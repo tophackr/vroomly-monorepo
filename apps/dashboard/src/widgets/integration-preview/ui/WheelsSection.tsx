@@ -1,8 +1,8 @@
 'use client'
 
 import type { JSX } from 'react'
-import { Cell, Section } from 'tmaui'
 import { WheelType } from '@vroomly/prisma'
+import { Cell, Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useInteractionContext } from '@/entities/interaction'
 
@@ -21,7 +21,7 @@ export function WheelsSection(): JSX.Element {
         width,
         height,
         diameter
-    } = wheelInteraction!
+    } = wheelInteraction
 
     return (
         <>

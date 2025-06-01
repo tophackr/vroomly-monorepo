@@ -27,7 +27,7 @@ export const CheckCell = memo(function CheckCell({
             }
         }
 
-        return
+        return null
     }, [onClick])
 
     return (

@@ -22,10 +22,9 @@ export const BackButton = memo(function BackButton({
 }: PropsWithChildren<BackButtonProps>) {
     const navigate = useNavigate()
 
-    const onClick = useCallback(
-        () => (route ? void navigate(route) : void navigate(-1)),
-        [route, navigate]
-    )
+    const onClick = useCallback(() => {
+        route ? void navigate(route) : void navigate(-1)
+    }, [route, navigate])
 
     useEffect(() => {
         if (!isBackButtonVisible() && !hide) {

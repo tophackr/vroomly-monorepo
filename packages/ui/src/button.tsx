@@ -14,6 +14,7 @@ export const Button = ({
 }: PropsWithChildren<ButtonProps>) => {
     return (
         <button
+            type={'button'}
             className={className}
             onClick={() => alert(`Hello from your ${appName} app!`)}
         >

@@ -1,9 +1,4 @@
-import {
-    LargeTitle,
-    List,
-    Placeholder,
-    Section
-} from 'tmaui'
+import { LargeTitle, List, Placeholder, Section } from 'tmaui'
 import {
     CellSkeleton,
     PulseSkeletonLayout,

@@ -1,7 +1,7 @@
 'use client'
 
-import { Cell, Progress } from 'tmaui'
 import type { InteractionType } from '@vroomly/prisma'
+import { Cell, Progress } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useIntlCurrency } from '@/shared/i18n'
 import { getPercent } from '@/shared/lib/number'

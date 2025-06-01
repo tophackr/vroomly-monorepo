@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { Section, Switch } from 'tmaui'
 import { OdometerUnits } from '@vroomly/prisma'
+import { Section, Switch } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { IconCell } from '@/shared/ui/cell'
 import { IconInput, IconSelect } from '@/shared/ui/form'
