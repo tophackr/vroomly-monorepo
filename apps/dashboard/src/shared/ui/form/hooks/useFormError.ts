@@ -2,7 +2,7 @@
 
 import { useCallback } from 'react'
 import type { FieldErrors, FieldValues } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'use-intl'
 import { toast } from '@/shared/lib/toast'
 
 interface UseFormErrorReturn<T extends FieldValues> {

@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { DynamicLottie } from '../DynamicLottie'
+import Lottie from 'lottie-react'
 import type { LottieProps } from '../types'
 import DuckFlashback from './DuckFlashback.json'
 
@@ -8,7 +8,7 @@ export const DuckFlashbackLottie = memo(function DuckFlashbackLottie(
     props: LottieProps
 ): JSX.Element {
     return (
-        <DynamicLottie
+        <Lottie
             animationData={DuckFlashback}
             loop={true}
             {...props}

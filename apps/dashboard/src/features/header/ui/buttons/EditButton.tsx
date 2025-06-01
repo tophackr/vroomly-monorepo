@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX } from 'react'
-import { IconButton } from '@telegram-apps/telegram-ui'
+import { IconButton } from 'tmaui'
 import { useEditValueContext } from '@/entities/edit'
 import { Icon } from '@/shared/ui/icon'
 

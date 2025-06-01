@@ -1,18 +1,27 @@
-import type { JSX } from 'react'
-import { memo } from 'react'
-import type { InteractionTypeProps } from '@/entities/interaction'
-import type { ParamsProps } from '@/shared/lib/dom'
+import { lazy, Suspense } from 'react'
+import { useParams } from 'react-router'
+import type { InteractionType } from '@vroomly/prisma'
+import { InteractionFormSkeleton } from '@/entities/interaction'
 import { BackButton } from '@/shared/ui/tma'
-import { DynamicInteractionPreview } from './DynamicInteractionPreview'
 
-export const InteractionIdPage = memo(async function InteractionIdPage({
-    params
-}: ParamsProps<InteractionTypeProps>): Promise<JSX.Element> {
-    const { type } = await params
+const InteractionPreview = lazy(() =>
+    import('@/widgets/integration-preview').then(m => ({
+        default: m.InteractionPreview
+    }))
+)
+
+export function InteractionIdPage() {
+    const { type } = useParams<{ type: InteractionType }>()
+
+    if (!type) {
+        throw new Error('InteractionIdPage requires a type parameter.')
+    }
 
     return (
         <BackButton>
-            <DynamicInteractionPreview type={type} />
+            <Suspense fallback={<InteractionFormSkeleton />}>
+                <InteractionPreview type={type} />
+            </Suspense>
         </BackButton>
     )
-})
+}

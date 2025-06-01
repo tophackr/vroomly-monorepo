@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
-import { Section } from '@telegram-apps/telegram-ui'
+import { Section } from 'tmaui'
+import { useTranslations } from 'use-intl'
 import type { CarProps } from '@/entities/car/@x/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
 import { LoadingPlaceholder, NothingPlaceholder } from '@/shared/ui/placeholder'
@@ -53,11 +53,11 @@ export const InteractionList = memo(function InteractionList({
                         header={intlDateTime.format(new Date(date))}
                         footer={
                             <InteractionSumFooter
-                                interactions={interactions[date]!}
+                                interactions={interactions[date]}
                             />
                         }
                     >
-                        {interactions[date]!.map(i => (
+                        {interactions[date].map(i => (
                             <InteractionCell
                                 key={i.id}
                                 interaction={i}

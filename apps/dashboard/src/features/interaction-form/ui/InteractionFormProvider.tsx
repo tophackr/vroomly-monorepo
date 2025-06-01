@@ -4,7 +4,7 @@ import type { JSX, PropsWithChildren } from 'react'
 import { memo, useCallback } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FuelGrade, WheelType } from '@vroomly/prisma'
-import { useCarContext } from '@/entities/car'
+import { useMileageContext } from '@/entities/car'
 import type {
     InteractionTypeProps,
     InteractionProps,
@@ -25,7 +25,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
 }: PropsWithChildren<
     InteractionTypeProps & Partial<InteractionProps>
 >): JSX.Element {
-    const { mileage } = useCarContext()
+    const { mileage } = useMileageContext()
 
     let values: Omit<InteractionDataForm, 'date'> = {
         type,
@@ -89,7 +89,7 @@ export const InteractionFormProvider = memo(function ActionFormProvider({
         // eslint-disable-next-line no-commented-code/no-commented-code
         // date expects the Date type, we forcibly assign the Date class without
         // waiting for an error, input waits for a string
-        (date: Date) => date.toISOString().split('T')[0]! as unknown as Date,
+        (date: Date) => date.toISOString().split('T')[0] as unknown as Date,
         []
     )
 

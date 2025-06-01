@@ -1,4 +1,6 @@
-import { useLocale } from 'next-intl'
+'use client'
+
+import { useLocale } from 'use-intl'
 import { daysAfterToday } from '@/shared/lib/date'
 import { useIntlDateTime } from './useIntlDateTime'
 

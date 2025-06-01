@@ -1,3 +1,4 @@
+export { MileageProvider, useMileageContext } from './model/MileageProvider'
 export {
     useCreateCarMutation,
     useDeleteCarMutation,
@@ -5,7 +6,7 @@ export {
     useFindOneCarQuery,
     useUpdateCarMutation
 } from './api/car.api'
-export { CarContextProvider, useCarContext } from './model/CarContextProvider'
+export { CarProvider, useCarContext } from './model/CarContextProvider'
 export type { CarData } from './model/carSchema'
 export type { CarIdProps, CarMileageProps, CarProps } from './model/props'
 export { CarCell } from './ui/CarCell'

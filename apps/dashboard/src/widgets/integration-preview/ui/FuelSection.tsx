@@ -1,8 +1,8 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useTranslations } from 'next-intl'
-import { Cell, Section } from '@telegram-apps/telegram-ui'
+import { Cell, Section } from 'tmaui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { useInteractionContext } from '@/entities/interaction'
 import { toFixedNumber } from '@/shared/lib/number'
@@ -17,7 +17,7 @@ export function FuelSection(): JSX.Element {
     } = useInteractionContext()
 
     const { fuelGrade, capacity, price, beforeRefueling, afterRefueling } =
-        fuelInteraction!
+        fuelInteraction
 
     const fuelCapacity = car.fuelCapacity ?? 45
 

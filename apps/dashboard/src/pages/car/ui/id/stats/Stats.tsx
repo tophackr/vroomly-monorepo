@@ -1,8 +1,8 @@
 'use client'
 
 import type { JSX } from 'react'
-import { useTranslations } from 'next-intl'
-import { List, Section } from '@telegram-apps/telegram-ui'
+import { List, Section } from 'tmaui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { generateMenu } from '@/shared/lib/link-menu'
 import { statsRoute } from '@/shared/routes'
@@ -29,9 +29,9 @@ export function Stats(): JSX.Element {
 
                 return (
                     <Section key={group}>
-                        {items.map(({ name, href, icon, bgColor }, index) => (
+                        {items.map(({ name, href, icon, bgColor }) => (
                             <LinkCell
-                                key={index}
+                                key={href}
                                 href={href}
                                 icon={icon}
                                 bgColor={bgColor}

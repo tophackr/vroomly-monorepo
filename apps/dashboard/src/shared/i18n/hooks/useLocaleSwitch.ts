@@ -1,29 +1,20 @@
 'use client'
 
 import { useCallback, useTransition } from 'react'
-import { useParams } from 'next/navigation'
-import { usePathname, useRouter } from '../routing'
+import { useIntlContext } from '../I18nProvider'
 import type { Locale } from '../types'
 
 export function useLocaleSwitch() {
+    const { setLocale } = useIntlContext()
     const [isLoading, startTransition] = useTransition()
-    const params = useParams()
-    const pathname = usePathname()
-    const router = useRouter()
 
     const switchLocale = useCallback(
         (locale: Locale) => {
             startTransition(() => {
-                router.replace(
-                    // @ts-expect-error -- TypeScript will validate that only known `params`
-                    // are used in combination with a given `pathname`. Since the two will
-                    // always match for the current route, we can skip runtime checks.
-                    { pathname, params },
-                    { locale }
-                )
+                setLocale(locale)
             })
         },
-        [params, pathname, router]
+        [setLocale]
     )
 
     return { switchLocale, isLoading }

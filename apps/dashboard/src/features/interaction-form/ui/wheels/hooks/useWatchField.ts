@@ -28,7 +28,9 @@ export function useWatchField(field: FieldPath<InteractionDataForm>): void {
                 setValue(field, newValue)
             }
 
-            setFieldValue(watchField)
+            setTimeout(() => {
+                setFieldValue(watchField)
+            }, 100)
         }
     }, [field, fieldValue, resetField, setValue, value, watchField])
 }

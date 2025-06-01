@@ -1,18 +1,27 @@
-import type { JSX } from 'react'
-import { memo } from 'react'
-import type { InteractionTypeProps } from '@/entities/interaction'
-import type { ParamsProps } from '@/shared/lib/dom'
+import { lazy, Suspense } from 'react'
+import { useParams } from 'react-router'
+import type { InteractionType } from '@vroomly/prisma'
+import { InteractionFormSkeleton } from '@/entities/interaction'
 import { BackButton } from '@/shared/ui/tma'
-import { DynamicInteractionForm } from '../DynamicInteractionForm'
 
-export const InteractionNewPage = memo(async function InteractionNewPage({
-    params
-}: ParamsProps<InteractionTypeProps>): Promise<JSX.Element> {
-    const { type } = await params
+const InteractionForm = lazy(() =>
+    import('@/features/interaction-form').then(m => ({
+        default: m.InteractionForm
+    }))
+)
+
+export function InteractionNewPage() {
+    const { type } = useParams<{ type: InteractionType }>()
+
+    if (!type) {
+        throw new Error('InteractionNewPage requires a type parameter.')
+    }
 
     return (
         <BackButton>
-            <DynamicInteractionForm type={type} />
+            <Suspense fallback={<InteractionFormSkeleton />}>
+                <InteractionForm type={type} />
+            </Suspense>
         </BackButton>
     )
-})
+}

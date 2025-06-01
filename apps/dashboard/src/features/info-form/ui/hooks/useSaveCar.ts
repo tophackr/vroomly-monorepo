@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
+import { useNavigate } from 'react-router'
 import type { Car } from '@vroomly/prisma'
 import type { CarData } from '@/entities/car'
 import { useCreateCarMutation, useUpdateCarMutation } from '@/entities/car'
-import { useRouter } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 import { pagesRoute } from '@/shared/routes'
 
@@ -15,7 +15,7 @@ export function useSaveCar(): UseSaveCarReturns {
 
     const [createMutation] = useCreateCarMutation()
     const [updateMutation] = useUpdateCarMutation()
-    const router = useRouter()
+    const navigate = useNavigate()
 
     const saveCallback = useCallback(
         (body: CarData | Car) => {
@@ -25,12 +25,12 @@ export function useSaveCar(): UseSaveCarReturns {
                     : createMutation({ body })
             ).then(({ data, error }) => {
                 if (data?.id) {
-                    router.push(pagesRoute.carId(data.id))
+                    void navigate(pagesRoute.carId(data.id))
                 }
                 if (error) logError('useSaveCar', error)
             })
         },
-        [createMutation, logError, router, updateMutation]
+        [createMutation, logError, navigate, updateMutation]
     )
 
     return { saveCallback }

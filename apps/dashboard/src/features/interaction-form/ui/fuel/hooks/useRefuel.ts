@@ -70,8 +70,10 @@ export function useRefuel(fuelCapacity?: number | null): UseRefuelReturn {
 
         isFirstRender.current = true
 
-        setBeforeRefuel(getPercent(watchBeforeRefueling ?? 0, fuelCapacity))
-        setAfterRefuel(getPercent(watchAfterRefueling ?? 0, fuelCapacity))
+        setTimeout(() => {
+            setBeforeRefuel(getPercent(watchBeforeRefueling ?? 0, fuelCapacity))
+            setAfterRefuel(getPercent(watchAfterRefueling ?? 0, fuelCapacity))
+        }, 100)
     }, [watchBeforeRefueling, watchAfterRefueling, fuelCapacity])
 
     useEffect(() => {
@@ -82,7 +84,7 @@ export function useRefuel(fuelCapacity?: number | null): UseRefuelReturn {
 
     const onWatchCallback = useCallback(
         ({ fuelData }: InteractionDataForm) => {
-            const { beforeRefueling, afterRefueling } = fuelData!
+            const { beforeRefueling, afterRefueling } = fuelData
             if (beforeRefuel !== beforeRefueling) {
                 setBeforeRefuel(getPercent(beforeRefueling ?? 0, fuelCapacity))
             }

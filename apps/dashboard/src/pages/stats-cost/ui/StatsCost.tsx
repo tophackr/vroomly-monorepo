@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'use-intl'
 import type { ISegment } from '@/features/segment'
 import { Segments } from '@/features/segment'
 import { useCarContext } from '@/entities/car'
@@ -10,7 +10,6 @@ import {
     useFindAllInteractionsQuery
 } from '@/entities/interaction'
 import { useLogger } from '@/shared/model'
-import { BackButton } from '@/shared/ui/tma'
 import { CostData } from './CostData'
 import { CostSkeleton } from './CostSkeleton'
 import { useLastDayFilter } from './hooks/useLastDayFilter'
@@ -85,11 +84,9 @@ export function StatsCost() {
     if (isLoading) return <CostSkeleton />
 
     return (
-        <BackButton>
-            <Segments
-                segments={data}
-                defaultSegment={CostKeys.thirty_days}
-            />
-        </BackButton>
+        <Segments
+            segments={data}
+            defaultSegment={CostKeys.thirty_days}
+        />
     )
 }

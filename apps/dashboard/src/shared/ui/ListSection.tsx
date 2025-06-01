@@ -1,7 +1,7 @@
 import type { JSX, PropsWithChildren } from 'react'
 import { memo } from 'react'
-import type { ListProps, SectionProps } from '@telegram-apps/telegram-ui'
-import { List, Section } from '@telegram-apps/telegram-ui'
+import type { ListProps, SectionProps } from 'tmaui'
+import { List, Section } from 'tmaui'
 
 interface ListSectionProps {
     listProps?: ListProps

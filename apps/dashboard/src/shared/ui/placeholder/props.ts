@@ -1,3 +1,3 @@
-import type { PlaceholderProps as TelegramPlaceholderProps } from '@telegram-apps/telegram-ui'
+import type { PlaceholderProps as TelegramPlaceholderProps } from 'tmaui'
 
 export type PlaceholderProps = Omit<TelegramPlaceholderProps, 'children'>

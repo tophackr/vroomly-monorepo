@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
-import { Snackbar } from '@telegram-apps/telegram-ui'
 import { toast as sonnerToast } from 'sonner'
+import { Snackbar } from 'tmaui'
 import { callMultiple, hasReactNode } from '@/shared/lib/dom'
 import { Icon } from '@/shared/ui/icon'
 import type { ToastProps } from './types'

@@ -3,9 +3,9 @@
 import type { JSX } from 'react'
 import { useMemo } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
-import { Section, Select } from '@telegram-apps/telegram-ui'
 import { WheelType } from '@vroomly/prisma'
+import { Section, Select } from 'tmaui'
+import { useTranslations } from 'use-intl'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { generateArray } from '../../model/generateArray'
 

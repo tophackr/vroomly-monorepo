@@ -3,7 +3,7 @@
 import type { JSX, MouseEventHandler } from 'react'
 import { memo, useCallback } from 'react'
 import { openLink } from '@telegram-apps/sdk-react'
-import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
+import { Cell as TGUICell } from 'tmaui'
 import { useButtonClick } from '@/shared/lib/dom'
 import { ChevronAfterCell } from '../chevron-after/ChevronAfterCell'
 import { IconBeforeCell } from '../icon/IconBeforeCell'

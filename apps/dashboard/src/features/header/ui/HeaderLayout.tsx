@@ -1,15 +1,15 @@
 import type { PropsWithChildren } from 'react'
-import { Section } from '@telegram-apps/telegram-ui'
-import { usePathname } from '@/shared/i18n'
+import { useLocation } from 'react-router'
+import { Section } from 'tmaui'
 import { pagesRoute } from '@/shared/routes'
 import { isAppleClient } from '@/shared/ui/tma'
 
 export function HeaderLayout({ children }: PropsWithChildren) {
-    const pathname = usePathname()
+    const location = useLocation()
 
     const isApple = isAppleClient()
 
-    return !isApple && pagesRoute.home === pathname ? (
+    return !isApple && pagesRoute.home === location.pathname ? (
         <Section>{children}</Section>
     ) : (
         <div>{children}</div>

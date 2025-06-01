@@ -1,12 +1,7 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
-import {
-    Caption,
-    LargeTitle,
-    Placeholder,
-    Text
-} from '@telegram-apps/telegram-ui'
+import { Caption, LargeTitle, Placeholder, Text } from 'tmaui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import {
     getIntlPartType,
@@ -116,9 +111,9 @@ export function StatsFuel() {
                 </Caption>
             </div>
 
-            {linkData.map(({ href, count, text }, index) => (
+            {linkData.map(({ href, count, text }) => (
                 <LinkCell
-                    key={index}
+                    key={href}
                     href={href}
                     text={count}
                 >

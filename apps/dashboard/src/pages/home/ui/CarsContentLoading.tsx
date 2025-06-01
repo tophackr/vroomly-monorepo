@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { Input, Tappable } from '@telegram-apps/telegram-ui'
+import { Input, Tappable } from 'tmaui'
 import { Icon } from '@/shared/ui/icon'
 import {
     AvatarSkeleton,

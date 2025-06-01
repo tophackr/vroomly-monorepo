@@ -5,12 +5,12 @@ import type {
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { initDataRaw } from '@telegram-apps/sdk-react'
 import { delay } from '@/shared/lib/dom'
-import { getLogger } from '@/shared/model/MainContextProvider'
+import { getLogger } from '@/shared/model'
 import { getUnauthorizedError } from './unauthorized-error/getUnauthorizedError'
 
 export const baseQueryArgs: FetchBaseQueryArgs = {
-    // eslint-disable-next-line no-undef
-    baseUrl: process.env.NEXT_PUBLIC_API_URL,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    baseUrl: import.meta.env.VITE_API_URL,
     headers: {
         'Content-Type': 'application/json'
     }

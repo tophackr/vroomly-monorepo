@@ -1,6 +1,6 @@
 'use client'
 
-import { List, Placeholder, SegmentedControl } from '@telegram-apps/telegram-ui'
+import { List, Placeholder, SegmentedControl } from 'tmaui'
 
 export function TabsSkeleton() {
     return (

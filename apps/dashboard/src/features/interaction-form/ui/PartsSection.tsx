@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
-import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
+import { Cell, Multiselectable, Section } from 'tmaui'
+import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { isPart, useFindAllPartsQuery } from '@/entities/part'

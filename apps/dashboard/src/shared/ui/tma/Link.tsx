@@ -1,15 +1,15 @@
 import type { ComponentProps, JSX, MouseEventHandler } from 'react'
 import { memo, useCallback } from 'react'
+import { Link as ReactLink } from 'react-router'
 import { openLink } from '@telegram-apps/sdk-react'
-import { Link as IntlLink } from '@/shared/i18n'
 import { cx } from '@/shared/lib/dom'
 
-type IntlProps = ComponentProps<typeof IntlLink>
+type IntlProps = ComponentProps<typeof ReactLink>
 
 export const Link = memo(function Link({
     className,
     onClick: propsOnClick,
-    href,
+    to: href,
     ...props
 }: IntlProps): JSX.Element {
     const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
@@ -41,9 +41,9 @@ export const Link = memo(function Link({
     )
 
     return (
-        <IntlLink
+        <ReactLink
             {...props}
-            href={href}
+            to={href}
             onClick={onClick}
             className={cx('text-link no-underline', className)}
         />

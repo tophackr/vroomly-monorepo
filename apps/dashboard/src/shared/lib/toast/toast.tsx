@@ -8,7 +8,7 @@ export function toast({
     ...props
 }: Omit<ToastProps, 'id'>): string | number {
     if (Array.isArray(description)) {
-        description = description.map((i, index) => <p key={index}>{i}</p>)
+        description = description.map(i => <p key={`toast-${i}`}>{i}</p>)
     }
 
     return sonnerToast.custom(

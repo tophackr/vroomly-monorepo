@@ -1,4 +1,4 @@
-import { useCarContext } from '@/entities/car/@x/repair'
+import { useMileageContext, useCarContext } from '@/entities/car/@x/repair'
 import { useIntlUnit } from '@/shared/i18n'
 import { getPercent } from '@/shared/lib/number'
 
@@ -11,7 +11,8 @@ export function useRepairMileage(
     repairMileage?: number | null,
     interactionMileage?: number | null
 ): UseRepairMileageReturn {
-    const { car, mileage } = useCarContext()
+    const { car } = useCarContext()
+    const { mileage } = useMileageContext()
 
     const intlUnit = useIntlUnit(car.odometerUnits)
 

@@ -1,4 +1,6 @@
-import { useLocale } from 'next-intl'
+'use client'
+
+import { useLocale } from 'use-intl'
 
 export function useIntlNumber(
     options?: Intl.NumberFormatOptions

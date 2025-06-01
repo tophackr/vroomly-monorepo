@@ -17,7 +17,7 @@ export class TelegramStrategy extends PassportStrategy(Strategy, 'telegram') {
         const { forceError } = getLogger()
 
         try {
-            validate(initData, this.configService.get('TELEGRAM_TOKEN')!, {
+            validate(initData, this.configService.get('TELEGRAM_TOKEN'), {
                 expiresIn: 3600
             })
         } catch (error) {

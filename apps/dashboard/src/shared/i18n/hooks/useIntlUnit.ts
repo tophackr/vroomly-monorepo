@@ -1,3 +1,5 @@
+'use client'
+
 import { useIntlNumber } from './useIntlNumber'
 
 export function useIntlUnit(unit: string): Intl.NumberFormat {

@@ -1,7 +1,7 @@
 'use client'
 
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'use-intl'
 import type { CarIdProps } from '@/entities/car'
 import { useButtonClick } from '@/shared/lib/dom'
 import { statsRoute } from '@/shared/routes'

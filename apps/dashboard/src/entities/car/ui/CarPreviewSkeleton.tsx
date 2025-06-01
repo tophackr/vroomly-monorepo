@@ -1,10 +1,5 @@
 import type { JSX } from 'react'
-import {
-    Button,
-    InlineButtons,
-    List,
-    Placeholder
-} from '@telegram-apps/telegram-ui'
+import { Button, InlineButtons, List, Placeholder } from 'tmaui'
 import {
     AvatarSkeleton,
     PulseSkeletonLayout,

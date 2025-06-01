@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { useNavigate } from 'react-router'
 import { useCarContext } from '@/entities/car'
 import type {
     InteractionDataForm,
@@ -8,7 +9,6 @@ import {
     useCreateInteractionMutation,
     useUpdateInteractionMutation
 } from '@/entities/interaction'
-import { useRouter } from '@/shared/i18n'
 import { useLogger } from '@/shared/model'
 import { pagesRoute } from '@/shared/routes'
 
@@ -17,7 +17,7 @@ interface UseSaveInteractionReturn {
 }
 
 export function useSaveInteraction(): UseSaveInteractionReturn {
-    const router = useRouter()
+    const navigate = useNavigate()
     const { error: logError } = useLogger()
 
     const [createMutation] = useCreateInteractionMutation()
@@ -36,11 +36,11 @@ export function useSaveInteraction(): UseSaveInteractionReturn {
                 : createMutation({ carId: car.id, body })
             ).then(({ data, error }) => {
                 if (data?.id) {
-                    router.push(pagesRoute.carId(car.id))
+                    void navigate(pagesRoute.carId(car.id))
                 }
                 if (error) logError('useSaveInteraction', error)
             }),
-        [car.id, createMutation, logError, router, updateMutation]
+        [car.id, createMutation, logError, navigate, updateMutation]
     )
 
     return { saveCallback }

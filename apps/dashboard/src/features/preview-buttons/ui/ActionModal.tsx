@@ -2,8 +2,8 @@
 
 import type { JSX, PropsWithChildren, ReactNode } from 'react'
 import { memo } from 'react'
+import { Modal } from 'tmaui'
 import { ListSection } from '@/shared/ui'
-import { Modal } from '@/shared/ui/modal'
 
 interface SubtaskModalProps {
     trigger: ReactNode

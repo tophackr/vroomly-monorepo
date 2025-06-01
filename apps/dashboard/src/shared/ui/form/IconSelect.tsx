@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
-import type { SelectProps } from '@telegram-apps/telegram-ui'
-import { Select } from '@telegram-apps/telegram-ui'
+import type { SelectProps } from 'tmaui'
+import { Select } from 'tmaui'
 import type { IconBeforeCellProps } from '@/shared/ui/cell'
 import { IconBeforeCell } from '@/shared/ui/cell'
 

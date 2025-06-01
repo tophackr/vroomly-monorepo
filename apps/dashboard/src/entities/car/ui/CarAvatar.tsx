@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
 import { memo } from 'react'
-import type { AvatarProps } from '@telegram-apps/telegram-ui'
-import { Avatar } from '@telegram-apps/telegram-ui'
+import type { AvatarProps } from 'tmaui'
+import { Avatar } from 'tmaui'
 
 interface CarAvatarProps extends Omit<AvatarProps, 'src' | 'acronym'> {
     name: string

@@ -1,7 +1,7 @@
 import type { EditButtonProps } from '../../model/props'
 
 export interface EditValueContextProps {
-    editValue?: EditButtonProps | undefined
+    editValue: EditButtonProps
 }
 
 export interface EditSetValueContextProps {

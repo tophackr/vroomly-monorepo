@@ -2,8 +2,8 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { useTranslations } from 'next-intl'
-import { List } from '@telegram-apps/telegram-ui'
+import { List } from 'tmaui'
+import { useTranslations } from 'use-intl'
 import type { InteractionTypeProps } from '@/entities/interaction'
 import {
     isFuelType,

@@ -3,7 +3,7 @@
 import type { JSX } from 'react'
 import type { FieldValues } from 'react-hook-form'
 import { useFormContext } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'use-intl'
 import { useFormError } from '@/shared/ui/form'
 import type { MainButtonProps } from '@/shared/ui/tma'
 import { MainButton } from '@/shared/ui/tma'

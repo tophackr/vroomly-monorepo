@@ -1,10 +1,19 @@
-import type { JSX, PropsWithChildren } from 'react'
-import { CarContextProvider, type CarIdProps } from '@/entities/car'
-import type { ParamsProps } from '@/shared/lib/dom'
+import type { JSX } from 'react'
+import { Outlet, useParams } from 'react-router'
+import { CarProvider, MileageProvider } from '@/entities/car'
 
-export function CarIdLayout({
-    children,
-    params
-}: PropsWithChildren<ParamsProps<CarIdProps>>): JSX.Element {
-    return <CarContextProvider params={params}>{children}</CarContextProvider>
+export function CarIdLayout(): JSX.Element {
+    const { carId } = useParams()
+
+    if (!carId) {
+        throw new Error('CarIdLayout requires a carId parameter.')
+    }
+
+    return (
+        <CarProvider carId={carId}>
+            <MileageProvider>
+                <Outlet />
+            </MileageProvider>
+        </CarProvider>
+    )
 }
