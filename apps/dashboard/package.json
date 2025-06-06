@@ -34,7 +34,7 @@
     "redux": "^5.0.1",
     "sonner": "^2.0.1",
     "tailwindcss": "^4.0.17",
-    "tmaui": "2.1.10",
+    "tmaui": "2.1.11",
     "use-intl": "^4.1.0",
     "valibot": "^1.0.0"
   },
