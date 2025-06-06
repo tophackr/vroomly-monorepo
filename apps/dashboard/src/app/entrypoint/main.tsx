@@ -9,7 +9,7 @@ import { init } from './tma/init'
 import './tma/mocks/mockEnv'
 
 // eslint-disable-next-line unicorn/prefer-query-selector
-const root = createRoot(document.getElementById('root'))
+const root = createRoot(document.getElementById('app'))
 
 try {
     const launchParams = retrieveLaunchParams()
