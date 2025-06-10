@@ -12,10 +12,10 @@ export function CarsContentLoading(): JSX.Element {
         <PulseSkeletonLayout>
             <Input
                 after={
-                    <Tappable className={'flex'}>
+                    <Tappable className='flex'>
                         <Icon
-                            name={'X'}
-                            className={'text-hint'}
+                            name='X'
+                            className='text-hint'
                         />
                     </Tappable>
                 }

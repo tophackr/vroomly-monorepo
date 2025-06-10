@@ -11,7 +11,7 @@ export function EditButton(): JSX.Element | undefined {
     return (
         editValue && (
             <IconButton
-                size={'m'}
+                size='m'
                 {...editValue}
             >
                 <Icon name={editValue?.icon ?? 'Pencil'} />

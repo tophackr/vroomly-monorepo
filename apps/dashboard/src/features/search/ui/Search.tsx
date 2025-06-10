@@ -30,12 +30,12 @@ export function Search({
             after={
                 <Tappable
                     Component='div'
-                    className={'flex'}
+                    className='flex'
                     onClick={onClear}
                 >
                     <Icon
-                        name={'X'}
-                        className={'text-hint'}
+                        name='X'
+                        className='text-hint'
                     />
                 </Tappable>
             }

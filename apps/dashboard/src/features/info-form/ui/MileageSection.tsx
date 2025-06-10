@@ -30,7 +30,7 @@ export function MileageSection(): JSX.Element {
     return (
         <Section header={t('sections.mileage')}>
             <Input
-                type={'number'}
+                type='number'
                 before={
                     <IconContainer color='DodgerBlue'>
                         <Icon name='MousePointer2' />
@@ -53,7 +53,7 @@ export function MileageSection(): JSX.Element {
             <Select
                 before={
                     <IconContainer color='SlateGray'>
-                        <Icon name={'Milestone'} />
+                        <Icon name='Milestone' />
                     </IconContainer>
                 }
                 header={t('odometer.title')}
@@ -78,7 +78,7 @@ export function MileageSection(): JSX.Element {
                 after={
                     <Controller
                         control={control}
-                        name={'engineHoursEnabled'}
+                        name='engineHoursEnabled'
                         render={({ field: { onChange, onBlur, value } }) => (
                             <Switch
                                 onBlur={onBlur}

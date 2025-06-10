@@ -14,11 +14,11 @@ export const CellSkeleton = memo(function CellSkeleton({
 }: CellSkeletonProps): JSX.Element {
     return (
         <Cell
-            subhead={!short && <TextSkeleton className={'bg-subtitle mb-1'} />}
+            subhead={!short && <TextSkeleton className='bg-subtitle mb-1' />}
             {...props}
         >
             {short ? (
-                <TextSkeleton className={'bg-subtitle py-2 my-[.1875rem]'} />
+                <TextSkeleton className='bg-subtitle py-2 my-[.1875rem]' />
             ) : (
                 <TextSkeleton long />
             )}

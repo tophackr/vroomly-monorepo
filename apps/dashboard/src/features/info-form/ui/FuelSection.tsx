@@ -20,7 +20,7 @@ export function FuelSection(): JSX.Element {
     return (
         <Section header={t('sections.fuel')}>
             <Input
-                type={'number'}
+                type='number'
                 before={
                     <IconContainer color='Orange'>
                         <Icon name='Fuel' />
@@ -37,7 +37,7 @@ export function FuelSection(): JSX.Element {
             <Select
                 before={
                     <IconContainer color='MediumPurple'>
-                        <Icon name={'Weight'} />
+                        <Icon name='Weight' />
                     </IconContainer>
                 }
                 header={t('fuel.title')}

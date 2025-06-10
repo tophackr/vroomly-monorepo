@@ -16,7 +16,7 @@ export function SnackbarToast({
     return (
         <Snackbar
             key={id}
-            before={hasReactNode(icon) ? icon : <Icon name={'CircleX'} />}
+            before={hasReactNode(icon) ? icon : <Icon name='CircleX' />}
             after={
                 button && (
                     <Snackbar.Button

@@ -20,7 +20,7 @@ export const NotFoundPlaceholder = memo(function NotFoundPlaceholder({
             description={description ?? t('description')}
             {...props}
         >
-            <DuckNotFoundLottie className={'size-36'} />
+            <DuckNotFoundLottie className='size-36' />
         </Placeholder>
     )
 })

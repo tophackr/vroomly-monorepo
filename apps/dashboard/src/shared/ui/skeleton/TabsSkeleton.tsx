@@ -5,13 +5,13 @@ import { List, Placeholder, SegmentedControl } from 'tmaui'
 export function TabsSkeleton() {
     return (
         <List>
-            <Placeholder className={'p-0!'}>
+            <Placeholder className='p-0!'>
                 <SegmentedControl>
                     {Array.from({ length: 2 }, (_, index) => (
                         <SegmentedControl.Item
                             key={index}
                             selected={index === 0}
-                            className={'py-4!'}
+                            className='py-4!'
                         />
                     ))}
                 </SegmentedControl>

@@ -29,10 +29,10 @@ export const AfterRefueling = memo(function AfterRefueling({
                     ? { status: 'error' }
                     : {})}
                 after={
-                    <Text className={'text-hint flex items-center gap-x-1'}>
+                    <Text className='text-hint flex items-center gap-x-1'>
                         {afterRefuel}
                         <Icon
-                            name={'Percent'}
+                            name='Percent'
                             size={16}
                         />
                     </Text>
@@ -45,9 +45,9 @@ export const AfterRefueling = memo(function AfterRefueling({
             <Slider
                 after={
                     <Icon
-                        name={'Percent'}
+                        name='Percent'
                         size={20}
-                        className={'text-subtitle'}
+                        className='text-subtitle'
                     />
                 }
                 value={afterRefuel}

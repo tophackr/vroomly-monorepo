@@ -25,7 +25,7 @@ export function InfoInputs(): JSX.Element {
 
             {wheelType === WheelType.tire ? (
                 <Controller
-                    name={'wheelData.tireType'}
+                    name='wheelData.tireType'
                     control={control}
                     render={({ field: { value, onChange, onBlur } }) => (
                         <Select
@@ -37,7 +37,7 @@ export function InfoInputs(): JSX.Element {
                             onBlur={onBlur}
                         >
                             <option
-                                value={''}
+                                value=''
                                 disabled
                             >
                                 {t('seasonality.title')}
@@ -56,7 +56,7 @@ export function InfoInputs(): JSX.Element {
                 />
             ) : (
                 <Controller
-                    name={'wheelData.rimType'}
+                    name='wheelData.rimType'
                     control={control}
                     render={({ field: { value, onChange, onBlur } }) => (
                         <Select
@@ -68,7 +68,7 @@ export function InfoInputs(): JSX.Element {
                             onBlur={onBlur}
                         >
                             <option
-                                value={''}
+                                value=''
                                 disabled
                             >
                                 {t('type.title')}

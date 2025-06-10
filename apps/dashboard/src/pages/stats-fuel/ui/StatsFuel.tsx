@@ -81,29 +81,27 @@ export function StatsFuel() {
         >
             <BackButton route={pagesRoute.carId(car.id)} />
 
-            <div className={'grid grid-cols-2 justify-around'}>
-                <Text className={'col-span-2 p-4 text-center'}>
-                    {t('title')}
-                </Text>
+            <div className='grid grid-cols-2 justify-around'>
+                <Text className='col-span-2 p-4 text-center'>{t('title')}</Text>
                 <Placeholder
                     header={
-                        <LargeTitle weight={'1'}>
+                        <LargeTitle weight='1'>
                             {intlNumber.format(fuelPer100km)}
                         </LargeTitle>
                     }
                     description={`${literSymbol} / 100 ${odometerSymbol}`}
-                    className={'py-0!'}
+                    className='py-0!'
                 />
                 <Placeholder
                     header={
-                        <LargeTitle weight={'1'}>
+                        <LargeTitle weight='1'>
                             {intlNumber.format(costPerKm)}
                         </LargeTitle>
                     }
                     description={`${currencySymbol} / ${odometerSymbol}`}
-                    className={'py-0!'}
+                    className='py-0!'
                 />
-                <Caption className={'text-subtitle col-span-2 p-4 text-center'}>
+                <Caption className='text-subtitle col-span-2 p-4 text-center'>
                     {t('description', {
                         count: fuelInteractions.length ?? 0,
                         days: calcDays

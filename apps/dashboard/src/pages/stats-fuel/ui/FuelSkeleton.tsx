@@ -6,21 +6,19 @@ export function FuelSkeleton() {
     return (
         <PulseSkeletonLayout>
             <ListSection>
-                <div className={'grid grid-cols-2 justify-around'}>
-                    <TextSkeleton
-                        className={'col-span-2 m-4 justify-self-center'}
-                    />
+                <div className='grid grid-cols-2 justify-around'>
+                    <TextSkeleton className='col-span-2 m-4 justify-self-center' />
 
                     {Array.from({ length: 2 }, (_, i) => (
                         <Placeholder
                             key={i}
                             header={
-                                <TextSkeleton className={'mx-auto my-4 h-8'} />
+                                <TextSkeleton className='mx-auto my-4 h-8' />
                             }
                             description={
-                                <TextSkeleton className={'bg-hint mx-auto'} />
+                                <TextSkeleton className='bg-hint mx-auto' />
                             }
-                            className={'py-0!'}
+                            className='py-0!'
                         />
                     ))}
 
@@ -34,7 +32,7 @@ export function FuelSkeleton() {
 
                 {Array.from({ length: 5 }, (_, i) => (
                     <Cell key={i}>
-                        <TextSkeleton className={'py-2 my-[.1875rem]'} />
+                        <TextSkeleton className='py-2 my-[.1875rem]' />
                     </Cell>
                 ))}
             </ListSection>

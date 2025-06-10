@@ -40,7 +40,7 @@ export function RepairSection(): JSX.Element {
                 filteredRepairs.map(({ id, option }) => (
                     <Cell
                         key={id}
-                        Component={'label'}
+                        Component='label'
                         before={
                             <Multiselectable
                                 value={id}

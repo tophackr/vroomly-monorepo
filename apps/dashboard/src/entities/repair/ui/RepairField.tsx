@@ -29,7 +29,7 @@ export const RepairField = memo(function RepairField({
     return (
         <Section header={isRepair(option) ? t(`options.${option}`) : option}>
             <Input
-                type={'number'}
+                type='number'
                 placeholder={t('mileage')}
                 {...inputErrorStatus(errors.repairs?.[fieldIndex]?.mileage)}
                 {...register(`repairs.${fieldIndex}.mileage`, {
@@ -38,7 +38,7 @@ export const RepairField = memo(function RepairField({
                 })}
             />
             <Input
-                type={'number'}
+                type='number'
                 placeholder={t('days')}
                 {...inputErrorStatus(errors.repairs?.[fieldIndex]?.days)}
                 {...register(`repairs.${fieldIndex}.days`, {

@@ -20,7 +20,7 @@ export const NothingPlaceholder = memo(function NothingPlaceholder({
             description={description ?? t('description')}
             {...props}
         >
-            <DuckFlashbackLottie className={'size-36'} />
+            <DuckFlashbackLottie className='size-36' />
         </Placeholder>
     )
 })

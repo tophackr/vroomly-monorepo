@@ -38,7 +38,7 @@ export const BaseSection = memo(function BaseSection({
                 header={<Section.Header large={true}>{title}</Section.Header>}
             >
                 <Input
-                    type={'date'}
+                    type='date'
                     before={
                         <IconContainer color='OrangeRed'>
                             <Icon name='Calendar' />
@@ -52,7 +52,7 @@ export const BaseSection = memo(function BaseSection({
                     })}
                 />
                 <Input
-                    type={'number'}
+                    type='number'
                     before={
                         <IconContainer color='MediumPurple'>
                             <Icon name='Milestone' />
@@ -66,7 +66,7 @@ export const BaseSection = memo(function BaseSection({
                 {isMileageType(getValues('type')) ? (
                     car.engineHoursEnabled && (
                         <Input
-                            type={'number'}
+                            type='number'
                             before={
                                 <IconContainer color='MediumPurple'>
                                     <Icon name='Clock' />
@@ -85,7 +85,7 @@ export const BaseSection = memo(function BaseSection({
                     )
                 ) : (
                     <Input
-                        type={'number'}
+                        type='number'
                         before={
                             <IconContainer color='Orange'>
                                 <Icon name='LandPlot' />
@@ -127,8 +127,8 @@ export const BaseSection = memo(function BaseSection({
                             key={file.name}
                             after={
                                 <Icon
-                                    name={'CircleX'}
-                                    className={'text-destructive'}
+                                    name='CircleX'
+                                    className='text-destructive'
                                 />
                             }
                             subtitle={`${file.size} bytes`}

@@ -9,13 +9,13 @@ export const PulseSkeletonLayout = memo(function PulseSkeletonLayout({
 }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>): JSX.Element {
     return (
         <div
-            role={'status'}
+            role='status'
             className={cx('animate-pulse', className)}
             {...props}
         >
             {children}
 
-            <span className={'sr-only'}>Loading...</span>
+            <span className='sr-only'>Loading...</span>
         </div>
     )
 })

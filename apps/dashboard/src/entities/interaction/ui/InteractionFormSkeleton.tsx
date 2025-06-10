@@ -16,17 +16,17 @@ export function InteractionFormSkeleton(): JSX.Element {
                         <CellSkeleton
                             key={index}
                             before={<IconSkeleton />}
-                            className={'my-[.375rem]'}
+                            className='my-[.375rem]'
                             short
                         />
                     ))}
                 </Section>
 
                 <Section>
-                    <Cell className={'h-20'} />
+                    <Cell className='h-20' />
                     <CellSkeleton
                         before={<IconSkeleton />}
-                        className={'my-[.375rem]'}
+                        className='my-[.375rem]'
                         short
                     />
                 </Section>

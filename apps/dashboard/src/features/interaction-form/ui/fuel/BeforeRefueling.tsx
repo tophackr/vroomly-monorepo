@@ -28,12 +28,12 @@ export const BeforeRefueling = memo(function BeforeRefueling({
                 {...(errors.fuelData?.beforeRefueling
                     ? { status: 'error' }
                     : {})}
-                type={'number'}
+                type='number'
                 after={
-                    <Text className={'text-hint flex items-center gap-x-1'}>
+                    <Text className='text-hint flex items-center gap-x-1'>
                         {beforeRefuel}
                         <Icon
-                            name={'Percent'}
+                            name='Percent'
                             size={16}
                         />
                     </Text>
@@ -46,9 +46,9 @@ export const BeforeRefueling = memo(function BeforeRefueling({
             <Slider
                 after={
                     <Icon
-                        name={'Percent'}
+                        name='Percent'
                         size={20}
-                        className={'text-subtitle'}
+                        className='text-subtitle'
                     />
                 }
                 value={beforeRefuel}

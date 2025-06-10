@@ -20,7 +20,7 @@ export function InfoSection(): JSX.Element {
     return (
         <Section
             header={t('sections.info')}
-            className={'row-span-2'}
+            className='row-span-2'
         >
             <Input
                 before={
@@ -58,7 +58,7 @@ export function InfoSection(): JSX.Element {
                 })}
             />
             <Input
-                type={'number'}
+                type='number'
                 before={
                     <IconContainer color='OrangeRed'>
                         <Icon name='Calendar' />

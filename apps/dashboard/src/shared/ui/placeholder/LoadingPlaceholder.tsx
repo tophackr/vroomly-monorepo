@@ -20,7 +20,7 @@ export const LoadingPlaceholder = memo(function LoadingPlaceholder({
             description={description ?? t('description')}
             {...props}
         >
-            <DuckLoadingLottie className={'size-36'} />
+            <DuckLoadingLottie className='size-36' />
         </Placeholder>
     )
 })

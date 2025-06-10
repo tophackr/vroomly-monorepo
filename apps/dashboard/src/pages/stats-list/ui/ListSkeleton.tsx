@@ -12,17 +12,17 @@ export function ListSkeleton() {
             <Placeholder
                 description={
                     <TextSkeleton
-                        className={'bg-hint mt-2 mx-auto'}
+                        className='bg-hint mt-2 mx-auto'
                         long
                     />
                 }
             >
                 <LargeTitle>
-                    <TextSkeleton className={'py-4 mt-4 mx-auto'} />
+                    <TextSkeleton className='py-4 mt-4 mx-auto' />
                 </LargeTitle>
             </Placeholder>
 
-            <List className={'-mt-2'}>
+            <List className='-mt-2'>
                 <Section
                     header={<SectionHeaderSkeleton />}
                     footer={<TextSkeleton />}

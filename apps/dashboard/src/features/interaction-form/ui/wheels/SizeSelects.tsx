@@ -24,7 +24,7 @@ export function SizeSelects(): JSX.Element {
     return (
         <Section header={t('size')}>
             <Controller
-                name={'wheelData.width'}
+                name='wheelData.width'
                 control={control}
                 render={({ field: { value, onChange, onBlur } }) => (
                     <Select
@@ -36,7 +36,7 @@ export function SizeSelects(): JSX.Element {
                         onBlur={onBlur}
                     >
                         <option
-                            value={''}
+                            value=''
                             disabled
                         >
                             {t('width')}
@@ -59,7 +59,7 @@ export function SizeSelects(): JSX.Element {
 
             {watchWheelType === WheelType.tire && (
                 <Controller
-                    name={'wheelData.height'}
+                    name='wheelData.height'
                     control={control}
                     render={({ field: { value, onChange, onBlur } }) => (
                         <Select
@@ -73,7 +73,7 @@ export function SizeSelects(): JSX.Element {
                             onBlur={onBlur}
                         >
                             <option
-                                value={''}
+                                value=''
                                 disabled
                             >
                                 {t('height')}
@@ -93,7 +93,7 @@ export function SizeSelects(): JSX.Element {
             )}
 
             <Controller
-                name={'wheelData.diameter'}
+                name='wheelData.diameter'
                 control={control}
                 render={({ field: { value, onChange, onBlur } }) => (
                     <Select
@@ -105,7 +105,7 @@ export function SizeSelects(): JSX.Element {
                         onBlur={onBlur}
                     >
                         <option
-                            value={''}
+                            value=''
                             disabled
                         >
                             {t('diameter')}

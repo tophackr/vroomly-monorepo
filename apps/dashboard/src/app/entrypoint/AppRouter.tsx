@@ -25,14 +25,14 @@ export function AppRouter() {
                     element={<HomePage />}
                 />
 
-                <Route path={'car'}>
+                <Route path='car'>
                     <Route
-                        path={'new'}
+                        path='new'
                         element={<CarNewPage />}
                     />
 
                     <Route
-                        path={':carId'}
+                        path=':carId'
                         element={<CarIdLayout />}
                     >
                         <Route
@@ -40,18 +40,18 @@ export function AppRouter() {
                             element={<CarIdPage />}
                         />
                         <Route
-                            path={'edit'}
+                            path='edit'
                             element={<CarEditPage />}
                         />
 
-                        <Route path={':type'}>
+                        <Route path=':type'>
                             <Route
-                                path={'new'}
+                                path='new'
                                 element={<InteractionNewPage />}
                             />
 
                             <Route
-                                path={':interactionId'}
+                                path=':interactionId'
                                 element={<InteractionIdLayout />}
                             >
                                 <Route
@@ -59,32 +59,32 @@ export function AppRouter() {
                                     element={<InteractionIdPage />}
                                 />
                                 <Route
-                                    path={'edit'}
+                                    path='edit'
                                     element={<InteractionEditPage />}
                                 />
                             </Route>
                         </Route>
 
-                        <Route path={'stats'}>
+                        <Route path='stats'>
                             <Route
-                                path={'cost'}
+                                path='cost'
                                 element={<StatsCostPage />}
                             />
                             <Route
-                                path={'fuel'}
+                                path='fuel'
                                 element={<StatsFuelPage />}
                             />
                             <Route
-                                path={'list'}
+                                path='list'
                                 element={<StatsListPage />}
                             />
-                            <Route path={'repairs'}>
+                            <Route path='repairs'>
                                 <Route
                                     index
                                     element={<StatsRepairsPage />}
                                 />
                                 <Route
-                                    path={'edit'}
+                                    path='edit'
                                     element={<StatsRepairsEditPage />}
                                 />
                             </Route>
@@ -93,19 +93,19 @@ export function AppRouter() {
                 </Route>
             </Route>
 
-            <Route path={'settings'}>
+            <Route path='settings'>
                 <Route
                     index
                     element={<SettingsPage />}
                 />
                 <Route
-                    path={'language'}
+                    path='language'
                     element={<LanguagePage />}
                 />
             </Route>
 
             <Route
-                path={'*'}
+                path='*'
                 element={<NotFound />}
             />
         </Routes>

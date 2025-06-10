@@ -13,10 +13,10 @@ export function CarPreviewSkeleton(): JSX.Element {
             <TabsSkeleton />
 
             <Placeholder
-                header={<TextSkeleton className={'bg-content m-auto h-8'} />}
+                header={<TextSkeleton className='bg-content m-auto h-8' />}
                 description={
                     <TextSkeleton
-                        className={'bg-hint m-auto'}
+                        className='bg-hint m-auto'
                         long
                     />
                 }
@@ -26,12 +26,12 @@ export function CarPreviewSkeleton(): JSX.Element {
 
             <List>
                 <InlineButtons
-                    mode={'bezeled'}
-                    className={'grid! grid-cols-3'}
+                    mode='bezeled'
+                    className='grid! grid-cols-3'
                 >
                     <Button
-                        mode={'bezeled'}
-                        className={'col-span-full'}
+                        mode='bezeled'
+                        className='col-span-full'
                     />
 
                     <>

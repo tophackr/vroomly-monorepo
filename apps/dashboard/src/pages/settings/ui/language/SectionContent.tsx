@@ -44,7 +44,7 @@ export function SectionContent({ locale }: LocaleProps) {
 
     return localesMap.map(l => (
         <Cell
-            Component={'label'}
+            Component='label'
             after={
                 <Selectable
                     name='language'

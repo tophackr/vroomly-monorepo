@@ -16,7 +16,7 @@ export const Segments = memo(function Segments({
     return (
         <>
             <List>
-                <Placeholder className={'p-0!'}>
+                <Placeholder className='p-0!'>
                     <SegmentedControl>
                         {segments.map(({ key, label }) => (
                             <SegmentedControl.Item

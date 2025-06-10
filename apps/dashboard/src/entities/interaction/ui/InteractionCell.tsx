@@ -43,9 +43,7 @@ export const InteractionCell = memo(function InteractionCell({
                     : mileageFormat
             }
             description={description}
-            titleBadge={
-                Boolean(title) && isToday ? <Badge type={'dot'} /> : <></>
-            }
+            titleBadge={Boolean(title) && isToday && <Badge type='dot' />}
             multiline={true}
             {...props}
         >

@@ -33,7 +33,7 @@ export const CheckCell = memo(function CheckCell({
     return (
         <TGUICell
             ref={ref}
-            interactiveAnimation={'opacity'}
+            interactiveAnimation='opacity'
             {...props}
         >
             {children}

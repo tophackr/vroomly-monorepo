@@ -11,10 +11,10 @@ export function CarsButton(): JSX.Element {
 
     return (
         <IconButton
-            size={'m'}
+            size='m'
             {...props}
         >
-            <Icon name={'Car'} />
+            <Icon name='Car' />
         </IconButton>
     )
 }

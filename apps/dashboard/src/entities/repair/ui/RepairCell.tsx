@@ -64,7 +64,7 @@ export const RepairCell = memo(function RepairCell({
                 }
                 after={
                     commonRepair?.interaction && (
-                        <span className={'w-24 text-end'}>
+                        <span className='w-24 text-end'>
                             {nextMileage && <p>{nextMileage}</p>}
                             {nextDays && <p>{nextDays}</p>}
                         </span>

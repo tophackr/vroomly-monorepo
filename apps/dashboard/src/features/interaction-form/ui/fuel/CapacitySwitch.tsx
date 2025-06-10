@@ -25,7 +25,7 @@ export const CapacitySwitch = memo(function CapacitySwitch({
                 after={
                     <Controller
                         control={control}
-                        name={'fuelData.capacityFull'}
+                        name='fuelData.capacityFull'
                         render={({ field: { onChange, onBlur, value } }) => (
                             <Switch
                                 onBlur={onBlur}

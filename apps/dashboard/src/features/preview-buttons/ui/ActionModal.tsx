@@ -15,7 +15,7 @@ export const ActionModal = memo(function ActionModal({
 }: PropsWithChildren<SubtaskModalProps>): JSX.Element {
     return (
         <Modal
-            trigger={<div className={'flex'}>{trigger}</div>}
+            trigger={<div className='flex'>{trigger}</div>}
             header={<Modal.Header />}
         >
             <ListSection>{children}</ListSection>

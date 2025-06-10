@@ -16,12 +16,12 @@ export function Header(): JSX.Element {
     const isApple = isAppleClient()
 
     return (
-        <List role={'header'}>
+        <List role='header'>
             <HeaderLayout>
                 <div className={cx('flex justify-between', !isApple && 'p-4')}>
                     <SettingsButton />
 
-                    <div className={'flex gap-2'}>
+                    <div className='flex gap-2'>
                         <EditButton />
 
                         {pagesRoute.home !== location.pathname && (

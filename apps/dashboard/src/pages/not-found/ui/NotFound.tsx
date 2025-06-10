@@ -13,12 +13,12 @@ export function NotFound(): JSX.Element {
 
     return (
         <BackButton>
-            <List className={'flex min-h-screen content-center'}>
+            <List className='flex min-h-screen content-center'>
                 <Placeholder
                     header={t('title')}
                     description={t('description')}
                 >
-                    <DuckNotFoundLottie className={'size-36'} />
+                    <DuckNotFoundLottie className='size-36' />
                 </Placeholder>
             </List>
 

@@ -16,7 +16,7 @@ export const DeleteButton = memo(function DeleteButton({
     return (
         <Section>
             <ButtonCell
-                mode={'destructive'}
+                mode='destructive'
                 className={cx('justify-center', className)}
                 {...props}
             >
