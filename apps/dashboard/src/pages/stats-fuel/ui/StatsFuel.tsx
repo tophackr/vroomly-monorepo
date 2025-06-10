@@ -115,7 +115,7 @@ export function StatsFuel() {
                 <LinkCell
                     key={href}
                     href={href}
-                    text={count}
+                    after={count}
                 >
                     {text}
                 </LinkCell>

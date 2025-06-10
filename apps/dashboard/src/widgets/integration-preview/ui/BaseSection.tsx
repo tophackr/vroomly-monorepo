@@ -2,11 +2,11 @@
 
 import type { JSX } from 'react'
 import { memo } from 'react'
-import { Cell, Section } from 'tmaui'
+import { Cell, IconContainer, Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useInteractionContext } from '@/entities/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
-import { IconCell } from '@/shared/ui/cell'
+import { Icon } from '@/shared/ui/icon'
 
 interface BaseSectionProps {
     title: string
@@ -28,39 +28,51 @@ export const BaseSection = memo(function BaseSection({
             <Section
                 header={<Section.Header large={true}>{title}</Section.Header>}
             >
-                <IconCell
-                    icon={'Calendar'}
-                    bgColor={'OrangeRed'}
+                <Cell
+                    before={
+                        <IconContainer color='OrangeRed'>
+                            <Icon name='Calendar' />
+                        </IconContainer>
+                    }
                     subhead={t('date')}
                 >
                     {intlDateTime.format(new Date(date))}
-                </IconCell>
-                <IconCell
-                    icon={'Milestone'}
-                    bgColor={'MediumPurple'}
+                </Cell>
+                <Cell
+                    before={
+                        <IconContainer color='MediumPurple'>
+                            <Icon name='Milestone' />
+                        </IconContainer>
+                    }
                     subhead={t('mileage')}
                 >
                     {mileage}
-                </IconCell>
+                </Cell>
 
                 {amount && (
-                    <IconCell
-                        icon={'LandPlot'}
-                        bgColor={'Orange'}
+                    <Cell
+                        before={
+                            <IconContainer color='Orange'>
+                                <Icon name='LandPlot' />
+                            </IconContainer>
+                        }
                         subhead={t('amount')}
                     >
                         {amount}
-                    </IconCell>
+                    </Cell>
                 )}
 
                 {engineHours && (
-                    <IconCell
-                        icon={'Clock'}
-                        bgColor={'MediumPurple'}
+                    <Cell
+                        before={
+                            <IconContainer color='MediumPurple'>
+                                <Icon name='Clock' />
+                            </IconContainer>
+                        }
                         subhead={t('engine_hours')}
                     >
                         {engineHours}
-                    </IconCell>
+                    </Cell>
                 )}
             </Section>
 

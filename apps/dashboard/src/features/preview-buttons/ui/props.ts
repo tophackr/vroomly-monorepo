@@ -1,18 +1,15 @@
-import type { NestedTranslationClient, Translation } from '@/shared/i18n'
-import type { IMenu } from '@/shared/lib/link-menu'
+import type { JSX } from 'react'
+import type { Translation } from '@/shared/i18n'
 import type { IconName } from '@/shared/ui/icon'
+import type { ContentsProps } from './contents/props'
 
 export interface ActionButtonProps {
     icon: IconName
     name: keyof Translation['CarActionButtons']
-    link?: string
 }
 
 export interface ActionButtonContentProps extends ActionButtonProps {
-    content: (
-        id: string,
-        t: NestedTranslationClient<'CarCategoryName'>
-    ) => IMenu[]
+    Content: (props: ContentsProps) => JSX.Element[]
 }
 
 export interface ActionButtonLinkProps extends ActionButtonProps {

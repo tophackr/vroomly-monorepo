@@ -1,23 +1,20 @@
-'use client'
-
 import type { JSX, MouseEventHandler } from 'react'
 import { memo, useCallback } from 'react'
 import { openLink } from '@telegram-apps/sdk-react'
-import { Cell as TGUICell } from 'tmaui'
+import type { NavigationCellProps } from 'tmaui'
+import { NavigationCell } from 'tmaui'
 import { useButtonClick } from '@/shared/lib/dom'
-import { ChevronAfterCell } from '../chevron-after/ChevronAfterCell'
-import { IconBeforeCell } from '../icon/IconBeforeCell'
-import type { LinkCellProps, OptionalIconBeforeCellProps } from './types'
+
+export interface LinkCellProps extends NavigationCellProps {
+    href: string
+}
 
 export const LinkCell = memo(function LinkCell({
     children,
     href,
-    icon,
-    bgColor,
-    text,
     onClick: propsOnClick,
     ...props
-}: LinkCellProps & OptionalIconBeforeCellProps): JSX.Element {
+}: LinkCellProps): JSX.Element {
     const { disabled, onClick: onClickHref } = useButtonClick({ route: href })
 
     const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
@@ -51,23 +48,12 @@ export const LinkCell = memo(function LinkCell({
     )
 
     return (
-        <TGUICell
-            Component={'label'}
-            before={
-                icon &&
-                bgColor && (
-                    <IconBeforeCell
-                        icon={icon}
-                        bgColor={bgColor}
-                    />
-                )
-            }
-            after={<ChevronAfterCell text={text} />}
+        <NavigationCell
             disabled={disabled}
             onClick={onClick}
             {...props}
         >
             {children}
-        </TGUICell>
+        </NavigationCell>
     )
 })

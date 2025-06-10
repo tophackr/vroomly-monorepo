@@ -3,9 +3,9 @@
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { FuelType } from '@vroomly/prisma'
-import { Section } from 'tmaui'
+import { IconContainer, Input, Section, Select } from 'tmaui'
 import { useTranslations } from 'use-intl'
-import { IconInput, IconSelect } from '@/shared/ui/form'
+import { Icon } from '@/shared/ui/icon'
 import { inputErrorStatus } from '@/shared/ui/when'
 import type { CarFuelForm } from './types'
 
@@ -19,10 +19,13 @@ export function FuelSection(): JSX.Element {
 
     return (
         <Section header={t('sections.fuel')}>
-            <IconInput
+            <Input
                 type={'number'}
-                icon={'Fuel'}
-                bgColor={'Orange'}
+                before={
+                    <IconContainer color='Orange'>
+                        <Icon name='Fuel' />
+                    </IconContainer>
+                }
                 header={t('fuel.capacity')}
                 placeholder={t('fuel.capacity')}
                 {...inputErrorStatus(errors.fuelCapacity)}
@@ -31,9 +34,12 @@ export function FuelSection(): JSX.Element {
                     min: { value: 0, message: t('errors.fuel_capacity_min') }
                 })}
             />
-            <IconSelect
-                icon={'Weight'}
-                bgColor={'MediumPurple'}
+            <Select
+                before={
+                    <IconContainer color='MediumPurple'>
+                        <Icon name={'Weight'} />
+                    </IconContainer>
+                }
                 header={t('fuel.title')}
                 {...register('fuelType', { required: true })}
             >
@@ -45,7 +51,7 @@ export function FuelSection(): JSX.Element {
                         {t(`fuel.type.${fuel}`)}
                     </option>
                 ))}
-            </IconSelect>
+            </Select>
         </Section>
     )
 }

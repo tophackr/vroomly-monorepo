@@ -3,14 +3,13 @@
 import type { JSX } from 'react'
 import { memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { FileInput, Section, Textarea } from 'tmaui'
+import { FileInput, IconContainer, Input, Section, Textarea } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import type { InteractionDataForm } from '@/entities/interaction'
 import { isMileageType } from '@/entities/interaction'
 import { valueAsStringOrNull } from '@/shared/lib/form'
 import { CheckCell } from '@/shared/ui/cell'
-import { IconInput } from '@/shared/ui/form'
 import { Icon } from '@/shared/ui/icon'
 import { inputErrorStatus } from '@/shared/ui/when'
 
@@ -38,10 +37,13 @@ export const BaseSection = memo(function BaseSection({
             <Section
                 header={<Section.Header large={true}>{title}</Section.Header>}
             >
-                <IconInput
+                <Input
                     type={'date'}
-                    icon={'Calendar'}
-                    bgColor={'OrangeRed'}
+                    before={
+                        <IconContainer color='OrangeRed'>
+                            <Icon name='Calendar' />
+                        </IconContainer>
+                    }
                     placeholder={t('date')}
                     {...inputErrorStatus(errors.date)}
                     {...register('date', {
@@ -49,10 +51,13 @@ export const BaseSection = memo(function BaseSection({
                         setValueAs: (value: string) => new Date(value)
                     })}
                 />
-                <IconInput
+                <Input
                     type={'number'}
-                    icon={'Milestone'}
-                    bgColor={'MediumPurple'}
+                    before={
+                        <IconContainer color='MediumPurple'>
+                            <Icon name='Milestone' />
+                        </IconContainer>
+                    }
                     placeholder={t('mileage')}
                     {...inputErrorStatus(errors.mileage)}
                     {...register('mileage', { valueAsNumber: true })}
@@ -60,10 +65,13 @@ export const BaseSection = memo(function BaseSection({
 
                 {isMileageType(getValues('type')) ? (
                     car.engineHoursEnabled && (
-                        <IconInput
+                        <Input
                             type={'number'}
-                            icon={'Clock'}
-                            bgColor={'MediumPurple'}
+                            before={
+                                <IconContainer color='MediumPurple'>
+                                    <Icon name='Clock' />
+                                </IconContainer>
+                            }
                             header={t('engine_hours')}
                             placeholder={t('engine_hours')}
                             {...register('engineHours', {
@@ -76,10 +84,13 @@ export const BaseSection = memo(function BaseSection({
                         />
                     )
                 ) : (
-                    <IconInput
+                    <Input
                         type={'number'}
-                        icon={'LandPlot'}
-                        bgColor={'Orange'}
+                        before={
+                            <IconContainer color='Orange'>
+                                <Icon name='LandPlot' />
+                            </IconContainer>
+                        }
                         placeholder={t('amount')}
                         {...inputErrorStatus(errors.amount)}
                         {...register('amount', {

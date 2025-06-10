@@ -1,16 +1,16 @@
 import { InteractionType } from '@vroomly/prisma'
 import { actionsRoute } from '@/entities/interaction'
-import { financeContents } from './contents/financeContents'
-import { moreContents } from './contents/moreContents'
-import { parkingContents } from './contents/parkingContents'
-import { repairContents } from './contents/repairContents'
+import { FinanceContents } from './contents/FinanceContents'
+import { MoreContents } from './contents/MoreContents'
+import { ParkingContents } from './contents/ParkingContents'
+import { RepairContents } from './contents/RepairContents'
 import type { ActionModalProps } from './props'
 
 export function getActionButtons(carId: string): ActionModalProps[] {
     const route = actionsRoute(carId)
 
     const buttons: ActionModalProps[] = [
-        { name: 'parking', icon: 'SquareParking', content: parkingContents },
+        { name: 'parking', icon: 'SquareParking', Content: ParkingContents },
         {
             name: 'wash',
             icon: 'CloudDrizzle',
@@ -21,9 +21,9 @@ export function getActionButtons(carId: string): ActionModalProps[] {
             icon: 'Fuel',
             link: route.new(InteractionType.fuel)
         },
-        { name: 'repair', icon: 'Wrench', content: repairContents },
-        { name: 'finance', icon: 'Landmark', content: financeContents },
-        { name: 'more', icon: 'Ellipsis', content: moreContents }
+        { name: 'repair', icon: 'Wrench', Content: RepairContents },
+        { name: 'finance', icon: 'Landmark', Content: FinanceContents },
+        { name: 'more', icon: 'Ellipsis', Content: MoreContents }
     ]
 
     return buttons

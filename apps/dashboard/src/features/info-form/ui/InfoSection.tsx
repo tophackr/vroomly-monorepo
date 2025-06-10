@@ -2,10 +2,10 @@
 
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { Section } from 'tmaui'
+import { IconContainer, Input, Section } from 'tmaui'
 import { useTranslations } from 'use-intl'
 import { valueAsStringOrNull } from '@/shared/lib/form'
-import { IconInput } from '@/shared/ui/form'
+import { Icon } from '@/shared/ui/icon'
 import { inputErrorStatus } from '@/shared/ui/when'
 import type { CarInfoForm } from './types'
 
@@ -22,36 +22,48 @@ export function InfoSection(): JSX.Element {
             header={t('sections.info')}
             className={'row-span-2'}
         >
-            <IconInput
-                icon={'CarFront'}
-                bgColor={'DodgerBlue'}
+            <Input
+                before={
+                    <IconContainer color='DodgerBlue'>
+                        <Icon name='CarFront' />
+                    </IconContainer>
+                }
                 header={t('brand')}
                 placeholder={t('brand')}
                 {...inputErrorStatus(errors.brand)}
                 {...register('brand', { required: t('errors.brand_required') })}
             />
-            <IconInput
-                icon={'IdCard'}
-                bgColor={'LimeGreen'}
+            <Input
+                before={
+                    <IconContainer color='LimeGreen'>
+                        <Icon name='IdCard' />
+                    </IconContainer>
+                }
                 header={t('model')}
                 placeholder={t('model')}
                 {...register('model', {
                     setValueAs: valueAsStringOrNull
                 })}
             />
-            <IconInput
-                icon={'Pencil'}
-                bgColor={'SlateGray'}
+            <Input
+                before={
+                    <IconContainer color='SlateGray'>
+                        <Icon name='Pencil' />
+                    </IconContainer>
+                }
                 header={t('name')}
                 placeholder={t('name')}
                 {...register('name', {
                     setValueAs: valueAsStringOrNull
                 })}
             />
-            <IconInput
+            <Input
                 type={'number'}
-                icon={'Calendar'}
-                bgColor={'OrangeRed'}
+                before={
+                    <IconContainer color='OrangeRed'>
+                        <Icon name='Calendar' />
+                    </IconContainer>
+                }
                 header={t('year')}
                 placeholder={t('year')}
                 {...inputErrorStatus(errors.year)}

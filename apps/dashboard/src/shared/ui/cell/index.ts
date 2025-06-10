@@ -1,5 +1,4 @@
+export { renderLink } from './renderLink'
+export type { RenderLinkProps } from './renderLink'
 export { CheckCell } from './CheckCell'
-export { IconBeforeCell } from './icon/IconBeforeCell'
-export type { IconBeforeCellProps } from './icon/types'
-export { IconCell } from './IconCell'
-export { LinkCell } from './link/LinkCell'
+export { LinkCell } from './LinkCell'

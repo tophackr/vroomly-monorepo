@@ -1,4 +1,4 @@
-import 'tmaui/dist/styles.css'
+import 'tmaui/tmaui.css'
 import 'normalize.css/normalize.css'
 import '../styles/globals.css'
 import { StrictMode } from 'react'

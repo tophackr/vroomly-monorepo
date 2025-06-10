@@ -3,10 +3,9 @@
 import type { JSX } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 import { OdometerUnits } from '@vroomly/prisma'
-import { Section, Switch } from 'tmaui'
+import { Cell, IconContainer, Input, Section, Select, Switch } from 'tmaui'
 import { useTranslations } from 'use-intl'
-import { IconCell } from '@/shared/ui/cell'
-import { IconInput, IconSelect } from '@/shared/ui/form'
+import { Icon } from '@/shared/ui/icon'
 import { inputErrorStatus } from '@/shared/ui/when'
 import { useEngineHours } from './hooks/useEngineHours'
 import { useOdometerUnits } from './hooks/useOdometerUnits'
@@ -30,10 +29,13 @@ export function MileageSection(): JSX.Element {
 
     return (
         <Section header={t('sections.mileage')}>
-            <IconInput
+            <Input
                 type={'number'}
-                icon={'MousePointer2'}
-                bgColor={'DodgerBlue'}
+                before={
+                    <IconContainer color='DodgerBlue'>
+                        <Icon name='MousePointer2' />
+                    </IconContainer>
+                }
                 header={t('mileage', {
                     unit: t(`odometer.units.${unit}`)
                 })}
@@ -48,9 +50,12 @@ export function MileageSection(): JSX.Element {
                 })}
             />
 
-            <IconSelect
-                icon={'Milestone'}
-                bgColor={'SlateGray'}
+            <Select
+                before={
+                    <IconContainer color='SlateGray'>
+                        <Icon name={'Milestone'} />
+                    </IconContainer>
+                }
                 header={t('odometer.title')}
                 {...register('odometerUnits', { required: true })}
             >
@@ -62,11 +67,14 @@ export function MileageSection(): JSX.Element {
                         {t(`odometer.units_full.${fuel}`)}
                     </option>
                 ))}
-            </IconSelect>
+            </Select>
 
-            <IconCell
-                icon={'FolderClock'}
-                bgColor={'LimeGreen'}
+            <Cell
+                before={
+                    <IconContainer color='LimeGreen'>
+                        <Icon name='FolderClock' />
+                    </IconContainer>
+                }
                 after={
                     <Controller
                         control={control}
@@ -82,12 +90,15 @@ export function MileageSection(): JSX.Element {
                 }
             >
                 {t('engine_hours.enabled')}
-            </IconCell>
+            </Cell>
 
             {engineEnabled && (
-                <IconInput
-                    icon={'Clock'}
-                    bgColor={'MediumPurple'}
+                <Input
+                    before={
+                        <IconContainer color='MediumPurple'>
+                            <Icon name='Clock' />
+                        </IconContainer>
+                    }
                     header={t('engine_hours.title')}
                     placeholder={t('engine_hours.title')}
                     {...register('engineHours', {

@@ -1,38 +1,36 @@
 import type { JSX } from 'react'
 import { useNavigate } from 'react-router'
-import { useTranslations } from 'use-intl'
 import { useCarContext } from '@/entities/car'
 import { ActionButton } from './ActionButton'
 import { ActionModal } from './ActionModal'
 import { getActionButtons } from './getActionButtons'
-import { ModalContent } from './ModalContent'
 
 export function ActionBlock(): JSX.Element[] {
-    const t = useTranslations('CarCategoryName')
     const { car } = useCarContext()
     const navigate = useNavigate()
 
     const buttons = getActionButtons(car.id)
 
-    return buttons.map(button =>
-        'content' in button ? (
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    return buttons.map(Button =>
+        'Content' in Button ? (
             <ActionModal
-                key={button.name}
+                key={Button.name}
                 trigger={
                     <ActionButton
-                        name={button.name}
-                        icon={button.icon}
+                        name={Button.name}
+                        icon={Button.icon}
                     />
                 }
             >
-                <ModalContent content={button.content(car.id, t)} />
+                <Button.Content id={car.id} />
             </ActionModal>
         ) : (
             <ActionButton
-                key={button.name}
-                name={button.name}
-                icon={button.icon}
-                onClick={() => navigate(button.link)}
+                key={Button.name}
+                name={Button.name}
+                icon={Button.icon}
+                onClick={() => navigate(Button.link)}
             />
         )
     )

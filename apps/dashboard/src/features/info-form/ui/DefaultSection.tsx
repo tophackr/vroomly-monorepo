@@ -2,9 +2,9 @@
 
 import type { JSX } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { Section, Switch } from 'tmaui'
+import { Cell, IconContainer, Section, Switch } from 'tmaui'
 import { useTranslations } from 'use-intl'
-import { IconCell } from '@/shared/ui/cell'
+import { Icon } from '@/shared/ui/icon'
 import type { CarDefaultFrom } from './types'
 
 export function DefaultSection(): JSX.Element {
@@ -14,9 +14,12 @@ export function DefaultSection(): JSX.Element {
 
     return (
         <Section>
-            <IconCell
-                icon={'CircleCheck'}
-                bgColor={'MediumPurple'}
+            <Cell
+                before={
+                    <IconContainer color='MediumPurple'>
+                        <Icon name='CircleCheck' />
+                    </IconContainer>
+                }
                 after={
                     <Controller
                         control={control}
@@ -32,7 +35,7 @@ export function DefaultSection(): JSX.Element {
                 }
             >
                 {t('default')}
-            </IconCell>
+            </Cell>
         </Section>
     )
 }
