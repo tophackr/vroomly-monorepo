@@ -36,7 +36,7 @@ export const I18nProvider = memo(function I18nProvider({
     children
 }: PropsWithChildren) {
     const [messages, setMessages] = useState<Translation | null>()
-    const [isLoading, startTransition] = useTransition()
+    const [, startTransition] = useTransition()
     const [locale, setLocale] = useState<Locale>(defaultLocale)
 
     useLayoutEffect(() => {
@@ -47,8 +47,6 @@ export const I18nProvider = memo(function I18nProvider({
     }, [locale])
 
     const value = useMemo(() => ({ locale, setLocale }), [locale])
-
-    if (isLoading || !messages) return <>loading i18n</>
 
     return (
         <Context value={value}>
