@@ -7,6 +7,7 @@ import { createLogger } from '@vroomly/utils'
 
 interface MainProviderProps {
     logger: Logger
+    debug: boolean
 }
 
 let loggerInstance: Logger | undefined
@@ -15,7 +16,7 @@ let loggerInstance: Logger | undefined
  * Создаёт новый Logger с переданными опциями.
  * Вызывается только внутри MainContextProvider.
  */
-function initLogger(options: LoggerOptions): Logger {
+export function initLogger(options: LoggerOptions): Logger {
     loggerInstance = createLogger('Dashboard (vroomly)', options)
     return loggerInstance
 }
@@ -45,19 +46,16 @@ function useMainContext(): MainProviderProps {
     return context
 }
 
-export function useLogger() {
+export function useLogger(): Logger {
     return useMainContext().logger
 }
 
-export function MainProvider({ children }: PropsWithChildren) {
-    const logger = initLogger({
-        bgColor: '#059669',
-        textColor: 'white',
-        // todo: make debug
-        shouldLog: true
-    })
-
-    const value = useMemo(() => ({ logger }), [logger])
+export function MainProvider({
+    children,
+    debug,
+    logger
+}: PropsWithChildren<MainProviderProps>) {
+    const value = useMemo(() => ({ debug, logger }), [debug, logger])
 
     return <Context value={value}>{children}</Context>
 }

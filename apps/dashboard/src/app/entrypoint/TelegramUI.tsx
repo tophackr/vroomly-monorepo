@@ -7,7 +7,7 @@ import {
 import { AppRoot } from 'tmaui'
 import { isAppleClient } from '@/shared/ui/tma'
 
-export function TelegramApp({ children }: PropsWithChildren) {
+export function TelegramUI({ children }: PropsWithChildren) {
     const lp = retrieveLaunchParams()
     const isApple = isAppleClient(lp)
     const isDark = useSignal(isMiniAppDark)

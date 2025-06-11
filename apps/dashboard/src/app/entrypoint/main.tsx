@@ -4,18 +4,23 @@ import '../styles/globals.css'
 import { StrictMode } from 'react'
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react'
 import { createRoot } from 'react-dom/client'
+import { initLogger, MainProvider } from '@/shared/model'
 import { App } from './App'
 import { init } from './tma/init'
 import './tma/mocks/mockEnv'
 
-// eslint-disable-next-line unicorn/prefer-query-selector
-const root = createRoot(document.getElementById('app'))
+const root = createRoot(document.querySelector('#app'))
 
 try {
     const launchParams = retrieveLaunchParams()
     const { tgWebAppPlatform: platform, tgWebAppStartParam } = launchParams
     const debug =
         (tgWebAppStartParam || '').includes('debug') || import.meta.env.DEV
+    const logger = initLogger({
+        bgColor: '#059669',
+        textColor: 'white',
+        shouldLog: debug
+    })
 
     // Configure all application dependencies.
     await init({
@@ -25,7 +30,12 @@ try {
     }).then(() => {
         root.render(
             <StrictMode>
-                <App />
+                <MainProvider
+                    debug={debug}
+                    logger={logger}
+                >
+                    <App />
+                </MainProvider>
             </StrictMode>
         )
     })
