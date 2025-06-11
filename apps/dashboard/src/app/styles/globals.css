@@ -4,6 +4,25 @@
 @import './font.css';
 @import './text.css';
 
+:root {
+    --inset_top: calc(
+        var(--tg-viewport-safe-area-inset-top, 0px) +
+            var(--tg-viewport-content-safe-area-inset-top)
+    );
+    --inset_bottom: calc(
+        var(--tg-viewport-safe-area-inset-bottom, 0px) +
+            var(--tg-viewport-content-safe-area-inset-bottom)
+    );
+    --inset_left: calc(
+        var(--tg-viewport-safe-area-inset-left, 0px) +
+            var(--tg-viewport-content-safe-area-inset-left)
+    );
+    --inset_right: calc(
+        var(--tg-viewport-safe-area-inset-right, 0px) +
+            var(--tg-viewport-content-safe-area-inset-right)
+    );
+}
+
 body {
     background: var(--tg-theme-secondary-bg-color, #181818);
     height: 100vh;
@@ -13,22 +32,10 @@ body {
 #app {
     height: 100%;
     overflow-y: scroll;
-    padding-top: calc(
-        var(--tg-viewport-safe-area-inset-top, 0px) +
-            var(--tg-viewport-content-safe-area-inset-top)
-    );
-    padding-bottom: calc(
-        var(--tg-viewport-safe-area-inset-bottom, 0px) +
-            var(--tg-viewport-content-safe-area-inset-bottom)
-    );
-    padding-left: calc(
-        var(--tg-viewport-safe-area-inset-left, 0px) +
-            var(--tg-viewport-content-safe-area-inset-left)
-    );
-    padding-right: calc(
-        var(--tg-viewport-safe-area-inset-right, 0px) +
-            var(--tg-viewport-content-safe-area-inset-right)
-    );
+    padding-top: var(--inset_top);
+    padding-bottom: var(--inset_bottom);
+    padding-left: var(--inset_left);
+    padding-right: var(--inset_right);
 }
 
 ::-webkit-scrollbar {
@@ -38,17 +45,4 @@ body {
 input[type='time']::-webkit-calendar-picker-indicator,
 input[type='date']::-webkit-calendar-picker-indicator {
     display: none;
-}
-
-.tgui-56b2e897ed7ccb22 > .tgui-8ca550c2fc85eff5 {
-    padding: 0;
-    background: transparent;
-}
-
-.tgui-919c5658483cae11 svg {
-    margin-left: 1rem;
-}
-
-.tgui-7707c5d942b7b9af .tgui-0f5050defacbf813 {
-    background: var(--tg-theme-section-bg-color);
 }

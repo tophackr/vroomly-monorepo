@@ -17,6 +17,7 @@ export const ActionModal = memo(function ActionModal({
         <Modal
             trigger={<div className='flex'>{trigger}</div>}
             header={<Modal.Header />}
+            style={{ paddingBottom: 'var(--inset_bottom)' }}
         >
             <ListSection>{children}</ListSection>
         </Modal>
